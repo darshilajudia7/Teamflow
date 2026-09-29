@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works — TeamFlow</title>
+    <meta name="description" content="The five-step TeamFlow workflow for leaders and members.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="how-it-works.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <header class="tf-navbar sticky-top">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Logo -->
+                <a class="d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                    <img src="logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span class="fw-bolder fs-4 text-dark tracking-tight">Team
+                        <span class="text-primary">Flow</span></span>
+                </a>
+
+                <!-- Center Nav Links styled like wireframe pill container -->
+                <nav class="d-none d-lg-block">
+                    <div class="nav-pill-group">
+                        <a class="nav-pill-link" href="index.html">Home</a>
+                        <a class="nav-pill-link" href="about.html">About</a>
+                        <a class="nav-pill-link active" href="how-it-works.html">How It Works</a>
+                        <a class="nav-pill-link" href="contact.html">Contact</a>
+                    </div>
+                </nav>
+
+                <!-- Navbar Action Buttons -->
+                <div class="d-flex align-items-center gap-2">
+                    <div class="d-none d-sm-flex align-items-center gap-2">
+                        <a href="#modal-login" class="btn-tf btn-tf-outline">
+                            <i class='bx bx-log-in'></i> Login
+                        </a>
+                        <a href="#modal-register" class="btn-tf btn-tf-primary">
+                            <i class='bx bx-user-plus'></i> Register
+                        </a>
+                    </div>
+                    <div class="tf-hamburger d-lg-none">
+                        <a href="#mobile-menu" class="tf-hamburger-btn tf-hamburger-open" aria-label="Open menu"
+                            aria-controls="mobile-menu"><i class='bx bx-menu'></i></a>
+                        <a href="#menu-closed" class="tf-hamburger-btn tf-hamburger-close" aria-label="Close menu"><i
+                                class='bx bx-x'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <span id="menu-closed" class="tf-menu-sentinel"></span>
+    <div class="tf-mobile-menu d-lg-none" id="mobile-menu">
+        <a href="#menu-closed" class="tf-menu-backdrop" aria-label="Close menu" tabindex="-1"></a>
+        <nav class="tf-menu-panel">
+            <a class="tf-menu-link" href="index.html"><i class='bx bx-home-alt'></i> Home</a>
+            <a class="tf-menu-link" href="about.html"><i class='bx bx-info-circle'></i> About</a>
+            <a class="tf-menu-link active" href="how-it-works.html"><i class='bx bx-play-circle'></i> How It Works</a>
+            <a class="tf-menu-link" href="contact.html"><i class='bx bx-envelope'></i> Contact</a>
+            <div class="tf-menu-actions d-sm-none">
+                <a href="#modal-login" class="btn-tf btn-tf-outline"><i class='bx bx-log-in'></i> Login</a>
+                <a href="#modal-register" class="btn-tf btn-tf-primary"><i class='bx bx-user-plus'></i> Register</a>
+            </div>
+        </nav>
+    </div>
+
+
+    <main class="flex-grow-1" id="page-main">
+        <section class="tf-hero workflow-hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <span class="badge-chip mb-3"><i class='bx bx-play-circle'></i> How TeamFlow works</span>
+                        <h1 class="hero-title mb-3">A clear workflow for teams that want <span class="gradient-text">less confusion and better delivery.</span></h1>
+                        <p class="hero-lead mb-4">TeamFlow brings together task creation, skill matching, member updates, review, and contribution tracking in one smooth process. Every task gets a clear owner, a defined timeline, and a visible path from start to completion.</p>
+                        <div class="d-flex flex-wrap gap-3 workflow-hero-actions">
+                            <a href="#workflow-steps" class="btn-tf btn-tf-primary btn-tf-lg">Explore the workflow <i class='bx bx-right-arrow-alt'></i></a>
+                            <a href="contact.html" class="btn-tf btn-tf-outline btn-tf-lg"><i class='bx bx-message-square-dots'></i> Contact support</a>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <span class="pill-tag"><i class='bx bx-check-circle text-success'></i> Skill-based assignment</span>
+                            <span class="pill-tag"><i class='bx bx-check-circle text-success'></i> Shared visibility</span>
+                            <span class="pill-tag"><i class='bx bx-check-circle text-success'></i> Clear reviews</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="workflow-summary-card">
+                            <div class="workflow-summary-head">
+                                <span class="workflow-summary-badge">Live workflow</span>
+                                <i class='bx bx-network-chart'></i>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">The TeamFlow loop</h2>
+                            <ul class="workflow-summary-list">
+                                <li><span>01</span> Create task requirements</li>
+                                <li><span>02</span> Match skills to members</li>
+                                <li><span>03</span> Submit progress and work</li>
+                                <li><span>04</span> Review and approve</li>
+                                <li><span>05</span> Track contribution scores</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white border-top border-bottom" id="workflow-steps">
+            <div class="container py-lg-3">
+                <div class="workflow-section-heading mb-4">
+                    <span class="badge-chip"><i class='bx bx-list-ol'></i> 5-step process</span>
+                    <h2 class="h3 fw-bold text-dark mt-2 mb-1">A process built for accountability and speed</h2>
+                    <p class="text-secondary mb-0">Each step is designed to reduce handoff problems, keep priorities clear, and help teams move from planning to completion without friction.</p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-3">
+                    <div class="col">
+                        <div class="page-card cycle-card">
+                            <div class="cycle-number">1</div>
+                            <h3 class="h6 fw-bold">Set Skills</h3>
+                            <p class="page-text small mb-0">Members define their tools, strengths, and proficiency so leaders can assign work with confidence.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="page-card cycle-card">
+                            <div class="cycle-number">2</div>
+                            <h3 class="h6 fw-bold">Create Tasks</h3>
+                            <p class="page-text small mb-0">Managers define scope, deadlines, and required expertise so expectations are visible from day one.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="page-card cycle-card">
+                            <div class="cycle-number">3</div>
+                            <h3 class="h6 fw-bold">Assign Work</h3>
+                            <p class="page-text small mb-0">The best-fit member is assigned based on task needs, skill match, and workload balancing.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="page-card cycle-card">
+                            <div class="cycle-number">4</div>
+                            <h3 class="h6 fw-bold">Review & Improve</h3>
+                            <p class="page-text small mb-0">Members submit their work while leaders review progress, share feedback, and request changes quickly.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="page-card cycle-card">
+                            <div class="cycle-number">5</div>
+                            <h3 class="h6 fw-bold">Track Impact</h3>
+                            <p class="page-text small mb-0">Contribution scores, progress states, and delivery records keep performance measurable and transparent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container py-lg-3">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="workflow-panel">
+                            <div class="workflow-panel-top">
+                                <span class="workflow-icon"><i class='bx bx-sitemap'></i></span>
+                                <div>
+                                    <span class="workflow-kicker">Leader workflow</span>
+                                    <h3 class="h5 fw-bold mb-0">Stay in control of delivery</h3>
+                                </div>
+                            </div>
+                            <div class="workflow-steps">
+                                <span>Create task</span>
+                                <i class='bx bx-right-arrow-alt'></i>
+                                <span>Match member</span>
+                                <i class='bx bx-right-arrow-alt'></i>
+                                <span>Review work</span>
+                                <i class='bx bx-right-arrow-alt'></i>
+                                <span>Track score</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="workflow-panel">
+                            <div class="workflow-panel-top">
+                                <span class="workflow-icon"><i class='bx bx-user-check'></i></span>
+                                <div>
+                                    <span class="workflow-kicker">Member workflow</span>
+                                    <h3 class="h5 fw-bold mb-0">Know exactly what to do</h3>
+                                </div>
+                            </div>
+                            <div class="workflow-steps">
+                                <span>Set skills</span>
+                                <i class='bx bx-right-arrow-alt'></i>
+                                <span>Receive task</span>
+                                <i class='bx bx-right-arrow-alt'></i>
+                                <span>Submit work</span>
+                                <i class='bx bx-right-arrow-alt'></i>
+                                <span>Revise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white border-top border-bottom">
+            <div class="container py-lg-3">
+                <div class="workflow-section-heading mb-4">
+                    <span class="badge-chip"><i class='bx bx-group'></i> Two roles, one team</span>
+                    <h2 class="h3 fw-bold text-dark mt-2 mb-1">Clear ownership for everyone</h2>
+                    <p class="text-secondary mb-0">The platform gives leaders direction and gives contributors a clear path to complete work well.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="page-card role-card">
+                            <div class="role-header">
+                                <span class="role-icon"><i class='bx bx-crown'></i></span>
+                                <div>
+                                    <h3 class="h6 fw-bold mb-1">Leader / Manager</h3>
+                                    <p class="role-label mb-0">Manage the team</p>
+                                </div>
+                            </div>
+                            <p class="page-text mb-3">Leaders define the roadmap, assign responsibilities, and keep projects moving with clarity and accountability.</p>
+                            <div class="role-points">
+                                <div class="role-point"><i class='bx bx-check'></i> Set priorities and deadlines</div>
+                                <div class="role-point"><i class='bx bx-check'></i> Assign tasks based on expertise</div>
+                                <div class="role-point"><i class='bx bx-check'></i> Review work and give feedback</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="page-card role-card">
+                            <div class="role-header">
+                                <span class="role-icon"><i class='bx bx-user'></i></span>
+                                <div>
+                                    <h3 class="h6 fw-bold mb-1">Member / Contributor</h3>
+                                    <p class="role-label mb-0">Complete the work</p>
+                                </div>
+                            </div>
+                            <p class="page-text mb-3">Members focus on execution, communication, and quality delivery while building a clear record of impact.</p>
+                            <div class="role-points">
+                                <div class="role-point"><i class='bx bx-check'></i> Update profile skills and availability</div>
+                                <div class="role-point"><i class='bx bx-check'></i> Receive and complete assigned tasks</div>
+                                <div class="role-point"><i class='bx bx-check'></i> Submit work and improve through feedback</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="workflow-cta text-center text-white">
+                    <span class="workflow-cta-kicker">TEAMFLOW IN ACTION</span>
+                    <h2 class="fw-bolder mt-2 mb-2">Ready to simplify how your team works?</h2>
+                    <p class="mb-4">A structured workflow helps your team assign work faster, review it clearly, and deliver with confidence.</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center workflow-cta-actions">
+                        <a href="index.html#about" class="btn-tf bg-white text-dark btn-tf-lg"><i class='bx bx-star'></i> Explore features</a>
+                        <a href="contact.html" class="btn-tf btn-tf-outline text-white border-white bg-transparent btn-tf-lg"><i class='bx bx-message-square-dots'></i> Talk to us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="tf-footer mt-auto">
+        <div class="container">
+            <div class="row gy-4 pb-4">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="brand-logo-badge brand-logo-badge--small">T</span>
+                        <span class="fw-bold fs-5 text-dark">TeamFlow</span>
+                    </div>
+                    <p class="text-muted small mb-3 footer-description">
+                        A web-based task management system where teams create, assign, track and approve work in one
+                        place.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="#contact" class="social-btn" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="#contact" class="social-btn" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#contact" class="social-btn" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3 offset-lg-1">
+                    <h6 class="fw-bold text-dark mb-3">Explore</h6>
+                    <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About TeamFlow</a></li>
+                        <li><a href="how-it-works.html" class="footer-link">How It Works</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h6 class="fw-bold text-dark mb-3">Contact &amp; Support</h6>
+                    <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                        <li><a href="mailto:hello@teamflow.com" class="footer-link"><i class='bx bx-envelope me-1'></i>
+                                hello@teamflow.com</a></li>
+                        <li><a href="contact.html" class="footer-link">Support form</a></li>
+                        <li><a href="contact.html#faq" class="footer-link">FAQs</a></li>
+                        <li><a href="index.html#about" class="footer-link">Product features</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="pt-3 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center text-muted small">
+                <span>&copy; 2026 TeamFlow. All rights reserved.</span>
+                <span>Built with Bootstrap 5.3 &amp; Boxicons (Pure HTML/CSS)</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
