@@ -7,12 +7,20 @@
     <title>Contact &amp; Support — TeamFlow</title>
     <meta name="description"
         content="Get help with TeamFlow's skill matching, task workflows, reviews, and contribution scoring.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Link CSS file -->
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
@@ -24,6 +32,7 @@
     <header class="tf-navbar sticky-top">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
+
                 <!-- Logo -->
                 <a class="d-flex align-items-center gap-2 text-decoration-none" href="index.html">
                     <img src="logo.png" alt="TeamFlow Logo" width="40" height="40">
@@ -31,7 +40,7 @@
                         <span class="text-primary">Flow</span></span>
                 </a>
 
-                <!-- Center Nav Links styled like wireframe pill container -->
+                <!-- Nav Links -->
                 <nav class="d-none d-lg-block">
                     <div class="nav-pill-group">
                         <a class="nav-pill-link" href="index.html">Home</a>
@@ -53,9 +62,11 @@
                     </div>
                     <div class="tf-hamburger d-lg-none">
                         <a href="#mobile-menu" class="tf-hamburger-btn tf-hamburger-open" aria-label="Open menu"
-                            aria-controls="mobile-menu"><i class='bx bx-menu'></i></a>
-                        <a href="#menu-closed" class="tf-hamburger-btn tf-hamburger-close" aria-label="Close menu"><i
-                                class='bx bx-x'></i></a>
+                            aria-controls="mobile-menu"><i class='bx bx-menu'></i>
+                        </a>
+                        <a href="#menu-closed" class="tf-hamburger-btn tf-hamburger-close" aria-label="Close menu">
+                            <i class='bx bx-x'></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -68,57 +79,107 @@
     <div class="tf-mobile-menu d-lg-none" id="mobile-menu">
         <a href="#menu-closed" class="tf-menu-backdrop" aria-label="Close menu" tabindex="-1"></a>
         <nav class="tf-menu-panel">
-            <a class="tf-menu-link" href="index.html"><i class='bx bx-home-alt'></i> Home</a>
-            <a class="tf-menu-link" href="about.html"><i class='bx bx-info-circle'></i> About</a>
-            <a class="tf-menu-link" href="how-it-works.html"><i class='bx bx-play-circle'></i> How It Works</a>
-            <a class="tf-menu-link active" href="contact.html"><i class='bx bx-envelope'></i> Contact</a>
+            <a class="tf-menu-link" href="index.html">
+                <i class='bx bx-home-alt'></i> Home
+            </a>
+            <a class="tf-menu-link" href="about.html">
+                <i class='bx bx-info-circle'></i> About
+            </a>
+            <a class="tf-menu-link" href="how-it-works.html">
+                <i class='bx bx-play-circle'></i> How It Works
+            </a>
+            <a class="tf-menu-link active" href="contact.html">
+                <i class='bx bx-envelope'></i> Contact
+            </a>
             <div class="tf-menu-actions d-sm-none">
-                <a href="login.html" class="btn-tf btn-tf-outline"><i class='bx bx-log-in'></i> Login</a>
-                <a href="registration.html" class="btn-tf btn-tf-primary"><i class='bx bx-user-plus'></i> Register</a>
+                <a href="login.html" class="btn-tf btn-tf-outline">
+                    <i class='bx bx-log-in'></i> Login
+                </a>
+                <a href="registration.html" class="btn-tf btn-tf-primary">
+                    <i class='bx bx-user-plus'></i> Register
+                </a>
             </div>
         </nav>
     </div>
 
     <main class="flex-grow-1" id="page-main">
+
+        <!-- Hero Section -->
         <section class="tf-hero contact-hero">
             <div class="container">
                 <div class="row align-items-center g-5">
+
+                    <!-- Left Side : Content -->
                     <div class="col-lg-6">
-                        <span class="badge-chip mb-3"><i class='bx bx-support'></i> TeamFlow support</span>
-                        <h1 class="hero-title mb-3">Let’s make your next team project <span class="gradient-text">flow
-                                better.</span></h1>
+                        <span class="badge-chip mb-3">
+                            <i class='bx bx-support'></i> TeamFlow support
+                        </span>
+                        <h1 class="hero-title mb-3">Let’s make your next team project
+                            <span class="gradient-text">flow better.</span>
+                        </h1>
                         <p class="hero-lead mb-4">Questions about skill matching, task ownership, reviews, or
                             contribution scores? Find a quick answer below or get in touch with our team.</p>
                         <div class="d-flex flex-wrap gap-3 contact-hero-actions">
-                            <a href="#contact-form" class="btn-tf btn-tf-primary btn-tf-lg">Send a message <i
-                                    class='bx bx-right-arrow-alt'></i></a>
-                            <a href="#faq" class="btn-tf btn-tf-outline btn-tf-lg"><i class='bx bx-help-circle'></i>
-                                Browse FAQs</a>
+                            <a href="#contact-form" class="btn-tf btn-tf-primary btn-tf-lg">Send a message
+                                <i class='bx bx-right-arrow-alt'></i>
+                            </a>
+                            <a href="#faq" class="btn-tf btn-tf-outline btn-tf-lg">
+                                <i class='bx bx-help-circle'></i> Browse FAQs
+                            </a>
                         </div>
                         <div class="d-flex flex-wrap gap-2 mt-4">
-                            <span class="pill-tag"><i class='bx bx-check-circle text-success'></i> Task guidance</span>
-                            <span class="pill-tag"><i class='bx bx-check-circle text-success'></i> Team workflows</span>
-                            <span class="pill-tag"><i class='bx bx-check-circle text-success'></i> Product help</span>
+                            <span class="pill-tag">
+                                <i class='bx bx-check-circle text-success'></i> Task guidance
+                            </span>
+                            <span class="pill-tag">
+                                <i class='bx bx-check-circle text-success'></i> Team workflows
+                            </span>
+                            <span class="pill-tag">
+                                <i class='bx bx-check-circle text-success'></i> Product help
+                            </span>
                         </div>
                     </div>
+
+                    <!-- Right Side : contents -->
                     <div class="col-lg-6">
                         <aside class="contact-overview" aria-label="TeamFlow support overview">
                             <div class="contact-overview-top">
-                                <span class="contact-overview-icon"><i class='bx bx-conversation'></i></span>
-                                <div><span class="contact-eyebrow">ONE CONNECTED WORKSPACE</span>
+                                <span class="contact-overview-icon">
+                                    <i class='bx bx-conversation'></i>
+                                </span>
+                                <div>
+                                    <span class="contact-eyebrow">ONE CONNECTED WORKSPACE</span>
                                     <h2 class="h4 fw-bold mb-0">A clearer way to collaborate</h2>
                                 </div>
                             </div>
                             <div class="contact-overview-list">
-                                <div><span class="contact-check"><i class='bx bx-check'></i></span><span><strong>Match
-                                            skills to tasks</strong><small>Make ownership fit each member’s
-                                            strengths.</small></span></div>
-                                <div><span class="contact-check"><i class='bx bx-check'></i></span><span><strong>Keep
-                                            progress visible</strong><small>Follow updates, due dates, and
-                                            blockers.</small></span></div>
-                                <div><span class="contact-check"><i class='bx bx-check'></i></span><span><strong>Review
-                                            work fairly</strong><small>Share feedback and recognize
-                                            contributions.</small></span></div>
+                                <div>
+                                    <span class="contact-check">
+                                        <i class='bx bx-check'></i>
+                                    </span>
+                                    <span>
+                                        <strong>Match skills to tasks</strong>
+                                        <small>Make ownership fit each member’s strengths.</small>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="contact-check">
+                                        <i class='bx bx-check'></i>
+                                    </span>
+                                    <span>
+                                        <strong>Keep progress visible</strong>
+                                        <small>Follow updates, due dates, and blockers.</small>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="contact-check">
+                                        <i class='bx bx-check'></i>
+                                    </span>
+                                    <span>
+                                        <strong>Review work fairly</strong>
+                                        <small>Share feedback and recognize contributions.</small>
+                                    </span>
+                                </div>
                             </div>
                         </aside>
                     </div>
@@ -126,64 +187,91 @@
             </div>
         </section>
 
+        <!-- Quick links to support resources -->
         <section class="py-5 bg-white border-top border-bottom" aria-labelledby="support-options-title">
             <div class="container py-lg-3">
+
                 <div class="contact-section-heading mb-4">
-                    <span class="badge-chip"><i class='bx bx-message-rounded-dots'></i> How can we help?</span>
+                    <span class="badge-chip">
+                        <i class='bx bx-message-rounded-dots'></i> How can we help?
+                    </span>
                     <h2 class="h3 fw-bold text-dark mt-2 mb-1" id="support-options-title">Start with the right resource
                     </h2>
                     <p class="text-secondary mb-0">Explore TeamFlow, learn about the product, or send us a note.</p>
                 </div>
+
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <article class="contact-card h-100"><span class="contact-card-icon"><i
-                                    class='bx bx-envelope'></i></span>
+                        <article class="contact-card h-100">
+                            <span class="contact-card-icon">
+                                <i class='bx bx-envelope'></i>
+                            </span>
                             <h3 class="h5 fw-bold">Talk to our team</h3>
                             <p class="text-secondary">Send questions or feedback about TeamFlow and its team task
-                                workflows.</p><a href="mailto:hello@teamflow.com"
-                                class="contact-card-link">hello@teamflow.com <i class='bx bx-right-arrow-alt'></i></a>
+                                workflows.</p>
+                            <a class="contact-card-link">hello@teamflow.com
+                                <i class='bx bx-right-arrow-alt'></i>
+                            </a>
                         </article>
                     </div>
+
                     <div class="col-md-4">
-                        <article class="contact-card h-100"><span class="contact-card-icon"><i
-                                    class='bx bx-bulb'></i></span>
+                        <article class="contact-card h-100">
+                            <span class="contact-card-icon">
+                                <i class='bx bx-bulb'></i>
+                            </span>
                             <h3 class="h5 fw-bold">Explore the features</h3>
                             <p class="text-secondary">See how matching, review workflows, and transparent scoring
-                                support delivery.</p><a href="index.html#about" class="contact-card-link">View key
-                                features <i class='bx bx-right-arrow-alt'></i></a>
+                                support delivery.</p>
+                            <a href="index.html#about" class="contact-card-link">View key features
+                                <i class='bx bx-right-arrow-alt'></i>
+                            </a>
                         </article>
                     </div>
+
                     <div class="col-md-4">
-                        <article class="contact-card h-100"><span class="contact-card-icon"><i
-                                    class='bx bx-group'></i></span>
+                        <article class="contact-card h-100">
+                            <span class="contact-card-icon">
+                                <i class='bx bx-group'></i>
+                            </span>
                             <h3 class="h5 fw-bold">Get to know TeamFlow</h3>
                             <p class="text-secondary">Learn about the purpose behind the platform and the team building
-                                it.</p><a href="about.html" class="contact-card-link">Visit the About page <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                                it.</p>
+                            <a href="about.html" class="contact-card-link">Visit the About page
+                                <i class='bx bx-right-arrow-alt'></i>
+                            </a>
                         </article>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Contact form for messages and feedback -->
         <section class="py-5" id="contact-form" aria-labelledby="contact-form-title">
             <div class="container py-lg-3">
+
                 <div class="row g-4 g-lg-5 align-items-start">
+
                     <div class="col-lg-4">
-                        <span class="badge-chip"><i class='bx bx-mail-send'></i> Get in touch</span>
+                        <span class="badge-chip">
+                            <i class='bx bx-mail-send'></i> Get in touch
+                        </span>
                         <h2 class="h3 fw-bold text-dark mt-3 mb-2" id="contact-form-title">Send our team a message</h2>
                         <p class="text-secondary mb-4">Tell us what you need help with. Include enough detail so we can
                             point you in the right direction.</p>
                         <div class="contact-direct-card">
-                            <span class="contact-card-icon"><i class='bx bx-envelope'></i></span>
+                            <span class="contact-card-icon">
+                                <i class='bx bx-envelope'></i>
+                            </span>
                             <h3 class="h6 fw-bold mb-1">Prefer email?</h3>
-                            <a href="mailto:hello@teamflow.com" class="contact-card-link">hello@teamflow.com <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <a class="contact-card-link">hello@teamflow.com
+                                <i class='bx bx-right-arrow-alt'></i>
+                            </a>
                         </div>
                     </div>
+
                     <div class="col-lg-8">
-                        <form class="contact-form" action="mailto:hello@teamflow.com" method="post"
-                            enctype="text/plain">
+                        <form class="contact-form" method="post" enctype="text/plain">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label" for="contact-name">Your name</label>
@@ -214,29 +302,35 @@
                                         information.</div>
                                 </div>
                                 <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3 pt-2">
-                                    <button class="btn-tf btn-tf-primary" type="submit"><i class='bx bx-send'></i>
-                                        Prepare email</button>
+                                    <button class="btn-tf btn-tf-primary" type="submit">
+                                        <i class='bx bx-send'></i> Prepare email</button>
                                     <button class="contact-form-reset" type="reset">Clear form</button>
                                 </div>
                             </div>
-                            <p class="contact-form-note mb-0"><i class='bx bx-info-circle'></i> Submitting opens your
-                                default email app with your message prepared. You’ll review and send it there.</p>
+                            <p class="contact-form-note mb-0">
+                                <i class='bx bx-info-circle'></i> Submitting opens your default email app with your
+                                message prepared. You’ll review and send it there.
+                            </p>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Frequently asked questions -->
         <section class="py-5" id="faq" aria-labelledby="faq-title">
             <div class="container py-lg-3">
                 <div class="row g-5 align-items-start">
                     <div class="col-lg-4">
-                        <span class="badge-chip"><i class='bx bx-help-circle'></i> Frequently asked questions</span>
+                        <span class="badge-chip">
+                            <i class='bx bx-help-circle'></i> Frequently asked questions
+                        </span>
                         <h2 class="h3 fw-bold text-dark mt-3 mb-2" id="faq-title">A few quick answers</h2>
                         <p class="text-secondary mb-4">Need more help? Email us and include a short description of what
                             you’re trying to do.</p>
-                        <a href="mailto:hello@teamflow.com" class="btn-tf btn-tf-outline"><i class='bx bx-envelope'></i>
-                            Contact support</a>
+                        <a class="btn-tf btn-tf-outline">
+                            <i class='bx bx-envelope'></i> Contact support
+                        </a>
                     </div>
                     <div class="col-lg-8">
                         <div class="contact-faq-list">
@@ -268,6 +362,7 @@
             </div>
         </section>
 
+        <!-- Final contact call to action -->
         <section class="py-5">
             <div class="container">
                 <div class="contact-cta text-center text-white">
@@ -276,11 +371,12 @@
                     <p class="mb-4">Explore TeamFlow’s features and see how a shared workflow can help your team move
                         forward.</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center contact-cta-actions">
-                        <a href="index.html#about" class="btn-tf bg-white text-dark btn-tf-lg"><i
-                                class='bx bx-star'></i> Explore features</a>
-                        <a href="mailto:hello@teamflow.com"
-                            class="btn-tf btn-tf-outline text-white border-white bg-transparent btn-tf-lg"><i
-                                class='bx bx-envelope'></i> Get in touch</a>
+                        <a href="index.html#about" class="btn-tf bg-white text-dark btn-tf-lg">
+                            <i class='bx bx-star'></i> Explore features
+                        </a>
+                        <a class="btn-tf btn-tf-outline text-white border-white bg-transparent btn-tf-lg">
+                            <i class='bx bx-envelope'></i> Get in touch
+                        </a>
                     </div>
                 </div>
             </div>
@@ -291,9 +387,11 @@
     <footer id="contact" class="tf-footer mt-auto">
         <div class="container">
             <div class="row gy-4 pb-4">
+
+                <!-- Website content -->
                 <div class="col-lg-5">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <span class="brand-logo-badge brand-logo-badge--small">T</span>
+                        <img src="./logo.png" alt="Logo" height="40px" width="40px">
                         <span class="fw-bold fs-5 text-dark">TeamFlow</span>
                     </div>
                     <p class="text-muted small mb-3 footer-description">
@@ -301,12 +399,16 @@
                         place.
                     </p>
                     <div class="d-flex gap-2">
-                        <a href="contact.html#contact-form" class="social-btn" aria-label="Contact us about GitHub"><i class='bx bxl-github'></i></a>
-                        <a href="contact.html#contact-form" class="social-btn" aria-label="Contact us about LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                        <a href="contact.html#contact-form" class="social-btn" aria-label="Contact us about Twitter"><i class='bx bxl-twitter'></i></a>
+                        <a href="contact.html#contact-form" class="social-btn" aria-label="Contact us about GitHub">
+                            <i class='bx bxl-github'></i></a>
+                        <a href="contact.html#contact-form" class="social-btn" aria-label="Contact us about LinkedIn">
+                            <i class='bx bxl-linkedin'></i></a>
+                        <a href="contact.html#contact-form" class="social-btn" aria-label="Contact us about Twitter">
+                            <i class='bx bxl-twitter'></i></a>
                     </div>
                 </div>
 
+                <!-- Explore and contact links -->
                 <div class="col-6 col-lg-3 offset-lg-1">
                     <h6 class="fw-bold text-dark mb-3">Explore</h6>
                     <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
@@ -320,20 +422,16 @@
                 <div class="col-6 col-lg-3">
                     <h6 class="fw-bold text-dark mb-3">Contact &amp; Support</h6>
                     <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
-                        <li><a href="mailto:hello@teamflow.com" class="footer-link"><i class='bx bx-envelope me-1'></i>
+                        <li><a class="footer-link"><i class='bx bx-envelope me-1'></i>
                                 hello@teamflow.com</a></li>
                         <li><a href="contact.html#faq" class="footer-link">Frequently asked questions</a></li>
-                        <li><a href="mailto:hello@teamflow.com" class="footer-link">Email support</a></li>
+                        <li><a class="footer-link">Email support</a></li>
                         <li><a href="index.html#about" class="footer-link">Product features</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div
-                class="pt-3 border-top d-flex flex-column flex-sm-row justify-content-between align-items-center text-muted small">
-                <span>&copy; 2026 TeamFlow. All rights reserved.</span>
-                <span>Built with Bootstrap 5.3 &amp; Boxicons (Pure HTML/CSS)</span>
-            </div>
+
         </div>
     </footer>
 

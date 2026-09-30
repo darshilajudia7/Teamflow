@@ -1,153 +1,187 @@
 :root {
-	--auth-primary: var(--tf-primary, #4f46e5);
-	--auth-primary-dark: var(--tf-primary-dark, #4338ca);
-	--auth-soft: var(--tf-primary-soft, #eef2ff);
-	--auth-ink: var(--tf-ink, #0f172a);
-	--auth-muted: var(--tf-muted, #64748b);
-	--auth-line: var(--tf-line, #e2e8f0);
+    --tf-primary: #4f46e5;
+    --tf-primary-dark: #4338ca;
+    --tf-primary-indigo: #6366f1;
+    --tf-primary-soft: #eef2ff;
+    --tf-primary-focus-ring: rgba(79, 70, 229, 0.14);
+    --tf-primary-focus-ring-lg: rgba(79, 70, 229, 0.2);
+    --tf-primary-outline: rgba(79, 70, 229, 0.25);
+    --tf-cyan: #06b6d4;
+
+    --tf-bg: #f8fafc;
+    --tf-surface: #ffffff;
+    --tf-ink: #0f172a;
+    --tf-muted: #64748b;
+    --tf-muted-light: #94a3b8;
+    --tf-line: #e2e8f0;
+    --tf-line-dashed: #cbd5e1;
+
+    --tf-radius-md: 10px;
+    --tf-radius-lg: 20px;
+    --tf-radius-pill: 9999px;
+
+    --tf-shadow-btn: 0 5px 14px rgba(79, 70, 229, 0.2);
+    --tf-shadow-btn-hover: 0 8px 20px rgba(79, 70, 229, 0.3);
+    --tf-shadow-card-elevated: 0 18px 45px rgba(15, 23, 42, 0.08);
+
+    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --tf-transition-fast: 0.2s var(--tf-ease);
 }
 
 body {
-	margin: 0;
-	color: var(--auth-ink);
-	font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    color: var(--tf-ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
+/* LAYOUT & CONTAINERS */
+
 main.auth {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 4rem 1rem;
-	background:
-		radial-gradient(circle at 12% 12%, rgba(99, 102, 241, 0.11), transparent 34%),
-		radial-gradient(circle at 88% 88%, rgba(6, 182, 212, 0.09), transparent 36%),
-		var(--tf-bg, #f8fafc);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(99, 102, 241, 0.11), transparent 34%),
+        radial-gradient(circle at 88% 88%, rgba(6, 182, 212, 0.09), transparent 36%),
+        var(--tf-bg);
 }
 
 .auth-title {
-	margin-bottom: 0.5rem;
-	color: var(--auth-ink);
-	font-size: clamp(1.8rem, 4vw, 2.25rem);
-	font-weight: 800;
-	letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+    color: var(--tf-ink);
+    font-size: clamp(1.8rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
 }
 
 .auth-sub {
-	margin-bottom: 1.75rem;
-	color: var(--auth-muted);
+    margin-bottom: 1.75rem;
+    color: var(--tf-muted);
 }
 
 .auth-card {
-	width: 100%;
-	max-width: 520px;
-	padding: clamp(1.5rem, 5vw, 2.25rem);
-	border: 1px solid var(--auth-line);
-	border-top: 4px solid var(--auth-primary);
-	border-radius: 20px;
-	background: #fff;
-	box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    width: 100%;
+    max-width: 520px;
+    padding: clamp(1.5rem, 5vw, 2.25rem);
+    border: 1px solid var(--tf-line);
+    border-top: 4px solid var(--tf-primary);
+    border-radius: var(--tf-radius-lg);
+    background: var(--tf-surface);
+    box-shadow: var(--tf-shadow-card-elevated);
 }
 
+/* FORM CONTROLS */
+
 .auth-card .form-label {
-	margin-bottom: 0.45rem;
-	color: var(--auth-ink);
-	font-size: 0.9rem;
-	font-weight: 700;
+    margin-bottom: 0.45rem;
+    color: var(--tf-ink);
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 .auth-card .form-control {
-	padding: 0.75rem 0.9rem;
-	border: 1px solid var(--auth-line);
-	border-radius: 10px;
-	color: var(--auth-ink);
-	background: #fff;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-md);
+    color: var(--tf-ink);
+    background: var(--tf-surface);
+    transition: border-color var(--tf-transition-fast), box-shadow var(--tf-transition-fast);
 }
 
 .auth-card .form-control::placeholder {
-	color: #94a3b8;
+    color: var(--tf-muted-light);
 }
 
 .auth-card .form-control:focus {
-	border-color: var(--auth-primary);
-	box-shadow: 0 0 0 0.22rem rgba(79, 70, 229, 0.14);
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 0.22rem var(--tf-primary-focus-ring);
+    outline: none;
 }
 
 .form-check-input {
-	border-color: #cbd5e1;
+    border-color: var(--tf-line-dashed);
+    transition: border-color var(--tf-transition-fast), background-color var(--tf-transition-fast), box-shadow var(--tf-transition-fast);
 }
 
 .form-check-input:checked {
-	border-color: var(--auth-primary);
-	background-color: var(--auth-primary);
+    border-color: var(--tf-primary);
+    background-color: var(--tf-primary);
 }
 
 .form-check-input:focus {
-	border-color: var(--auth-primary);
-	box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.14);
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 0.2rem var(--tf-primary-focus-ring);
 }
 
+/* BUTTONS & TOGGLES */
+
 .role-btn {
-	width: 100%;
-	padding: 0.85rem 0.75rem;
-	border: 1px solid var(--auth-line);
-	border-radius: 10px;
-	color: var(--auth-ink);
-	background: #fff;
-	font-weight: 700;
-	transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    padding: 0.85rem 0.75rem;
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-md);
+    color: var(--tf-ink);
+    background: var(--tf-surface);
+    font-weight: 700;
+    transition: border-color var(--tf-transition-fast), color var(--tf-transition-fast), background-color var(--tf-transition-fast), box-shadow var(--tf-transition-fast);
 }
 
 .role-btn:hover {
-	border-color: var(--auth-primary);
-	color: var(--auth-primary);
-	background: var(--auth-soft);
+    border-color: var(--tf-primary);
+    color: var(--tf-primary);
+    background-color: var(--tf-primary-soft);
 }
 
 .btn-check:checked + .role-btn {
-	border-color: var(--auth-primary);
-	color: #fff;
-	background: var(--auth-primary);
-	box-shadow: 0 5px 14px rgba(79, 70, 229, 0.2);
+    border-color: var(--tf-primary);
+    color: var(--tf-surface);
+    background-color: var(--tf-primary);
+    box-shadow: var(--tf-shadow-btn);
 }
 
 .btn-check:focus-visible + .role-btn {
-	box-shadow: 0 0 0 0.22rem rgba(79, 70, 229, 0.2);
+    box-shadow: 0 0 0 0.22rem var(--tf-primary-focus-ring-lg);
 }
 
 .btn-main {
-	width: 100%;
-	padding: 0.8rem 1rem;
-	border: 1px solid var(--auth-primary);
-	border-radius: 9999px;
-	color: #fff;
-	background: linear-gradient(135deg, #6366f1, var(--auth-primary));
-	box-shadow: 0 5px 14px rgba(79, 70, 229, 0.24);
-	font: inherit;
-	font-weight: 700;
-	transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--tf-primary);
+    border-radius: var(--tf-radius-pill);
+    color: var(--tf-surface);
+    background: linear-gradient(135deg, var(--tf-primary-indigo), var(--tf-primary));
+    box-shadow: var(--tf-shadow-btn);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform var(--tf-transition-fast), box-shadow var(--tf-transition-fast), filter var(--tf-transition-fast);
 }
 
 .btn-main:hover {
-	color: #fff;
-	filter: brightness(1.06);
-	box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-	transform: translateY(-1px);
+    color: var(--tf-surface);
+    filter: brightness(1.06);
+    box-shadow: var(--tf-shadow-btn-hover);
+    transform: translateY(-1px);
 }
 
 .btn-main:focus-visible {
-	outline: 3px solid rgba(79, 70, 229, 0.25);
-	outline-offset: 3px;
+    outline: 3px solid var(--tf-primary-outline);
+    outline-offset: 3px;
 }
 
+/* CARD LINKS */
+
 .auth-card a {
-	color: var(--auth-primary);
-	font-weight: 700;
-	text-decoration: none;
+    color: var(--tf-primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--tf-transition-fast);
 }
 
 .auth-card a:hover {
-	color: var(--auth-primary-dark);
-	text-decoration: underline;
+    color: var(--tf-primary-dark);
+    text-decoration: underline;
 }

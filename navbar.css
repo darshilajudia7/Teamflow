@@ -1,5 +1,3 @@
-/* DESIGN TOKENS */
-
 :root {
     --tf-primary: #4f46e5;
     --tf-primary-dark: #4338ca;
@@ -36,7 +34,6 @@ body {
 }
 
 /* NAVBAR */
-
 .tf-navbar {
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(12px);
@@ -44,32 +41,6 @@ body {
     border-bottom: 1px solid var(--tf-line);
     padding: 0.85rem 0;
     transition: all 0.3s var(--tf-ease);
-}
-
-.brand-logo-badge {
-    width: 42px;
-    height: 42px;
-    border-radius: var(--tf-radius-md);
-    background: linear-gradient(135deg, var(--tf-primary) 0%, #6366f1 100%);
-    color: #ffffff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.35rem;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
-    transition: transform 0.3s var(--tf-ease), box-shadow 0.3s var(--tf-ease);
-}
-
-.brand-logo-badge--small {
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
-}
-
-.brand-logo-badge:hover {
-    transform: scale(1.05) rotate(-3deg);
-    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
 }
 
 .nav-pill-group {
@@ -100,7 +71,6 @@ body {
 }
 
 /* BUTTONS */
-
 .btn-tf {
     border-radius: var(--tf-radius-pill);
     font-weight: 700;
@@ -152,7 +122,6 @@ body {
 }
 
 /* FOOTER */
-
 .tf-footer {
     border-top: 1px solid var(--tf-line);
     background: #ffffff;
@@ -177,6 +146,7 @@ body {
     transform: translateX(3px);
 }
 
+/* SOCIAL ICONS BUTTONS */
 .social-btn {
     width: 38px;
     height: 38px;
@@ -201,7 +171,6 @@ body {
 }
 
 /* HAMBURGER MENU */
-
 .tf-hamburger {
     position: relative;
     width: 44px;
@@ -355,7 +324,6 @@ body:has(#mobile-menu:target) .tf-hamburger-close {
 }
 
 /* SMOOTH HOVER EFFECTS */
-
 .btn-tf:focus-visible,
 .nav-pill-link:focus-visible,
 .tf-menu-link:focus-visible,

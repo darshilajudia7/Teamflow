@@ -1,9 +1,45 @@
+:root {
+    --tf-primary: #4f46e5;
+    --tf-primary-dark: #3730a3;
+    --tf-primary-soft: #eef2ff;
+    --tf-primary-soft-hover: #e0e7ff;
+    --tf-primary-border: #dbeafe;
+    --tf-primary-border-hover: #c7d2fe;
+    --tf-cyan: #06b6d4;
+    --tf-teal: #0d9488;
+    --tf-amber: #eab308;
+
+    --tf-bg: #f8fafc;
+    --tf-surface: #ffffff;
+    --tf-ink: #0f172a;
+    --tf-muted: #64748b;
+    --tf-line: #e2e8f0;
+    --tf-line-dashed: #cbd5e1;
+    --tf-line-dashed-hover: #94a3b8;
+
+    --tf-radius-md: 0.5rem;
+    --tf-radius-lg: 1rem;
+    --tf-radius-xl: 1.5rem;
+    --tf-radius-pill: 9999px;
+
+    --tf-shadow-sm: 0 4px 10px rgba(79, 70, 229, 0.1);
+    --tf-shadow-card: 0 8px 18px rgba(15, 23, 42, 0.05);
+    --tf-shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+    --tf-shadow-cta: 0 20px 40px rgba(79, 70, 229, 0.25);
+    --tf-shadow-btn: 0 10px 24px rgba(15, 23, 42, 0.2);
+
+    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --tf-transition-fast: 0.25s var(--tf-ease);
+    --tf-transition-base: 0.3s var(--tf-ease);
+    --tf-transition-slow: 0.35s var(--tf-ease);
+}
+
 /* BADGES & PILLS */
 
 .badge-chip {
     background: var(--tf-primary-soft);
     color: var(--tf-primary);
-    border: 1px solid #dbeafe;
+    border: 1px solid var(--tf-primary-border);
     font-size: 0.84rem;
     font-weight: 700;
     padding: 0.4rem 1rem;
@@ -11,16 +47,16 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    transition: all 0.25s var(--tf-ease);
+    transition: all var(--tf-transition-fast);
 }
 
 .badge-chip:hover {
-    background: #e0e7ff;
+    background: var(--tf-primary-soft-hover);
     transform: translateY(-1px);
 }
 
 .pill-tag {
-    background: #ffffff;
+    background: var(--tf-surface);
     border: 1px solid var(--tf-line);
     border-radius: var(--tf-radius-pill);
     font-size: 0.82rem;
@@ -30,7 +66,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    transition: all 0.25s var(--tf-ease);
+    transition: all var(--tf-transition-fast);
 }
 
 .pill-tag:hover {
@@ -38,7 +74,7 @@
     color: var(--tf-primary);
     background-color: var(--tf-primary-soft);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.1);
+    box-shadow: var(--tf-shadow-sm);
 }
 
 /* HERO */
@@ -73,18 +109,18 @@
 /* FEATURE CARDS */
 
 .feature-card {
-    background: #ffffff;
+    background: var(--tf-surface);
     border-radius: var(--tf-radius-lg);
     border: 1px solid var(--tf-line);
     padding: 2.2rem 1.8rem;
     height: 100%;
     position: relative;
-    transition: transform 0.35s var(--tf-ease), box-shadow 0.35s var(--tf-ease), border-color 0.35s var(--tf-ease);
+    transition: transform var(--tf-transition-slow), box-shadow var(--tf-transition-slow), border-color var(--tf-transition-slow);
 }
 
 .feature-card:hover {
     transform: translateY(-6px);
-    border-color: #c7d2fe;
+    border-color: var(--tf-primary-border-hover);
     box-shadow: var(--tf-shadow-hover);
 }
 
@@ -98,19 +134,21 @@
     place-items: center;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    transition: transform 0.35s var(--tf-ease), background 0.35s var(--tf-ease), color 0.35s var(--tf-ease);
+    transition: transform var(--tf-transition-slow), background-color var(--tf-transition-slow), color var(--tf-transition-slow);
 }
 
 .feature-card:hover .feature-icon-box {
     background: var(--tf-primary);
-    color: #ffffff;
+    color: var(--tf-surface);
     transform: scale(1.1) rotate(-4deg);
 }
 
 .feature-link {
-    transition: gap 0.25s var(--tf-ease), color 0.25s var(--tf-ease);
+    display: inline-flex;
+    align-items: center;
     gap: 0.35rem;
     text-decoration: none;
+    transition: gap var(--tf-transition-fast), color var(--tf-transition-fast);
 }
 
 .feature-card:hover .feature-link {
@@ -118,33 +156,33 @@
     color: var(--tf-primary-dark) !important;
 }
 
-/* HOW IT WORKS / ANNOTATED DASHBOARD */
+/* HOW IT WORKS */
 
 .demo-outer-container {
-    border: 2px dashed #cbd5e1;
+    border: 2px dashed var(--tf-line-dashed);
     border-radius: var(--tf-radius-xl);
-    background-color: #ffffff;
+    background-color: var(--tf-surface);
     padding: 2.5rem 2rem;
-    transition: border-color 0.3s var(--tf-ease);
+    transition: border-color var(--tf-transition-base);
 }
 
 .demo-outer-container:hover {
-    border-color: #94a3b8;
+    border-color: var(--tf-line-dashed-hover);
 }
 
 .tf-step-guide-card {
-    background: #ffffff;
+    background: var(--tf-surface);
     border: 1px solid var(--tf-line);
     border-radius: var(--tf-radius-md);
     padding: 1.25rem;
     height: 100%;
-    transition: transform 0.3s var(--tf-ease), box-shadow 0.3s var(--tf-ease), border-color 0.3s var(--tf-ease);
+    transition: transform var(--tf-transition-base), box-shadow var(--tf-transition-base), border-color var(--tf-transition-base);
 }
 
 .tf-step-guide-card:hover {
     transform: translateY(-3px);
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+    border-color: var(--tf-line-dashed);
+    box-shadow: var(--tf-shadow-card);
 }
 
 .tf-step-icon {
@@ -155,72 +193,63 @@
     place-items: center;
     font-size: 0.85rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--tf-surface);
     flex-shrink: 0;
 }
 
 .tf-step-icon--teal {
-    background-color: #0d9488;
+    background-color: var(--tf-teal);
 }
 
 .tf-step-icon--amber {
-    background-color: #eab308;
+    background-color: var(--tf-amber);
 }
 
-
+/* CTA */
 
 .tf-cta-box {
-    background: linear-gradient(135deg, #4f46e5, #06b6d4);
-    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.25);
+    background: linear-gradient(135deg, var(--tf-primary), var(--tf-cyan));
+    box-shadow: var(--tf-shadow-cta);
 }
 
-/* Responsive adjustments */
+.tf-cta-box .btn-tf {
+    transition: transform var(--tf-transition-fast), box-shadow var(--tf-transition-fast), background-color var(--tf-transition-fast), color var(--tf-transition-fast);
+}
+
+.tf-cta-box .btn-tf.bg-white:hover {
+    background-color: var(--tf-primary-soft) !important;
+    color: var(--tf-primary) !important;
+    box-shadow: var(--tf-shadow-btn);
+}
+
+.tf-cta-box .btn-tf.bg-transparent:hover {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: var(--tf-shadow-btn);
+}
+
+/* RESPONSIVE LAYOUT */
 
 @media (max-width: 991.98px) {
     .tf-hero {
         padding: 2.5rem 0 3.5rem;
     }
+
+    .tf-hero .row.g-5 {
+        --bs-gutter-y: 2rem;
+    }
+
     .demo-outer-container {
         padding: 1.5rem 1rem;
     }
-    .dashboard-main-area {
-        padding: 1rem;
-    }
 }
-
-
-.tf-cta-box .btn-tf {
-    transition: transform 0.25s var(--tf-ease), box-shadow 0.25s var(--tf-ease), background-color 0.25s var(--tf-ease), color 0.25s var(--tf-ease);
-}
-
-
-@media (hover: hover) {
-    .tf-cta-box .btn-tf.bg-white:hover {
-        background-color: var(--tf-primary-soft) !important;
-        color: var(--tf-primary) !important;
-        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
-    }
-    .tf-cta-box .btn-tf.bg-transparent:hover {
-        background-color: rgba(255, 255, 255, 0.18) !important;
-        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
-    }
-    
-}
-
-/* RESPONSIVE LAYOUT */
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     .feature-card {
         padding: 1.6rem 1.25rem;
     }
+
     .tf-step-guide-card {
         padding: 1rem;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .tf-hero .row.g-5 {
-        --bs-gutter-y: 2rem;
     }
 }
 
@@ -228,32 +257,40 @@
     .tf-hero {
         padding: 2rem 0 3rem;
     }
+
     .hero-lead {
         font-size: 1rem;
     }
+
     .tf-hero-actions .btn-tf,
     .tf-cta-actions .btn-tf {
         flex: 1 1 100%;
         justify-content: center;
     }
+
     .tf-cta-actions {
         width: 100%;
     }
+
     .badge-chip {
         font-size: 0.78rem;
         padding: 0.35rem 0.85rem;
         border-radius: var(--tf-radius-md);
     }
+
     .feature-card {
         padding: 1.6rem 1.35rem;
     }
+
     .demo-outer-container {
         padding: 1.25rem 0.85rem;
         border-radius: var(--tf-radius-lg);
     }
+
     .tf-cta-box {
         padding: 2rem 1.25rem !important;
     }
+
     .tf-cta-box h2 {
         font-size: 1.5rem;
     }

@@ -1,4 +1,54 @@
-/* ABOUT PAGE */
+:root {
+
+    --tf-primary: #4f46e5;
+    --tf-primary-soft: #eef2ff;
+    --tf-primary-border: #dbeafe;
+    --tf-primary-border-hover: #c7d2fe;
+    --tf-cyan: #06b6d4;
+    --tf-cyan-soft: #cffafe;
+
+    --tf-surface: #ffffff;
+    --tf-ink: #0f172a;
+    --tf-ink-heading: #111827;
+    --tf-muted: #64748b;
+    --tf-muted-light: #94a3b8;
+    --tf-line: #e2e8f0;
+
+    --tf-glass-bg: rgba(255, 255, 255, 0.96);
+    --tf-glass-border: rgba(226, 232, 240, 0.9);
+
+    --tf-avatar-purple-from: #6366f1;
+    --tf-avatar-purple-to: #8b5cf6;
+    --tf-avatar-rose-from: #e11d48;
+    --tf-avatar-rose-to: #fb7185;
+    --tf-avatar-amber-from: #fbbf24;
+    --tf-avatar-amber-to: #fde68a;
+    --tf-avatar-amber-text: #713f12;
+    --tf-avatar-teal-from: #0d9488;
+    --tf-avatar-teal-to: #2dd4bf;
+
+    --tf-radius-md: 0.5rem;
+    --tf-radius-card-sm: 0.75rem;
+    --tf-radius-card-md: 0.875rem;
+    --tf-radius-card-lg: 1rem;
+    --tf-radius-lg: 1.5rem;
+    --tf-radius-xl: 2rem;
+    --tf-radius-pill: 9999px;
+    --tf-radius-circle: 50%;
+
+    --tf-shadow-sm: 0 4px 10px rgba(79, 70, 229, 0.1);
+    --tf-shadow-md: 0 6px 14px rgba(15, 23, 42, 0.12);
+    --tf-shadow-caption: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --tf-shadow-photo: 0 15px 35px rgba(0, 0, 0, 0.15);
+    --tf-shadow-cta: 0 20px 40px rgba(79, 70, 229, 0.25);
+    --tf-shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+
+    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --tf-transition-base: 0.3s var(--tf-ease);
+    --tf-transition-slow: 0.35s var(--tf-ease);
+}
+
+/* ABOUT HERO SECTION */
 
 .about-hero {
     padding-top: 3.5rem;
@@ -8,15 +58,15 @@
     position: relative;
     padding: 0.75rem 0 1.25rem 0.75rem;
     isolation: isolate;
-    border-radius: 24px;
+    border-radius: var(--tf-radius-lg);
 }
 
 .about-photo-wrap::before {
     position: absolute;
     z-index: 0;
     inset: 0.15rem 1.5rem 0.5rem 0;
-    border-radius: 24px;
-    background: linear-gradient(135deg, #c7d2fe, #cffafe);
+    border-radius: var(--tf-radius-lg);
+    background: linear-gradient(135deg, var(--tf-primary-border-hover), var(--tf-cyan-soft));
     content: "";
     pointer-events: none;
 }
@@ -29,9 +79,9 @@
     height: clamp(300px, 38vw, 440px);
     object-fit: cover;
     object-position: left center;
-    border: 6px solid #ffffff;
-    border-radius: 24px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 6px solid var(--tf-surface);
+    border-radius: var(--tf-radius-lg);
+    box-shadow: var(--tf-shadow-photo);
 }
 
 .about-photo-caption {
@@ -40,19 +90,15 @@
     left: 0.75rem;
     right: 0;
     bottom: 1.25rem;
-
     display: flex;
     align-items: center;
     gap: 0.8rem;
-
     width: auto;
     padding: 0.85rem 1.1rem;
-
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-
+    border: 1px solid var(--tf-glass-border);
+    border-radius: var(--tf-radius-card-lg);
+    background: var(--tf-glass-bg);
+    box-shadow: var(--tf-shadow-caption);
     box-sizing: border-box;
 }
 
@@ -62,9 +108,9 @@
     place-items: center;
     width: 42px;
     height: 42px;
-    border-radius: 12px;
-    color: #4f46e5;
-    background: #eef2ff;
+    border-radius: var(--tf-radius-card-sm);
+    color: var(--tf-primary);
+    background: var(--tf-primary-soft);
     font-size: 1.35rem;
 }
 
@@ -74,12 +120,12 @@
 }
 
 .about-photo-caption strong {
-    color: #111827;
+    color: var(--tf-ink-heading);
     font-size: 0.9rem;
 }
 
 .about-photo-caption span:last-child {
-    color: #64748b;
+    color: var(--tf-muted);
     font-size: 0.76rem;
 }
 
@@ -95,14 +141,29 @@
     max-width: 690px;
 }
 
+/* CARDS: MISSION, VALUES, WORKFLOW, TEAM */
+
 .about-mission-card,
 .about-value-card,
 .about-flow-card,
 .about-team-card {
     border: 1px solid var(--tf-line);
-    background: #ffffff;
+    background: var(--tf-surface);
     box-shadow: var(--tf-shadow-sm);
-    transition: transform 0.3s var(--tf-ease), box-shadow 0.3s var(--tf-ease), border-color 0.3s var(--tf-ease);
+    transition: transform var(--tf-transition-base), box-shadow var(--tf-transition-base), border-color var(--tf-transition-base);
+}
+
+.about-mission-card:hover,
+.about-value-card:hover,
+.about-flow-card:hover,
+.about-team-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--tf-primary-border-hover);
+    box-shadow: var(--tf-shadow-hover);
+}
+
+.about-team-card:hover .about-avatar {
+    transform: scale(1.08) rotate(-4deg);
 }
 
 .about-mission-card {
@@ -136,6 +197,8 @@
     margin-bottom: 0.35rem;
 }
 
+/* WORKFLOW SECTION */
+
 .about-flow {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
@@ -155,7 +218,7 @@
     position: absolute;
     top: 0.7rem;
     right: 0.8rem;
-    color: #94a3b8;
+    color: var(--tf-muted-light);
     font-size: 0.72rem;
     font-weight: 800;
 }
@@ -166,7 +229,7 @@
     height: 48px;
     place-items: center;
     margin: 0.2rem auto 0.8rem;
-    border-radius: 14px;
+    border-radius: var(--tf-radius-card-md);
     color: var(--tf-primary);
     background: var(--tf-primary-soft);
     font-size: 1.55rem;
@@ -186,9 +249,11 @@
 }
 
 .about-flow-arrow {
-    color: #94a3b8;
+    color: var(--tf-muted-light);
     font-size: 1.5rem;
 }
+
+/* CONTRIBUTORS & AVATARS */
 
 .about-team-card {
     padding: 1.6rem 1rem;
@@ -202,63 +267,34 @@
     height: 72px;
     place-items: center;
     margin: 0 auto 1rem;
-    border-radius: 50%;
+    border-radius: var(--tf-radius-circle);
     font-size: 1.5rem;
     font-weight: 800;
-    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
-    transition: transform 0.35s var(--tf-ease);
+    box-shadow: var(--tf-shadow-md);
+    transition: transform var(--tf-transition-slow);
 }
 
 .about-avatar--purple {
-    color: #ffffff; background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: var(--tf-surface);
+    background: linear-gradient(135deg, var(--tf-avatar-purple-from), var(--tf-avatar-purple-to));
 }
+
 .about-avatar--rose {
-    color: #ffffff; background: linear-gradient(135deg, #e11d48, #fb7185);
+    color: var(--tf-surface);
+    background: linear-gradient(135deg, var(--tf-avatar-rose-from), var(--tf-avatar-rose-to));
 }
+
 .about-avatar--amber {
-    color: #713f12; background: linear-gradient(135deg, #fbbf24, #fde68a);
+    color: var(--tf-avatar-amber-text);
+    background: linear-gradient(135deg, var(--tf-avatar-amber-from), var(--tf-avatar-amber-to));
 }
+
 .about-avatar--teal {
-    color: #ffffff; background: linear-gradient(135deg, #0d9488, #2dd4bf);
+    color: var(--tf-surface);
+    background: linear-gradient(135deg, var(--tf-avatar-teal-from), var(--tf-avatar-teal-to));
 }
 
-.about-cta {
-    padding: clamp(2rem, 5vw, 3.5rem) 1.5rem;
-    border-radius: var(--tf-radius-xl);
-    background: linear-gradient(135deg, #4f46e5, #06b6d4);
-    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.25);
-}
-
-.about-cta h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-}
-
-.about-cta p {
-    max-width: 560px;
-    margin-right: auto;
-    margin-left: auto;
-    opacity: 0.9;
-}
-
-.about-cta-kicker {
-    letter-spacing: 0.12em;
-    opacity: 0.8;
-}
-
-@media (hover: hover) {
-    .about-mission-card:hover,
-    .about-value-card:hover,
-    .about-flow-card:hover,
-    .about-team-card:hover {
-        transform: translateY(-4px);
-        border-color: #c7d2fe;
-        box-shadow: var(--tf-shadow-hover);
-    }
-
-    .about-team-card:hover .about-avatar {
-        transform: scale(1.08) rotate(-4deg);
-    }
-}
+/* RESPONSIVE LAYOUT */
 
 @media (max-width: 991.98px) {
     .about-hero {
@@ -317,15 +353,5 @@
     .about-flow-card:last-child {
         grid-column: auto;
         min-height: auto;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .about-mission-card,
-    .about-value-card,
-    .about-flow-card,
-    .about-team-card,
-    .about-avatar {
-        transition: none;
     }
 }

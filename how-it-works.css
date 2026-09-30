@@ -1,4 +1,40 @@
-/* HOW IT WORKS PAGE */
+:root {
+    
+    --tf-primary: #4f46e5;
+    --tf-primary-indigo: #6366f1;
+    --tf-primary-soft: #eef2ff;
+    --tf-primary-soft-badge: rgba(79, 70, 229, 0.1);
+    --tf-primary-border-glow: rgba(199, 210, 254, 0.9);
+    --tf-primary-border-hover: #c7d2fe;
+    --tf-cyan: #06b6d4;
+
+    --tf-surface: #ffffff;
+    --tf-surface-alt: #f8fbff;
+    --tf-ink: #0f172a;
+    --tf-muted: #6b7280;
+    --tf-line: #e2e8f0;
+    --tf-line-dashed: #cbd5e1;
+    --tf-line-dashed-hover: #94a3b8;
+    --tf-line-subtle: rgba(99, 102, 241, 0.08);
+
+    --tf-radius-sm: 10px;
+    --tf-radius-md: 0.5rem;
+    --tf-radius-lg: 1.5rem;
+    --tf-radius-xl: 2rem;
+    --tf-radius-pill: 9999px;
+    --tf-radius-circle: 50%;
+
+    --tf-shadow-circle: 0 6px 14px rgba(79, 70, 229, 0.3);
+    --tf-shadow-panel-hover: 0 10px 22px rgba(15, 23, 42, 0.06);
+    --tf-shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+    --tf-shadow-cta: 0 20px 40px rgba(79, 70, 229, 0.25);
+
+    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --tf-transition-base: 0.3s var(--tf-ease);
+    --tf-transition-slow: 0.35s var(--tf-ease);
+}
+
+/* HERO & WORKFLOW SUMMARY */
 
 .workflow-hero {
     padding: 3.5rem 0 4rem;
@@ -6,9 +42,9 @@
 
 .workflow-summary-card {
     padding: 1.6rem 1.4rem;
-    border: 1px solid rgba(199, 210, 254, 0.9);
+    border: 1px solid var(--tf-primary-border-glow);
     border-radius: var(--tf-radius-xl);
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    background: linear-gradient(180deg, var(--tf-surface) 0%, var(--tf-surface-alt) 100%);
     box-shadow: var(--tf-shadow-hover);
 }
 
@@ -25,7 +61,7 @@
     align-items: center;
     padding: 0.38rem 0.7rem;
     border-radius: var(--tf-radius-pill);
-    background: rgba(79, 70, 229, 0.1);
+    background: var(--tf-primary-soft-badge);
     color: var(--tf-primary);
     font-size: 0.7rem;
     font-weight: 800;
@@ -58,7 +94,7 @@
     gap: 0.8rem;
     padding: 0.7rem 0.8rem;
     border-radius: var(--tf-radius-md);
-    background: #ffffff;
+    background: var(--tf-surface);
     border: 1px solid var(--tf-line);
     color: var(--tf-ink);
     font-weight: 600;
@@ -69,7 +105,7 @@
     place-items: center;
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: var(--tf-radius-circle);
     background: var(--tf-primary-soft);
     color: var(--tf-primary);
     font-size: 0.72rem;
@@ -83,7 +119,17 @@
 .cycle-card {
     height: 100%;
     padding: 1.4rem;
-    transition: transform 0.35s var(--tf-ease), box-shadow 0.35s var(--tf-ease), border-color 0.35s var(--tf-ease);
+    transition: transform var(--tf-transition-slow), box-shadow var(--tf-transition-slow), border-color var(--tf-transition-slow);
+}
+
+.cycle-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--tf-primary-border-hover);
+    box-shadow: var(--tf-shadow-hover);
+}
+
+.cycle-card:hover .cycle-number {
+    transform: scale(1.1) rotate(-4deg);
 }
 
 .cycle-number {
@@ -93,24 +139,31 @@
     place-items: center;
     margin-bottom: 1rem;
     font-weight: 800;
-    color: #ffffff;
-    background: linear-gradient(135deg, #6366f1, var(--tf-primary));
-    border-radius: 50%;
-    box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
-    transition: transform 0.35s var(--tf-ease);
+    color: var(--tf-surface);
+    background: linear-gradient(135deg, var(--tf-primary-indigo), var(--tf-primary));
+    border-radius: var(--tf-radius-circle);
+    box-shadow: var(--tf-shadow-circle);
+    transition: transform var(--tf-transition-slow);
 }
+
+/* PROCESS DIAGRAM PANELS */
 
 .workflow-panel {
     min-height: 220px;
     padding: 1.8rem 1.5rem;
-    border: 1px dashed #cbd5e1;
+    border: 1px dashed var(--tf-line-dashed);
     border-radius: var(--tf-radius-xl);
-    background: #ffffff;
+    background: var(--tf-surface);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
-    transition: border-color 0.3s var(--tf-ease), box-shadow 0.3s var(--tf-ease);
+    transition: border-color var(--tf-transition-base), box-shadow var(--tf-transition-base);
+}
+
+.workflow-panel:hover {
+    border-color: var(--tf-line-dashed-hover);
+    box-shadow: var(--tf-shadow-panel-hover);
 }
 
 .workflow-panel-top {
@@ -127,7 +180,7 @@
     font-size: 1.5rem;
     color: var(--tf-primary);
     background: var(--tf-primary-soft);
-    border-radius: 50%;
+    border-radius: var(--tf-radius-circle);
 }
 
 .workflow-kicker {
@@ -151,7 +204,7 @@
 
 .workflow-steps span {
     padding: 0.55rem 0.8rem;
-    border-radius: 10px;
+    border-radius: var(--tf-radius-sm);
     background: var(--tf-primary-soft);
     color: var(--tf-primary);
     font-size: 0.78rem;
@@ -162,6 +215,8 @@
     color: var(--tf-primary);
     font-size: 1.1rem;
 }
+
+/* ROLE RESPONSIBILITIES */
 
 .role-card {
     height: 100%;
@@ -183,12 +238,12 @@
     font-size: 1.5rem;
     color: var(--tf-primary);
     background: var(--tf-primary-soft);
-    border-radius: 50%;
-    transition: background-color 0.3s var(--tf-ease), color 0.3s var(--tf-ease), transform 0.3s var(--tf-ease);
+    border-radius: var(--tf-radius-circle);
+    transition: background-color var(--tf-transition-base), color var(--tf-transition-base), transform var(--tf-transition-base);
 }
 
 .role-label {
-    color: #6b7280;
+    color: var(--tf-muted);
     font-size: 0.8rem;
 }
 
@@ -207,7 +262,7 @@
     color: var(--tf-ink);
     font-size: 0.8rem;
     font-weight: 600;
-    border: 1px solid rgba(99, 102, 241, 0.08);
+    border: 1px solid var(--tf-line-subtle);
 }
 
 .role-point i {
@@ -215,11 +270,13 @@
     font-size: 1rem;
 }
 
+/* WORKFLOW CTA */
+
 .workflow-cta {
     padding: clamp(2rem, 5vw, 3.5rem) 1.5rem;
     border-radius: var(--tf-radius-xl);
-    background: linear-gradient(135deg, #4f46e5, #06b6d4);
-    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.25);
+    background: linear-gradient(135deg, var(--tf-primary), var(--tf-cyan));
+    box-shadow: var(--tf-shadow-cta);
 }
 
 .workflow-cta-kicker {
@@ -240,27 +297,13 @@
     opacity: 0.9;
 }
 
-@media (hover: hover) {
-    .cycle-card:hover {
-        transform: translateY(-5px);
-        border-color: #c7d2fe;
-        box-shadow: var(--tf-shadow-hover);
-    }
 
-    .cycle-card:hover .cycle-number {
-        transform: scale(1.1) rotate(-4deg);
-    }
-
-    .workflow-panel:hover {
-        border-color: #94a3b8;
-        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
-    }
-
-    .page-card:hover .role-icon {
-        background: var(--tf-primary);
-        color: #ffffff;
-    }
+.page-card:hover .role-icon {
+    background: var(--tf-primary);
+    color: var(--tf-surface);
 }
+
+/* RESPONSIVE LAYOUT */
 
 @media (max-width: 991.98px) {
     .workflow-hero {
