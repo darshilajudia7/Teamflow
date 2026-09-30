@@ -1,0 +1,153 @@
+:root {
+	--auth-primary: var(--tf-primary, #4f46e5);
+	--auth-primary-dark: var(--tf-primary-dark, #4338ca);
+	--auth-soft: var(--tf-primary-soft, #eef2ff);
+	--auth-ink: var(--tf-ink, #0f172a);
+	--auth-muted: var(--tf-muted, #64748b);
+	--auth-line: var(--tf-line, #e2e8f0);
+}
+
+body {
+	margin: 0;
+	color: var(--auth-ink);
+	font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+main.auth {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 1rem;
+	background:
+		radial-gradient(circle at 12% 12%, rgba(99, 102, 241, 0.11), transparent 34%),
+		radial-gradient(circle at 88% 88%, rgba(6, 182, 212, 0.09), transparent 36%),
+		var(--tf-bg, #f8fafc);
+}
+
+.auth-title {
+	margin-bottom: 0.5rem;
+	color: var(--auth-ink);
+	font-size: clamp(1.8rem, 4vw, 2.25rem);
+	font-weight: 800;
+	letter-spacing: -0.04em;
+}
+
+.auth-sub {
+	margin-bottom: 1.75rem;
+	color: var(--auth-muted);
+}
+
+.auth-card {
+	width: 100%;
+	max-width: 520px;
+	padding: clamp(1.5rem, 5vw, 2.25rem);
+	border: 1px solid var(--auth-line);
+	border-top: 4px solid var(--auth-primary);
+	border-radius: 20px;
+	background: #fff;
+	box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card .form-label {
+	margin-bottom: 0.45rem;
+	color: var(--auth-ink);
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.auth-card .form-control {
+	padding: 0.75rem 0.9rem;
+	border: 1px solid var(--auth-line);
+	border-radius: 10px;
+	color: var(--auth-ink);
+	background: #fff;
+}
+
+.auth-card .form-control::placeholder {
+	color: #94a3b8;
+}
+
+.auth-card .form-control:focus {
+	border-color: var(--auth-primary);
+	box-shadow: 0 0 0 0.22rem rgba(79, 70, 229, 0.14);
+}
+
+.form-check-input {
+	border-color: #cbd5e1;
+}
+
+.form-check-input:checked {
+	border-color: var(--auth-primary);
+	background-color: var(--auth-primary);
+}
+
+.form-check-input:focus {
+	border-color: var(--auth-primary);
+	box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.14);
+}
+
+.role-btn {
+	width: 100%;
+	padding: 0.85rem 0.75rem;
+	border: 1px solid var(--auth-line);
+	border-radius: 10px;
+	color: var(--auth-ink);
+	background: #fff;
+	font-weight: 700;
+	transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-btn:hover {
+	border-color: var(--auth-primary);
+	color: var(--auth-primary);
+	background: var(--auth-soft);
+}
+
+.btn-check:checked + .role-btn {
+	border-color: var(--auth-primary);
+	color: #fff;
+	background: var(--auth-primary);
+	box-shadow: 0 5px 14px rgba(79, 70, 229, 0.2);
+}
+
+.btn-check:focus-visible + .role-btn {
+	box-shadow: 0 0 0 0.22rem rgba(79, 70, 229, 0.2);
+}
+
+.btn-main {
+	width: 100%;
+	padding: 0.8rem 1rem;
+	border: 1px solid var(--auth-primary);
+	border-radius: 9999px;
+	color: #fff;
+	background: linear-gradient(135deg, #6366f1, var(--auth-primary));
+	box-shadow: 0 5px 14px rgba(79, 70, 229, 0.24);
+	font: inherit;
+	font-weight: 700;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-main:hover {
+	color: #fff;
+	filter: brightness(1.06);
+	box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+	transform: translateY(-1px);
+}
+
+.btn-main:focus-visible {
+	outline: 3px solid rgba(79, 70, 229, 0.25);
+	outline-offset: 3px;
+}
+
+.auth-card a {
+	color: var(--auth-primary);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.auth-card a:hover {
+	color: var(--auth-primary-dark);
+	text-decoration: underline;
+}
