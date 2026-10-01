@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile · Group Task Platform</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="../navbar.css" rel="stylesheet">
+    <link href="profile.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="tf-navbar sticky-top">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="d-flex align-items-center gap-2 text-decoration-none" href="../index.html">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span class="fw-bolder fs-5 text-dark">Lumen Team</span>
+                </a>
+
+                <nav class="d-none d-lg-block" aria-label="Main navigation">
+                    <div class="nav-pill-group">
+                        <a class="nav-pill-link" href="dashboard.html">Dashboard</a>
+                        <a class="nav-pill-link" href="#tasks">My Tasks</a>
+                        <a class="nav-pill-link" href="#tasks">Revisions</a>
+                        <a class="nav-pill-link" href="#tasks">History</a>
+                    </div>
+                </nav>
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="dropdown tf-account">
+                        <button class="tf-avatar" type="button" id="accountMenu" aria-haspopup="true"
+                            aria-label="Open account menu">M</button>
+                        <ul class="dropdown-menu dropdown-menu-end tf-menu" aria-labelledby="accountMenu">
+                            <li class="tf-menu-head">
+                                <span class="tf-avatar" aria-hidden="true">M</span>
+                                <div>
+                                    <div class="tf-menu-name">Mehul Patel</div>
+                                    <div class="tf-menu-mail">mehul.patel@lumen.team</div>
+                                </div>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item tf-menu-item" href="profile.html" aria-current="page">
+                                    <i class="bx bx-user-circle"></i>Profile Setup
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item tf-menu-item logout" href="../index.html">
+                                    <i class="bx bx-log-out"></i>Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tf-hamburger d-lg-none">
+                        <a href="#mobile-menu" class="tf-hamburger-btn tf-hamburger-open" aria-label="Open menu"
+                            aria-controls="mobile-menu">
+                            <i class="bx bx-menu"></i>
+                        </a>
+                        <a href="#menu-closed" class="tf-hamburger-btn tf-hamburger-close" aria-label="Close menu">
+                            <i class="bx bx-x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <span id="menu-closed" class="tf-menu-sentinel"></span>
+    <div class="tf-mobile-menu d-lg-none" id="mobile-menu">
+        <a href="#menu-closed" class="tf-menu-backdrop" aria-label="Close menu" tabindex="-1"></a>
+        <nav class="tf-menu-panel" aria-label="Main navigation">
+            <a class="tf-menu-link" href="dashboard.html">
+                <i class="bx bx-grid-alt"></i> Dashboard
+            </a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-task"></i> My Tasks</a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-revision"></i> Revisions</a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-history"></i> History</a>
+        </nav>
+    </div>
+
+    <main class="py-4 py-lg-5">
+        <div class="container container-tf px-3 px-lg-4">
+            <div class="tf-profile-page-heading">
+                <span class="text-uppercase fw-bold small text-primary">Member workspace</span>
+                <h1 class="mb-1">Your profile</h1>
+                <p class="tf-sub mb-0">Share your experience and strengths so the team can match you with meaningful work.</p>
+            </div>
+            <form method="post" action="#">
+
+                <section class="tf-card tf-profile mb-4" aria-label="Profile overview">
+                    <details class="tf-profile-editor">
+                        <summary class="tf-profile-summary">
+                            <span class="tf-profile-avatar" aria-hidden="true">M</span>
+                            <span class="tf-profile-intro">
+                                <span class="tf-profile-name-line">
+                                    <span class="tf-profile-name">Mehul Patel</span>
+                                    <span class="tf-role">Member</span>
+                                </span>
+                                <span class="tf-profile-email">mehul.patel@lumen.team</span>
+                                <span class="tf-profile-bio">Full-stack developer focused on building accessible, reliable products from thoughtful designs.</span>
+                            </span>
+                            <span class="btn-edit">
+                                <i class="bx bx-edit-alt edit-open-icon" aria-hidden="true"></i>
+                                <i class="bx bx-x edit-close-icon" aria-hidden="true"></i>
+                                <span class="edit-open-label">Edit profile</span>
+                                <span class="edit-close-label">Close editor</span>
+                            </span>
+                        </summary>
+                        <div class="tf-profile-edit-panel" role="dialog" aria-modal="true" aria-labelledby="profileEditTitle">
+                            <div class="tf-edit-heading">
+                                <div>
+                                    <h2 class="tf-card-title" id="profileEditTitle">Edit your profile</h2>
+                                    <p class="tf-sub mb-0">Update the details teammates see when they work with you.</p>
+                                </div>
+                                <span class="tf-edit-hint"><i class="bx bx-lock-alt" aria-hidden="true"></i>Private to your workspace</span>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label tf-label" for="roleInput">Primary role</label>
+                                    <select class="form-select tf-input" id="roleInput" name="role">
+                                        <option value="Member">Member</option>
+                                        <option value="Frontend developer">Frontend developer</option>
+                                        <option value="Backend developer">Backend developer</option>
+                                        <option value="Full-stack developer" selected>Full-stack developer</option>
+                                        <option value="UI/UX designer">UI/UX designer</option>
+                                        <option value="Team lead">Team lead</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label tf-label" for="nameInput">Full name</label>
+                                    <input class="form-control tf-input" type="text" id="nameInput" name="name"
+                                        value="Mehul Patel" maxlength="60" autocomplete="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label tf-label" for="emailInput">Work email</label>
+                                    <input class="form-control tf-input" type="email" id="emailInput" name="email"
+                                        value="mehul.patel@lumen.team" autocomplete="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label tf-label" for="locationInput">Location</label>
+                                    <input class="form-control tf-input" type="text" id="locationInput" name="location"
+                                        value="Ahmedabad, India" autocomplete="address-level2">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label tf-label" for="bioInput">About me</label>
+                                    <textarea class="form-control tf-input tf-bio-input" id="bioInput" name="bio"
+                                        rows="4" maxlength="300">Full-stack developer focused on building accessible, reliable products from thoughtful designs. I enjoy collaborating across design and engineering to turn complex problems into simple experiences.</textarea>
+                                    <div class="form-text">A short introduction helps admins find the right projects for you.</div>
+                                </div>
+                            </div>
+                            <div class="tf-modal-actions">
+                                <span class="tf-sub">Select “Close editor” to return to your profile.</span>
+                                <button type="submit" class="btn btn-tf btn-tf-primary">
+                                    <i class="bx bx-save" aria-hidden="true"></i>Save profile
+                                </button>
+                            </div>
+                        </div>
+                    </details>
+                </section>
+
+                <div class="mb-3">
+                    <h2 class="tf-card-title">Skills &amp; proficiency</h2>
+                    <div class="tf-sub">Choose the level that best reflects your current experience in each area.</div>
+                </div>
+                <div class="row g-3 g-lg-4 mb-4">
+                    <div class="col-md-6 col-lg-3">
+                        <section class="tf-card tf-cat">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="tf-item-icon i-primary"><i class="bx bx-layout"></i></span>
+                                <h3 class="tf-card-title">Frontend</h3>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">React</span>
+                                <select class="form-select tf-select" name="level-React" aria-label="React proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro" selected>Pro</option>
+                                </select>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">TypeScript</span>
+                                <select class="form-select tf-select" name="level-TypeScript"
+                                    aria-label="TypeScript proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro" selected>Pro</option>
+                                </select>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">Next.js</span>
+                                <select class="form-select tf-select" name="level-Next.js"
+                                    aria-label="Next.js proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro" selected>Pro</option>
+                                </select>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <section class="tf-card tf-cat">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="tf-item-icon i-cyan"><i class="bx bx-server"></i></span>
+                                <h3 class="tf-card-title">Backend</h3>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">Node.js</span>
+                                <select class="form-select tf-select" name="level-Node.js"
+                                    aria-label="Node.js proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro" selected>Pro</option>
+                                </select>
+                            </div>
+                            <div class="tf-skill-row"><span class="fw-semibold">Express</span>
+                                <select class="form-select tf-select" name="level-Express"
+                                    aria-label="Express proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro" selected>Pro</option>
+                                </select>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">Supabase</span>
+                                <select class="form-select tf-select" name="level-Supabase"
+                                    aria-label="Supabase proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate" selected>Intermediate</option>
+                                    <option value="Pro">Pro</option>
+                                </select>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <section class="tf-card tf-cat">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="tf-item-icon i-amber"><i class="bx bx-palette"></i></span>
+                                <h3 class="tf-card-title">Design</h3>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">Figma</span>
+                                <select class="form-select tf-select" name="level-Figma" aria-label="Figma proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro" selected>Pro</option>
+                                </select>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">UI/UX</span>
+                                <select class="form-select tf-select" name="level-UI/UX" aria-label="UI/UX proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro">Pro</option>
+                                </select>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <section class="tf-card tf-cat">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="tf-item-icon i-teal">
+                                    <i class="bx bx-terminal"></i>
+                                </span>
+                                <h3 class="tf-card-title">Languages</h3>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">Python</span>
+                                <select class="form-select tf-select" name="level-Python"
+                                    aria-label="Python proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate" selected>Intermediate</option>
+                                    <option value="Pro">Pro</option>
+                                </select>
+                            </div>
+                            <div class="tf-skill-row">
+                                <span class="fw-semibold">SQL</span>
+                                <select class="form-select tf-select" name="level-SQL" aria-label="SQL proficiency">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Pro">Pro</option>
+                                </select>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="tf-save-bar">
+                    <div class="tf-save-note">
+                        <i class="bx bx-check-circle"></i>
+                        <span>Keep your profile and skills current for better task matches.</span>
+                    </div>
+                    <button type="submit" class="btn btn-tf py-2">
+                        <i class="bx bx-save"></i>Save changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
