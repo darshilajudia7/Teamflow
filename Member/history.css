@@ -1,0 +1,267 @@
+:root {
+    --tf-primary: #4f46e5;
+    --tf-primary-dark: #3730a3;
+    --tf-primary-soft: #eef2ff;
+    --tf-primary-border: #c7d2fe;
+    --tf-primary-border-hover: #a5b4fc;
+    --tf-primary-border-glow: rgba(199, 210, 254, 0.8);
+    --tf-primary-focus-ring: rgba(79, 70, 229, 0.15);
+
+    --tf-cyan: #06b6d4;
+    --tf-cyan-soft: #ecfeff;
+    --tf-amber: #d97706;
+    --tf-amber-soft: #fffbeb;
+    --tf-teal: #0d9488;
+    --tf-teal-soft: #f0fdfa;
+    --tf-teal-border: #99f6e4;
+    --tf-success: #10b981;
+
+    --tf-bg: #f8fafc;
+    --tf-surface: #ffffff;
+    --tf-surface-alt: #f1f5f9;
+    --tf-ink: #0f172a;
+    --tf-muted: #64748b;
+    --tf-muted-light: #94a3b8;
+    --tf-line: #e2e8f0;
+    --tf-line-dashed: #cbd5e1;
+
+    --tf-radius-xs: 4px;
+    --tf-radius-sm: 0.375rem;
+    --tf-radius-md: 0.625rem;
+    --tf-radius-lg: 1rem;
+    --tf-radius-xl: 1.5rem;
+    --tf-radius-pill: 9999px;
+
+    --tf-shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+    --tf-shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+    --tf-shadow-hover: 0 10px 15px -3px rgba(15, 23, 42, 0.07), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+
+    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --tf-transition-fast: 0.2s var(--tf-ease);
+    --tf-transition-base: 0.3s var(--tf-ease);
+}
+
+body {
+    background-color: var(--tf-bg);
+    color: var(--tf-ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Base Card */
+.tf-card {
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-xl);
+    padding: 1.75rem;
+    box-shadow: var(--tf-shadow-card);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tf-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--tf-ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+}
+
+.tf-sub {
+    font-size: 0.8125rem;
+    color: var(--tf-muted);
+    font-weight: 500;
+}
+
+/* History Table */
+.tf-table-wrap {
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-lg);
+    background: var(--tf-surface);
+    overflow: hidden;
+}
+
+.tf-table {
+    --bs-table-bg: transparent;
+    margin: 0;
+    width: 100%;
+}
+
+.tf-table thead th {
+    background: var(--tf-surface-alt);
+    color: var(--tf-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--tf-line);
+    white-space: nowrap;
+}
+
+.tf-table tbody td {
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--tf-line);
+    vertical-align: middle;
+}
+
+.tf-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.tf-table tbody tr {
+    transition: background-color var(--tf-transition-fast);
+}
+
+.tf-table tbody tr:hover {
+    background-color: var(--tf-surface-alt);
+}
+
+/* Deliverable Icon Badges */
+.tf-item-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--tf-radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.tf-item-icon.i-amber {
+    background-color: var(--tf-amber-soft);
+    color: var(--tf-amber);
+}
+
+.tf-item-icon.i-primary {
+    background-color: var(--tf-primary-soft);
+    color: var(--tf-primary);
+}
+
+.tf-item-icon.i-cyan {
+    background-color: var(--tf-cyan-soft);
+    color: var(--tf-cyan);
+}
+
+/* Status Badges & Mini Avatars */
+.tf-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--tf-teal-soft);
+    color: var(--tf-teal);
+    border: 1px solid var(--tf-teal-border);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--tf-radius-pill);
+    letter-spacing: 0.02em;
+}
+
+.tf-status i {
+    font-size: 0.95rem;
+}
+
+.tf-mini-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border: 1px solid var(--tf-primary-border);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+/* Buttons */
+.btn-tf {
+    background-color: var(--tf-primary);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--tf-radius-md);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    transition: all var(--tf-transition-fast);
+}
+
+.btn-tf:hover {
+    background-color: var(--tf-primary-dark);
+    color: #ffffff;
+    box-shadow: var(--tf-shadow-sm);
+}
+
+.btn-tf-soft {
+    background-color: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border-color: var(--tf-primary-border);
+}
+
+.btn-tf-soft:hover {
+    background-color: #e0e7ff;
+    color: var(--tf-primary-dark);
+    border-color: var(--tf-primary-border-hover);
+}
+
+/* Leader Remarks */
+.tf-remark {
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-lg);
+    padding: 1rem 1.15rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--tf-ink);
+    background: var(--tf-surface);
+    transition: all var(--tf-transition-fast);
+}
+
+.tf-remark + .tf-remark {
+    margin-top: 0.85rem;
+}
+
+.tf-remark:hover {
+    border-color: var(--tf-primary-border-hover);
+    background: #fafbff;
+    transform: translateY(-1px);
+    box-shadow: var(--tf-shadow-sm);
+}
+
+.tf-chip {
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border: 1px solid var(--tf-primary-border);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--tf-radius-pill);
+}
+
+.tf-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding: 1rem;
+    background-color: var(--tf-teal-soft);
+    border: 1px dashed var(--tf-teal-border);
+    border-radius: var(--tf-radius-lg);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--tf-teal);
+}
+
+.tf-summary i {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+#remarks {
+    scroll-margin-top: 90px;
+}

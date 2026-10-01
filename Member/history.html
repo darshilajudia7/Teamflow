@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>History · Group Task Platform</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="../navbar.css" rel="stylesheet">
+    <link href="history.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="tf-navbar sticky-top">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="d-flex align-items-center gap-2 text-decoration-none" href="../index.html">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span class="fw-bolder fs-5 text-dark">Lumen Team</span>
+                </a>
+
+                <nav class="d-none d-lg-block" aria-label="Main navigation">
+                    <div class="nav-pill-group">
+                        <a class="nav-pill-link" href="#" aria-current="page">Dashboard</a>
+                        <a class="nav-pill-link" href="#tasks">My Tasks</a>
+                        <a class="nav-pill-link" href="#tasks">Revisions</a>
+                        <a class="nav-pill-link active" href="#tasks">History</a>
+                    </div>
+                </nav>
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="dropdown tf-account">
+                        <button class="tf-avatar" type="button" id="accountMenu" data-bs-toggle="dropdown"
+                            data-bs-offset="0,0" aria-expanded="false" aria-haspopup="true"
+                            aria-label="Open account menu">M</button>
+                        <ul class="dropdown-menu dropdown-menu-end tf-menu" aria-labelledby="accountMenu">
+                            <li class="tf-menu-head">
+                                <span class="tf-avatar" aria-hidden="true">M</span>
+                                <div>
+                                    <div class="tf-menu-name">Mehul Patel</div>
+                                    <div class="tf-menu-mail">mehul.patel@lumen.team</div>
+                                </div>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item tf-menu-item" href="profile-setup.html">
+                                    <i class="bx bx-user-circle"></i>Profile Setup
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <button class="dropdown-item tf-menu-item logout" type="button"
+                                    onclick="window.location.href='../index.html'">
+                                    <i class="bx bx-log-out"></i>Log out
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tf-hamburger d-lg-none">
+                        <a href="#mobile-menu" class="tf-hamburger-btn tf-hamburger-open" aria-label="Open menu"
+                            aria-controls="mobile-menu">
+                            <i class="bx bx-menu"></i>
+                        </a>
+                        <a href="#menu-closed" class="tf-hamburger-btn tf-hamburger-close" aria-label="Close menu">
+                            <i class="bx bx-x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <span id="menu-closed" class="tf-menu-sentinel"></span>
+    <div class="tf-mobile-menu d-lg-none" id="mobile-menu">
+        <a href="#menu-closed" class="tf-menu-backdrop" aria-label="Close menu" tabindex="-1"></a>
+        <nav class="tf-menu-panel" aria-label="Main navigation">
+            <a class="tf-menu-link active" href="#" aria-current="page">
+                <i class="bx bx-grid-alt"></i> Dashboard
+            </a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-task"></i> My Tasks</a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-revision"></i> Revisions</a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-history"></i> History</a>
+        </nav>
+    </div>
+
+    <main class="py-4 py-lg-5">
+        <div class="container px-3 px-lg-4">
+            <div class="row g-4 align-items-stretch">
+
+                <!-- Submissions Table Section -->
+                <div class="col-lg-8">
+                    <section class="tf-card">
+                        <div class="mb-4">
+                            <h1 class="tf-card-title">Past Submissions &amp; Approvals</h1>
+                            <p class="tf-sub mb-0">Every deliverable verified and signed off by your project leader</p>
+                        </div>
+
+                        <div class="tf-table-wrap table-responsive mb-4">
+                            <table class="table tf-table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Deliverable</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Approved At</th>
+                                        <th scope="col">Reviewed By</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <span class="tf-item-icon i-amber"><i class="bx bx-code-alt"></i></span>
+                                                <div>
+                                                    <div class="fw-semibold text-dark">API Endpoints</div>
+                                                    <div class="tf-sub">Backend module</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="tf-status"><i class="bx bxs-check-circle"></i>Approved</span>
+                                        </td>
+                                        <td>
+                                            <div class="fw-semibold text-dark">Aug 20, 2026</div>
+                                            <div class="tf-sub">09:41 AM</div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="tf-mini-avatar">PN</span>
+                                                <span class="fw-semibold small text-dark">Priya Nair</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <span class="tf-item-icon i-primary"><i class="bx bx-cart"></i></span>
+                                                <div>
+                                                    <div class="fw-semibold text-dark">Checkout Flow</div>
+                                                    <div class="tf-sub">Payments &amp; cart logic</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="tf-status"><i class="bx bxs-check-circle"></i>Approved</span>
+                                        </td>
+                                        <td>
+                                            <div class="fw-semibold text-dark">Aug 15, 2026</div>
+                                            <div class="tf-sub">11:03 AM</div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="tf-mini-avatar">PN</span>
+                                                <span class="fw-semibold small text-dark">Priya Nair</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <span class="tf-item-icon i-cyan"><i class="bx bx-data"></i></span>
+                                                <div>
+                                                    <div class="fw-semibold text-dark">Database Schema</div>
+                                                    <div class="tf-sub">Diagrams &amp; migrations</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="tf-status"><i class="bx bxs-check-circle"></i>Approved</span>
+                                        </td>
+                                        <td>
+                                            <div class="fw-semibold text-dark">Aug 12, 2026</div>
+                                            <div class="tf-sub">02:37 PM</div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="tf-mini-avatar">ML</span>
+                                                <span class="fw-semibold small text-dark">Marcus Lee</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mt-auto">
+                            <button type="button" class="btn btn-tf">
+                                <i class="bx bx-download me-1"></i>Download Files
+                            </button>
+                            <a href="#remarks" class="btn btn-tf btn-tf-soft text-decoration-none">
+                                <i class="bx bx-message-square-detail me-1"></i>View Leader Remarks
+                            </a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Leader Remarks Sidebar -->
+                <div class="col-lg-4">
+                    <section class="tf-card" id="remarks" aria-labelledby="remarksTitle">
+                        <div class="mb-4">
+                            <h2 class="tf-card-title" id="remarksTitle">Leader Feedback</h2>
+                            <p class="tf-sub mb-0">Highlights and sign-off comments</p>
+                        </div>
+
+                        <div class="d-flex flex-column gap-3 mb-4">
+                            <article class="tf-remark">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="tf-chip">API Endpoints</span>
+                                    <span class="tf-sub">Aug 20</span>
+                                </div>
+                                <p class="mb-0 text-secondary">Clean structure and clear error handling. Delivered ahead
+                                    of the target deadline.</p>
+                            </article>
+
+                            <article class="tf-remark">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="tf-chip">Checkout Flow</span>
+                                    <span class="tf-sub">Aug 15</span>
+                                </div>
+                                <p class="mb-0 text-secondary">Approved after revision. The updated validation
+                                    successfully resolves flagged edge cases.</p>
+                            </article>
+
+                            <article class="tf-remark">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="tf-chip">Database Schema</span>
+                                    <span class="tf-sub">Aug 12</span>
+                                </div>
+                                <p class="mb-0 text-secondary">Well documented relationships. Ensure search table
+                                    indexes are added earlier next sprint.</p>
+                            </article>
+                        </div>
+
+                        <div class="tf-summary mt-auto">
+                            <i class="bx bx-check-shield"></i>
+                            <span>All 3 deliverables approved. No outstanding blockers.</span>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
