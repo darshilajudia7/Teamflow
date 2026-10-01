@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard · Group Task Platform</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="../navbar.css" rel="stylesheet">
+    <link href="dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="tf-navbar sticky-top">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="d-flex align-items-center gap-2 text-decoration-none" href="../index.html">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span class="fw-bolder fs-5 text-dark">Lumen Team</span>
+                </a>
+
+                <nav class="d-none d-lg-block" aria-label="Main navigation">
+                    <div class="nav-pill-group">
+                        <a class="nav-pill-link active" href="#" aria-current="page">Dashboard</a>
+                        <a class="nav-pill-link" href="#tasks">My Tasks</a>
+                        <a class="nav-pill-link" href="#tasks">Revisions</a>
+                        <a class="nav-pill-link" href="#tasks">History</a>
+                    </div>
+                </nav>
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="dropdown tf-account">
+                        <button class="tf-avatar" type="button" id="accountMenu" data-bs-toggle="dropdown"
+                            data-bs-offset="0,0" aria-expanded="false" aria-haspopup="true"
+                            aria-label="Open account menu">M</button>
+                        <ul class="dropdown-menu dropdown-menu-end tf-menu" aria-labelledby="accountMenu">
+                            <li class="tf-menu-head">
+                                <span class="tf-avatar" aria-hidden="true">M</span>
+                                <div>
+                                    <div class="tf-menu-name">Mehul Patel</div>
+                                    <div class="tf-menu-mail">mehul.patel@lumen.team</div>
+                                </div>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item tf-menu-item" href="profile-setup.html">
+                                    <i class="bx bx-user-circle"></i>Profile Setup
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <button class="dropdown-item tf-menu-item logout" type="button"
+                                    onclick="window.location.href='../index.html'">
+                                    <i class="bx bx-log-out"></i>Log out
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tf-hamburger d-lg-none">
+                        <a href="#mobile-menu" class="tf-hamburger-btn tf-hamburger-open" aria-label="Open menu"
+                            aria-controls="mobile-menu">
+                            <i class="bx bx-menu"></i>
+                        </a>
+                        <a href="#menu-closed" class="tf-hamburger-btn tf-hamburger-close" aria-label="Close menu">
+                            <i class="bx bx-x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <span id="menu-closed" class="tf-menu-sentinel"></span>
+    <div class="tf-mobile-menu d-lg-none" id="mobile-menu">
+        <a href="#menu-closed" class="tf-menu-backdrop" aria-label="Close menu" tabindex="-1"></a>
+        <nav class="tf-menu-panel" aria-label="Main navigation">
+            <a class="tf-menu-link active" href="#" aria-current="page">
+                <i class="bx bx-grid-alt"></i> Dashboard
+            </a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-task"></i> My Tasks</a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-revision"></i> Revisions</a>
+            <a class="tf-menu-link" href="#tasks"><i class="bx bx-history"></i> History</a>
+        </nav>
+    </div>
+
+    <!-- Main Section -->
+    <main class="py-4 py-lg-5">
+        <div class="container container-tf px-3 px-lg-4">
+
+            <div class="mb-4">
+                <h1 class="h3 fw-bold mb-1">Welcome, Mehul!</h1>
+                <p class="tf-sub mb-0">Your workspace is ready. Let’s make some progress today.</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="row g-3 g-lg-4 mb-4">
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="tf-card tf-stat">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <span class="tf-sub fw-semibold">Assigned tasks</span>
+                            <span class="tf-stat-icon i-primary">
+                                <i class="bx bx-list-check"></i>
+                            </span>
+                        </div>
+                        <div class="tf-stat-value">5</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="tf-card tf-stat">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <span class="tf-sub fw-semibold">Due this week</span>
+                            <span class="tf-stat-icon i-cyan">
+                                <i class="bx bx-calendar-week"></i>
+                            </span>
+                        </div>
+                        <div class="tf-stat-value">3</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="tf-card tf-stat">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <span class="tf-sub fw-semibold">Urgent items</span>
+                            <span class="tf-stat-icon i-amber">
+                                <i class="bx bx-error"></i>
+                            </span>
+                        </div>
+                        <div class="tf-stat-value">1</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="tf-card tf-stat">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <span class="tf-sub fw-semibold">Completed</span>
+                            <span class="tf-stat-icon i-teal">
+                                <i class="bx bx-check-circle"></i>
+                            </span>
+                        </div>
+                        <div class="tf-stat-value">12</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task progress and status -->
+            <section class="row g-3 g-lg-4 mb-4">
+
+                <div class="col-lg-8">
+                    <div class="tf-card">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                            <div>
+                                <h2 class="tf-card-title">Weekly task progress</h2>
+                                <div class="tf-sub">Task status over the last six weeks</div>
+                            </div>
+                            <div class="tf-legend d-flex flex-wrap gap-3" aria-label="Chart legend">
+                                <span>
+                                    <i class="legend-done" aria-hidden="true"></i>Completed
+                                </span>
+                                <span>
+                                    <i class="legend-pending" aria-hidden="true"></i>Pending
+                                </span>
+                                <span>
+                                    <i class="legend-missing" aria-hidden="true"></i>Missing work
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tf-chart" role="img"
+                            aria-label="Stacked bar chart showing completed, pending, and missing work by week">
+                            <div class="tf-col">
+                                <div class="tf-seg missing" style="height:10%"></div>
+                                <div class="tf-seg pend" style="height:20%"></div>
+                                <div class="tf-seg done" style="height:40%"></div>
+                            </div>
+                            <div class="tf-col">
+                                <div class="tf-seg missing" style="height:5%"></div>
+                                <div class="tf-seg pend" style="height:15%"></div>
+                                <div class="tf-seg done" style="height:55%"></div>
+                            </div>
+                            <div class="tf-col">
+                                <div class="tf-seg missing" style="height:15%"></div>
+                                <div class="tf-seg pend" style="height:25%"></div>
+                                <div class="tf-seg done" style="height:45%"></div>
+                            </div>
+                            <div class="tf-col">
+                                <div class="tf-seg missing" style="height:5%"></div>
+                                <div class="tf-seg pend" style="height:10%"></div>
+                                <div class="tf-seg done" style="height:70%"></div>
+                            </div>
+                            <div class="tf-col">
+                                <div class="tf-seg missing" style="height:10%"></div>
+                                <div class="tf-seg pend" style="height:20%"></div>
+                                <div class="tf-seg done" style="height:60%"></div>
+                            </div>
+                            <div class="tf-col">
+                                <div class="tf-seg missing" style="height:20%"></div>
+                                <div class="tf-seg pend" style="height:30%"></div>
+                                <div class="tf-seg done" style="height:35%"></div>
+                            </div>
+                        </div>
+                        <div class="tf-axis">
+                            <span>Wk 1</span>
+                            <span>Wk 2</span>
+                            <span>Wk 3</span>
+                            <span>Wk 4</span>
+                            <span>Wk 5</span>
+                            <span>This wk</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mt-4">
+                            <div class="progress flex-grow-1" role="progressbar" aria-label="Overall completion"
+                                aria-valuenow="71" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width:71%"></div>
+                            </div>
+                            <span class="fw-bold small">71% done</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="tf-card tf-task-status">
+                        <div class="mb-4">
+                            <h2 class="tf-card-title">Current task status</h2>
+                            <div class="tf-sub">Breakdown of your 5 assigned tasks</div>
+                        </div>
+                        <div class="tf-status-row">
+
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="tf-status-label">
+                                    <i class="bx bx-check-double status-completed-icon" aria-hidden="true"></i>
+                                    Completed
+                                </span>
+                                <span class="fw-bold">2
+                                    <span class="tf-sub fw-normal">tasks</span>
+                                </span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="In progress tasks" aria-valuenow="40"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar status-progress" style="width:40%"></div>
+                            </div>
+                        </div>
+
+                        <div class="tf-status-row">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="tf-status-label">
+                                    <i class="bx bx-time-five status-pending-icon" aria-hidden="true"></i>
+                                    Pending
+                                </span>
+                                <span class="fw-bold">1
+                                    <span class="tf-sub fw-normal">task</span>
+                                </span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Tasks in review" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar status-review" style="width:20%"></div>
+                            </div>
+                        </div>
+
+                        <div class="tf-status-row">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="tf-status-label">
+                                    <i class="bx bx-error-circle status-missing-icon" aria-hidden="true"></i>
+                                    Missing work
+                                </span>
+                                <span class="fw-bold">2 <span class="tf-sub fw-normal">tasks</span></span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Not started tasks" aria-valuenow="40"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar status-not-started" style="width:40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Urgent actions -->
+            <section class="tf-card">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+                    <div>
+                        <h2 class="tf-card-title">Urgent action items</h2>
+                        <div class="tf-sub">Prioritized tasks that need your attention</div>
+                    </div>
+                    <a href="#tasks" class="tf-link">View all tasks
+                        <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <ul class="tf-urgent-list list-unstyled mb-0" id="tasks" aria-label="Priority tasks">
+
+                    <li class="tf-item">
+                        <span class="tf-item-icon i-amber" aria-hidden="true">
+                            <i class="bx bx-code-alt"></i>
+                        </span>
+                        <div class="tf-item-copy">
+                            <div class="fw-semibold">Complete “API endpoints”</div>
+                            <div class="tf-sub">Backend module</div>
+                        </div>
+                        <span class="tf-due due-hot">
+                            <i class="bx bx-error-circle" aria-hidden="true"></i> Due tomorrow
+                        </span>
+                        <button class="btn btn-tf" type="button">Continue task</button>
+                    </li>
+
+                    <li class="tf-item">
+                        <span class="tf-item-icon i-primary" aria-hidden="true">
+                            <i class="bx bx-message-square-detail"></i>
+                        </span>
+                        <div class="tf-item-copy">
+                            <div class="fw-semibold">Revise “Checkout flow”</div>
+                            <div class="tf-sub">Reviewer left 3 comments</div>
+                        </div>
+                        <span class="tf-due due-warn">Due Friday</span>
+                        <button class="btn btn-tf btn-tf-soft" type="button">View feedback</button>
+                    </li>
+
+                    <li class="tf-item">
+                        <span class="tf-item-icon i-cyan" aria-hidden="true">
+                            <i class="bx bx-cloud-upload"></i>
+                        </span>
+                        <div class="tf-item-copy">
+                            <div class="fw-semibold">Upload “Database schema” deliverables</div>
+                            <div class="tf-sub">Schema diagram and migration notes</div>
+                        </div>
+                        <span class="tf-due due-ok">Due this week</span>
+                        <button class="btn btn-tf btn-tf-soft" type="button">Upload files</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
