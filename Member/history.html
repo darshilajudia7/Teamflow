@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>History · Group Task Platform</title>
+    <title>History · Lumen Team</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,25 +18,26 @@
 
     <link href="../navbar.css" rel="stylesheet">
     <link href="history.css" rel="stylesheet">
+    <link href="member.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="member-page">
 
     <!-- Header -->
     <header class="tf-navbar sticky-top">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <a class="d-flex align-items-center gap-2 text-decoration-none" href="../index.html">
-                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <img src="../logo.png" alt="Lumen Team logo" width="40" height="40">
                     <span class="fw-bolder fs-5 text-dark">Lumen Team</span>
                 </a>
 
                 <nav class="d-none d-lg-block" aria-label="Main navigation">
                     <div class="nav-pill-group">
-                        <a class="nav-pill-link" href="#" aria-current="page">Dashboard</a>
-                        <a class="nav-pill-link" href="#tasks">My Tasks</a>
-                        <a class="nav-pill-link" href="#tasks">Revisions</a>
-                        <a class="nav-pill-link active" href="#tasks">History</a>
+                        <a class="nav-pill-link" href="dashboard.html">Dashboard</a>
+                        <a class="nav-pill-link" href="task.html">My Tasks</a>
+                        <a class="nav-pill-link" href="revision.html">Revisions</a>
+                        <a class="nav-pill-link active" href="history.html" aria-current="page">History</a>
                     </div>
                 </nav>
 
@@ -57,8 +58,8 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item tf-menu-item" href="profile-setup.html">
-                                    <i class="bx bx-user-circle"></i>Profile Setup
+                                <a class="dropdown-item tf-menu-item" href="profile.html">
+                                    <i class="bx bx-user-circle"></i>My Profile
                                 </a>
                             </li>
                             <li>
@@ -90,12 +91,12 @@
     <div class="tf-mobile-menu d-lg-none" id="mobile-menu">
         <a href="#menu-closed" class="tf-menu-backdrop" aria-label="Close menu" tabindex="-1"></a>
         <nav class="tf-menu-panel" aria-label="Main navigation">
-            <a class="tf-menu-link active" href="#" aria-current="page">
+            <a class="tf-menu-link" href="dashboard.html">
                 <i class="bx bx-grid-alt"></i> Dashboard
             </a>
-            <a class="tf-menu-link" href="#tasks"><i class="bx bx-task"></i> My Tasks</a>
-            <a class="tf-menu-link" href="#tasks"><i class="bx bx-revision"></i> Revisions</a>
-            <a class="tf-menu-link" href="#tasks"><i class="bx bx-history"></i> History</a>
+            <a class="tf-menu-link" href="task.html"><i class="bx bx-task"></i> My Tasks</a>
+            <a class="tf-menu-link" href="revision.html"><i class="bx bx-revision"></i> Revisions</a>
+            <a class="tf-menu-link active" href="history.html" aria-current="page"><i class="bx bx-history"></i> History</a>
         </nav>
     </div>
 
@@ -114,7 +115,7 @@
                         <div class="tf-table-wrap table-responsive mb-4">
                             <table class="table tf-table align-middle">
                                 <thead>
-                                    <tr>
+                                    <tr id="history-auth">
                                         <th scope="col">Deliverable</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Approved At</th>
@@ -122,13 +123,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr id="history-landing">
                                         <td>
                                             <div class="d-flex align-items-center gap-3">
                                                 <span class="tf-item-icon i-amber"><i class="bx bx-code-alt"></i></span>
                                                 <div>
-                                                    <div class="fw-semibold text-dark">API Endpoints</div>
-                                                    <div class="tf-sub">Backend module</div>
+                                                    <div class="fw-semibold text-dark">Auth screens &amp; OAuth setup</div>
+                                                    <div class="tf-sub">Authentication interface</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -136,23 +137,23 @@
                                             <span class="tf-status"><i class="bx bxs-check-circle"></i>Approved</span>
                                         </td>
                                         <td>
-                                            <div class="fw-semibold text-dark">Aug 20, 2026</div>
+                                            <div class="fw-semibold text-dark">Sep 18, 2026</div>
                                             <div class="tf-sub">09:41 AM</div>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center gap-2">
-                                                <span class="tf-mini-avatar">PN</span>
-                                                <span class="fw-semibold small text-dark">Priya Nair</span>
+                                                <span class="tf-mini-avatar">ML</span>
+                                                <span class="fw-semibold small text-dark">Marcus Lee</span>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr id="history-a11y">
                                         <td>
                                             <div class="d-flex align-items-center gap-3">
                                                 <span class="tf-item-icon i-primary"><i class="bx bx-cart"></i></span>
                                                 <div>
-                                                    <div class="fw-semibold text-dark">Checkout Flow</div>
-                                                    <div class="tf-sub">Payments &amp; cart logic</div>
+                                                    <div class="fw-semibold text-dark">Marketing landing page</div>
+                                                    <div class="tf-sub">Responsive product page</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -160,7 +161,7 @@
                                             <span class="tf-status"><i class="bx bxs-check-circle"></i>Approved</span>
                                         </td>
                                         <td>
-                                            <div class="fw-semibold text-dark">Aug 15, 2026</div>
+                                            <div class="fw-semibold text-dark">Sep 12, 2026</div>
                                             <div class="tf-sub">11:03 AM</div>
                                         </td>
                                         <td>
@@ -175,8 +176,8 @@
                                             <div class="d-flex align-items-center gap-3">
                                                 <span class="tf-item-icon i-cyan"><i class="bx bx-data"></i></span>
                                                 <div>
-                                                    <div class="fw-semibold text-dark">Database Schema</div>
-                                                    <div class="tf-sub">Diagrams &amp; migrations</div>
+                                                    <div class="fw-semibold text-dark">Accessibility audit</div>
+                                                    <div class="tf-sub">Keyboard and screen-reader checks</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -184,7 +185,7 @@
                                             <span class="tf-status"><i class="bx bxs-check-circle"></i>Approved</span>
                                         </td>
                                         <td>
-                                            <div class="fw-semibold text-dark">Aug 12, 2026</div>
+                                            <div class="fw-semibold text-dark">Sep 8, 2026</div>
                                             <div class="tf-sub">02:37 PM</div>
                                         </td>
                                         <td>
@@ -199,9 +200,9 @@
                         </div>
 
                         <div class="d-flex flex-wrap gap-2 mt-auto">
-                            <button type="button" class="btn btn-tf">
-                                <i class="bx bx-download me-1"></i>Download Files
-                            </button>
+                            <a href="task.html" class="btn btn-tf text-decoration-none">
+                                <i class="bx bx-task me-1"></i>Back to My Tasks
+                            </a>
                             <a href="#remarks" class="btn btn-tf btn-tf-soft text-decoration-none">
                                 <i class="bx bx-message-square-detail me-1"></i>View Leader Remarks
                             </a>
@@ -220,29 +221,26 @@
                         <div class="d-flex flex-column gap-3 mb-4">
                             <article class="tf-remark">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="tf-chip">API Endpoints</span>
-                                    <span class="tf-sub">Aug 20</span>
+                                        <span class="tf-chip">Auth screens &amp; OAuth setup</span>
+                                        <span class="tf-sub">Sep 18</span>
                                 </div>
-                                <p class="mb-0 text-secondary">Clean structure and clear error handling. Delivered ahead
-                                    of the target deadline.</p>
+                                <p class="mb-0 text-secondary">The sign-in flow is clear, secure, and easy to follow. Delivered ahead of schedule.</p>
                             </article>
 
                             <article class="tf-remark">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="tf-chip">Checkout Flow</span>
-                                    <span class="tf-sub">Aug 15</span>
+                                        <span class="tf-chip">Marketing landing page</span>
+                                        <span class="tf-sub">Sep 12</span>
                                 </div>
-                                <p class="mb-0 text-secondary">Approved after revision. The updated validation
-                                    successfully resolves flagged edge cases.</p>
+                                <p class="mb-0 text-secondary">Strong responsive layout and consistent visual hierarchy across screen sizes.</p>
                             </article>
 
                             <article class="tf-remark">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="tf-chip">Database Schema</span>
-                                    <span class="tf-sub">Aug 12</span>
+                                        <span class="tf-chip">Accessibility audit</span>
+                                        <span class="tf-sub">Sep 8</span>
                                 </div>
-                                <p class="mb-0 text-secondary">Well documented relationships. Ensure search table
-                                    indexes are added earlier next sprint.</p>
+                                <p class="mb-0 text-secondary">Keyboard navigation and contrast checks are clearly documented. Keep this checklist for future releases.</p>
                             </article>
                         </div>
 
@@ -256,6 +254,16 @@
             </div>
         </div>
     </main>
+
+    <footer class="member-footer">
+        <div class="container member-footer-inner">
+            <p>© 2026 Lumen Team · Member workspace</p>
+            <nav aria-label="Member workspace pages">
+                <a href="dashboard.html">Dashboard</a><a href="task.html">My Tasks</a>
+                <a href="revision.html">Revisions</a><a href="history.html" aria-current="page">History</a><a href="profile.html">My Profile</a>
+            </nav>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
