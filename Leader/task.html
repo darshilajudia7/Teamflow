@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Profile · Group Task Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="task.css">
+</head>
+
+<body>
+    <div class="tf-shell">
+
+        <!-- Sidebar -->
+        <aside class="offcanvas-lg offcanvas-start tf-sidebar" tabindex="-1" id="sidebar" aria-label="Admin navigation">
+            <div class="offcanvas-body">
+                <a href="#" class="tf-side-brand">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span>
+                        <span class="tf-brand d-block">Lumen Team</span>
+                        <span class="tf-brand-sub">Admin workspace</span>
+                    </span>
+                </a>
+                <hr class="tf-side-divider">
+
+                <div class="tf-group dropdown">
+                    <button class="tf-group-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bx bx-group"></i>My Group
+                        <i class="bx bx-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">My Group</a></li>
+                        <li><a class="dropdown-item" href="#">Design Team</a></li>
+                        <li><a class="dropdown-item" href="#">Backend Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="tf-side-label">Manage</div>
+
+                <nav class="tf-side-nav">
+                    <a class="tf-side-link" href="dashboard.html" aria-current="page">
+                        <i class="bx bx-grid-alt"></i>Dashboard
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-group"></i>Members &amp; Skills
+                    </a>
+                    <a class="tf-side-link active" href="#">
+                        <i class="bx bx-task"></i>Task Builder
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-file-find"></i>Reviews
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-bar-chart-alt-2"></i>Analytics
+                    </a>
+                </nav>
+
+                <div class="tf-side-user">
+                    <span class="tf-avatar">A</span>
+                    <div>
+                        <div class="name">Aarav</div>
+                        <div class="role">Group admin</div>
+                    </div>
+                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                        <i class="bx bx-log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="tf-content">
+
+            <header class="tf-topbar">
+                <button class="tf-menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Open menu">
+                    <i class="bx bx-menu"></i></button>
+                <div>
+                    <h1>Dashboard</h1>
+                    <div class="sub">Overview of My Group</div>
+                </div>
+                <a href="#" class="btn-export ms-auto">
+                    <i class="bx bx-export"></i>Export
+                </a>
+                <span class="tf-avatar">A</span>
+            </header>
+
+            <style>
+                :root {
+                    --tf-primary: #4f46e5;
+                    --tf-primary-dark: #3730a3;
+                    --tf-primary-soft: #eef2ff;
+                    --tf-primary-soft-hover: #e0e7ff;
+                    --tf-primary-border: #dbeafe;
+                    --tf-primary-border-hover: #c7d2fe;
+                    --tf-cyan: #06b6d4;
+                    --tf-teal: #0d9488;
+                    --tf-amber: #eab308;
+
+                    --tf-bg: #f8fafc;
+                    --tf-surface: #ffffff;
+                    --tf-ink: #0f172a;
+                    --tf-muted: #64748b;
+                    --tf-line: #e2e8f0;
+                    --tf-line-dashed: #cbd5e1;
+                    --tf-line-dashed-hover: #94a3b8;
+
+                    --tf-radius-md: 0.5rem;
+                    --tf-radius-lg: 1rem;
+                    --tf-radius-xl: 1.5rem;
+                    --tf-radius-pill: 9999px;
+
+                    --tf-shadow-sm: 0 4px 10px rgba(79, 70, 229, 0.1);
+                    --tf-shadow-card: 0 8px 18px rgba(15, 23, 42, 0.05);
+                    --tf-shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+                    --tf-shadow-cta: 0 20px 40px rgba(79, 70, 229, 0.25);
+                    --tf-shadow-btn: 0 10px 24px rgba(15, 23, 42, 0.2);
+
+                    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+                    --tf-transition-fast: 0.25s var(--tf-ease);
+                    --tf-transition-base: 0.3s var(--tf-ease);
+                    --tf-transition-slow: 0.35s var(--tf-ease);
+                }
+
+                /* Base */
+                .tf-main {
+                    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+                    color: var(--tf-ink);
+                    background: var(--tf-bg);
+                    padding: 2.5rem 1.5rem 4rem;
+                    min-height: 100vh;
+                    line-height: 1.5;
+                }
+
+                .tf-wrap {
+                    max-width: 1160px;
+                    margin: 0 auto;
+                }
+
+                .tf-main h1,
+                .tf-main h2,
+                .tf-main h3,
+                .tf-main p,
+                .tf-main dl,
+                .tf-main dd {
+                    margin: 0;
+                }
+
+                .tf-main button {
+                    font-family: inherit;
+                }
+
+                /* Page header + stats */
+                .tf-head {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    gap: 1.25rem;
+                    margin-bottom: 1.75rem;
+                }
+
+                .tf-head h1 {
+                    font-size: 1.9rem;
+                    font-weight: 800;
+                    letter-spacing: -.02em;
+                    line-height: 1.15;
+                }
+
+                .tf-head p {
+                    margin-top: .35rem;
+                    color: var(--tf-muted);
+                }
+
+                .tf-stats {
+                    display: flex;
+                    gap: .75rem;
+                }
+
+                .tf-stats>div {
+                    min-width: 7.5rem;
+                    padding: .7rem 1rem;
+                    background: var(--tf-surface);
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-lg);
+                    box-shadow: var(--tf-shadow-card);
+                }
+
+                .tf-stats dt {
+                    font-size: .75rem;
+                    font-weight: 600;
+                    color: var(--tf-muted);
+                }
+
+                .tf-stats dd {
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                    letter-spacing: -.02em;
+                    line-height: 1.2;
+                }
+
+                .tf-stats .tf-stat-warn dd {
+                    color: #a16207;
+                }
+
+                .tf-stats .tf-stat-warn {
+                    border-color: #fde68a;
+                    background: #fffdf2;
+                }
+
+                /* Cards */
+                .tf-card {
+                    background: var(--tf-surface);
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-xl);
+                    box-shadow: var(--tf-shadow-card);
+                    margin-bottom: 1.5rem;
+                    overflow: hidden;
+                }
+
+                .tf-card-head {
+                    padding: 1.4rem 1.75rem 1.2rem;
+                    border-bottom: 1px solid var(--tf-line);
+                }
+
+                .tf-card-head h2 {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    letter-spacing: -.01em;
+                }
+
+                .tf-card-head p {
+                    margin-top: .15rem;
+                    font-size: .88rem;
+                    color: var(--tf-muted);
+                }
+
+                .tf-card-foot {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding: 1.1rem 1.75rem;
+                    border-top: 1px solid var(--tf-line);
+                    background: var(--tf-bg);
+                }
+
+                /* Form */
+                .tf-form-col {
+                    padding: 1.5rem 1.75rem;
+                }
+
+                .tf-pick-col {
+                    padding: 1.5rem 1.75rem;
+                    background: var(--tf-bg);
+                    border-left: 1px solid var(--tf-line);
+                }
+
+                .tf-label {
+                    display: block;
+                    font-size: .85rem;
+                    font-weight: 600;
+                    margin-bottom: .4rem;
+                }
+
+                .tf-hint {
+                    font-size: .82rem;
+                    color: var(--tf-muted);
+                    margin: -.1rem 0 .85rem;
+                }
+
+                .tf-input {
+                    font-size: .92rem;
+                    color: var(--tf-ink);
+                    background: var(--tf-surface);
+                    border: 1px solid var(--tf-line-dashed);
+                    border-radius: var(--tf-radius-md);
+                    padding: .6rem .85rem;
+                    transition: border-color var(--tf-transition-fast), box-shadow var(--tf-transition-fast);
+                }
+
+                .tf-input::placeholder {
+                    color: var(--tf-line-dashed-hover);
+                }
+
+                .tf-input:hover {
+                    border-color: var(--tf-line-dashed-hover);
+                }
+
+                .tf-input:focus {
+                    border-color: var(--tf-primary);
+                    box-shadow: 0 0 0 .2rem rgba(79, 70, 229, .15);
+                    background: var(--tf-surface);
+                }
+
+                .tf-tagbox {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .5rem;
+                    padding: .65rem;
+                    background: var(--tf-surface);
+                    border: 1px dashed var(--tf-line-dashed);
+                    border-radius: var(--tf-radius-md);
+                }
+
+                .tf-tag {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .3rem;
+                    padding: .2rem .7rem;
+                    font-size: .78rem;
+                    font-weight: 600;
+                    color: var(--tf-primary-dark);
+                    background: var(--tf-primary-soft);
+                    border: 1px solid var(--tf-primary-border-hover);
+                    border-radius: var(--tf-radius-pill);
+                    line-height: 1.4;
+                }
+
+                .tf-tag-add {
+                    color: var(--tf-muted);
+                    background: transparent;
+                    border: 1px dashed var(--tf-line-dashed);
+                    cursor: pointer;
+                    transition: all var(--tf-transition-fast);
+                }
+
+                .tf-tag-add:hover {
+                    color: var(--tf-primary);
+                    border-color: var(--tf-primary);
+                    background: var(--tf-primary-soft);
+                }
+
+                /* Skill filter + member picker (CSS only) */
+                .tf-chips {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .4rem;
+                    margin-bottom: .9rem;
+                }
+
+                .tf-chip {
+                    cursor: pointer;
+                    font-size: .78rem;
+                    font-weight: 600;
+                    padding: .3rem .8rem;
+                    color: var(--tf-muted);
+                    background: var(--tf-surface);
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-pill);
+                    transition: all var(--tf-transition-fast);
+                }
+
+                .tf-chip:hover {
+                    color: var(--tf-primary);
+                    border-color: var(--tf-primary-border-hover);
+                    background: var(--tf-primary-soft);
+                }
+
+                .tf-chips .btn-check:checked+.tf-chip {
+                    color: #fff;
+                    background: var(--tf-primary);
+                    border-color: var(--tf-primary);
+                    box-shadow: var(--tf-shadow-sm);
+                }
+
+                .tf-chips .btn-check:focus-visible+.tf-chip {
+                    outline: 2px solid var(--tf-primary);
+                    outline-offset: 2px;
+                }
+
+                .tf-members {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .55rem;
+                    max-height: 22rem;
+                    overflow-y: auto;
+                    padding: 2px;
+                }
+
+                .tf-member-card {
+                    display: flex;
+                    align-items: center;
+                    gap: .85rem;
+                    width: 100%;
+                    margin: 0;
+                    cursor: pointer;
+                    padding: .75rem .9rem;
+                    background: var(--tf-surface);
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-lg);
+                    transition: border-color var(--tf-transition-fast), box-shadow var(--tf-transition-fast), background var(--tf-transition-fast);
+                }
+
+                .tf-member-card:hover {
+                    border-color: var(--tf-primary-border-hover);
+                    box-shadow: var(--tf-shadow-card);
+                }
+
+                .tf-member .btn-check:checked+.tf-member-card {
+                    border-color: var(--tf-primary);
+                    background: var(--tf-primary-soft);
+                    box-shadow: 0 0 0 1px var(--tf-primary);
+                }
+
+                .tf-member .btn-check:focus-visible+.tf-member-card {
+                    outline: 2px solid var(--tf-primary);
+                    outline-offset: 2px;
+                }
+
+                .tf-member-info {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    min-width: 0;
+                }
+
+                .tf-member-name {
+                    font-size: .92rem;
+                    font-weight: 700;
+                    line-height: 1.3;
+                }
+
+                .tf-member-role {
+                    font-size: .78rem;
+                    color: var(--tf-muted);
+                    margin-bottom: .35rem;
+                }
+
+                .tf-member-skills {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .3rem;
+                }
+
+                .tf-skill {
+                    font-size: .72rem;
+                    font-weight: 500;
+                    padding: .08rem .5rem;
+                    color: var(--tf-muted);
+                    background: var(--tf-bg);
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-pill);
+                }
+
+                .tf-match {
+                    flex: none;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .3rem;
+                    font-size: .72rem;
+                    font-weight: 700;
+                    color: var(--tf-teal);
+                    background: rgba(13, 148, 136, .1);
+                    padding: .22rem .6rem;
+                    border-radius: var(--tf-radius-pill);
+                }
+
+                .tf-radio {
+                    flex: none;
+                    width: 1.15rem;
+                    height: 1.15rem;
+                    border: 2px solid var(--tf-line-dashed);
+                    border-radius: 50%;
+                    background: var(--tf-surface);
+                    transition: all var(--tf-transition-fast);
+                }
+
+                .tf-member .btn-check:checked+.tf-member-card .tf-radio {
+                    border-color: var(--tf-primary);
+                    background: radial-gradient(circle, var(--tf-primary) 0 38%, var(--tf-surface) 42%);
+                }
+
+                .tf-empty {
+                    display: none;
+                    margin: 0;
+                    padding: 1rem;
+                    text-align: center;
+                    font-size: .85rem;
+                    color: var(--tf-muted);
+                    border: 1px dashed var(--tf-line-dashed);
+                    border-radius: var(--tf-radius-lg);
+                }
+
+                .tf-picker:has(input[value="react"]:checked) .tf-member:not([data-skills~="react"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="react"]:checked) .tf-members:not(:has(.tf-member[data-skills~="react"])) .tf-empty {
+                    display: block
+                }
+
+                .tf-picker:has(input[value="node"]:checked) .tf-member:not([data-skills~="node"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="node"]:checked) .tf-members:not(:has(.tf-member[data-skills~="node"])) .tf-empty {
+                    display: block
+                }
+
+                .tf-picker:has(input[value="python"]:checked) .tf-member:not([data-skills~="python"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="python"]:checked) .tf-members:not(:has(.tf-member[data-skills~="python"])) .tf-empty {
+                    display: block
+                }
+
+                .tf-picker:has(input[value="sql"]:checked) .tf-member:not([data-skills~="sql"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="sql"]:checked) .tf-members:not(:has(.tf-member[data-skills~="sql"])) .tf-empty {
+                    display: block
+                }
+
+                .tf-picker:has(input[value="native"]:checked) .tf-member:not([data-skills~="native"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="native"]:checked) .tf-members:not(:has(.tf-member[data-skills~="native"])) .tf-empty {
+                    display: block
+                }
+
+                .tf-picker:has(input[value="uiux"]:checked) .tf-member:not([data-skills~="uiux"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="uiux"]:checked) .tf-members:not(:has(.tf-member[data-skills~="uiux"])) .tf-empty {
+                    display: block
+                }
+
+                .tf-picker:has(input[value="supabase"]:checked) .tf-member:not([data-skills~="supabase"]) {
+                    display: none
+                }
+
+                .tf-picker:has(input[value="supabase"]:checked) .tf-members:not(:has(.tf-member[data-skills~="supabase"])) .tf-empty {
+                    display: block
+                }
+
+
+                /* Avatars: one colour per member */
+                .tf-avatar {
+                    flex: none;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 50%;
+                    font-size: .75rem;
+                    font-weight: 700;
+                    color: #fff;
+                }
+
+                .tf-avatar-sm {
+                    width: 1.75rem;
+                    height: 1.75rem;
+                    font-size: .62rem;
+                }
+
+                .tf-a1 {
+                    background: var(--tf-primary);
+                }
+
+                .tf-a2 {
+                    background: var(--tf-teal);
+                }
+
+                .tf-a3 {
+                    background: var(--tf-cyan);
+                }
+
+                .tf-a4 {
+                    background: var(--tf-amber);
+                    color: var(--tf-ink);
+                }
+
+                .tf-a5 {
+                    background: var(--tf-primary-dark);
+                }
+
+                /* Table */
+                .tf-table {
+                    --bs-table-bg: transparent;
+                    --bs-table-hover-bg: var(--tf-bg);
+                    margin: 0;
+                }
+
+                .tf-table thead th {
+                    padding: .8rem 1rem;
+                    font-size: .78rem;
+                    font-weight: 600;
+                    color: var(--tf-muted);
+                    background: var(--tf-bg);
+                    border-bottom: 1px solid var(--tf-line);
+                    white-space: nowrap;
+                }
+
+                .tf-table thead th:first-child,
+                .tf-table td:first-child {
+                    padding-left: 1.75rem;
+                }
+
+                .tf-table thead th:last-child,
+                .tf-table td:last-child {
+                    padding-right: 1.75rem;
+                }
+
+                .tf-table td {
+                    padding: 1rem;
+                    font-size: .9rem;
+                    border-bottom: 1px solid var(--tf-line);
+                    white-space: nowrap;
+                }
+
+                .tf-table tbody tr:last-child td {
+                    border-bottom: 0;
+                }
+
+                .tf-table tbody tr {
+                    transition: background var(--tf-transition-fast);
+                }
+
+                .tf-table tbody tr:hover {
+                    background: var(--tf-bg);
+                }
+
+                .tf-row-open td:first-child {
+                    box-shadow: inset 3px 0 0 var(--tf-amber);
+                }
+
+                .tf-task-title {
+                    font-weight: 700;
+                }
+
+                .tf-due {
+                    color: var(--tf-muted);
+                }
+
+                .tf-assignee {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .55rem;
+                    font-weight: 600;
+                }
+
+                .tf-unassigned {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .4rem;
+                    font-size: .85rem;
+                    color: var(--tf-muted);
+                }
+
+                .tf-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .4rem;
+                    font-size: .78rem;
+                    font-weight: 600;
+                    padding: .22rem .7rem;
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-pill);
+                    background: var(--tf-surface);
+                    color: var(--tf-muted);
+                }
+
+                .tf-dot {
+                    width: .45rem;
+                    height: .45rem;
+                    border-radius: 50%;
+                    background: currentColor;
+                }
+
+                .tf-pr-high {
+                    color: #b91c1c;
+                    background: #fef2f2;
+                    border-color: #fecaca;
+                }
+
+                .tf-pr-med {
+                    color: #a16207;
+                    background: #fefce8;
+                    border-color: #fde68a;
+                }
+
+                .tf-pr-low {
+                    color: var(--tf-muted);
+                    background: var(--tf-bg);
+                }
+
+                .tf-st-progress {
+                    color: var(--tf-primary-dark);
+                    background: var(--tf-primary-soft);
+                    border-color: var(--tf-primary-border-hover);
+                }
+
+                .tf-st-todo {
+                    color: var(--tf-muted);
+                    background: var(--tf-bg);
+                }
+
+                .tf-st-review {
+                    color: #0e7490;
+                    background: #ecfeff;
+                    border-color: #a5f3fc;
+                }
+
+                .tf-st-done {
+                    color: var(--tf-teal);
+                    background: rgba(13, 148, 136, .08);
+                    border-color: rgba(13, 148, 136, .25);
+                }
+
+                /* Row action buttons */
+                .tf-act {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .4rem;
+                    font-size: .82rem;
+                    font-weight: 600;
+                    color: var(--tf-ink);
+                    background: var(--tf-surface);
+                    border: 1px solid var(--tf-line-dashed);
+                    border-radius: var(--tf-radius-md);
+                    padding: .42rem .85rem;
+                    transition: all var(--tf-transition-fast);
+                }
+
+                .tf-act:hover {
+                    color: var(--tf-primary);
+                    border-color: var(--tf-primary-border-hover);
+                    background: var(--tf-primary-soft);
+                }
+
+                .tf-act-primary {
+                    color: #fff;
+                    background: var(--tf-primary);
+                    border-color: var(--tf-primary);
+                    box-shadow: var(--tf-shadow-sm);
+                }
+
+                .tf-act-primary:hover {
+                    color: #fff;
+                    background: var(--tf-primary-dark);
+                    border-color: var(--tf-primary-dark);
+                }
+
+                .tf-act:focus-visible {
+                    outline: 2px solid var(--tf-primary);
+                    outline-offset: 2px;
+                }
+
+                .tf-actions {
+                    display: inline-flex;
+                    gap: .5rem;
+                    justify-content: flex-end;
+                }
+
+                .tf-member-static {
+                    cursor: default;
+                }
+
+                .tf-member-static:hover {
+                    border-color: var(--tf-line);
+                    box-shadow: none;
+                }
+
+                /* Buttons */
+                .tf-btn-primary {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .5rem;
+                    color: #fff;
+                    font-weight: 700;
+                    font-size: .92rem;
+                    background: var(--tf-primary);
+                    border: 0;
+                    border-radius: var(--tf-radius-lg);
+                    padding: .7rem 1.5rem;
+                    box-shadow: var(--tf-shadow-cta);
+                    transition: all var(--tf-transition-base);
+                }
+
+                .tf-btn-primary:hover,
+                .tf-btn-primary:focus-visible {
+                    color: #fff;
+                    background: var(--tf-primary-dark);
+                    transform: translateY(-1px);
+                }
+
+                .tf-btn-ghost {
+                    color: var(--tf-muted);
+                    font-weight: 600;
+                    font-size: .92rem;
+                    background: transparent;
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-lg);
+                    padding: .7rem 1.25rem;
+                    transition: all var(--tf-transition-fast);
+                }
+
+                .tf-btn-ghost:hover {
+                    color: var(--tf-ink);
+                    border-color: var(--tf-line-dashed-hover);
+                    background: var(--tf-surface);
+                }
+
+                .tf-bulk {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .75rem;
+                }
+
+                .tf-btn-dashed {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .45rem;
+                    font-size: .85rem;
+                    font-weight: 600;
+                    color: var(--tf-muted);
+                    background: transparent;
+                    border: 1px dashed var(--tf-line-dashed);
+                    border-radius: var(--tf-radius-lg);
+                    padding: .6rem 1.1rem;
+                    transition: all var(--tf-transition-fast);
+                }
+
+                .tf-btn-dashed:hover {
+                    color: var(--tf-primary);
+                    border-color: var(--tf-line-dashed-hover);
+                    background: var(--tf-primary-soft);
+                }
+
+                /* Modal */
+                .tf-modal {
+                    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+                    color: var(--tf-ink);
+                    border: 0;
+                    border-radius: var(--tf-radius-xl);
+                    box-shadow: var(--tf-shadow-hover);
+                    overflow: hidden;
+                }
+
+                .tf-modal .modal-header {
+                    align-items: flex-start;
+                    padding: 1.4rem 1.75rem 1.2rem;
+                    border-bottom: 1px solid var(--tf-line);
+                }
+
+                .tf-modal-kicker {
+                    font-size: .8rem;
+                    font-weight: 600;
+                    color: var(--tf-primary);
+                    margin: 0 0 .15rem;
+                }
+
+                .tf-modal .modal-title {
+                    font-size: 1.25rem;
+                    font-weight: 800;
+                    letter-spacing: -.01em;
+                }
+
+                .tf-modal .modal-body {
+                    padding: 1.5rem 1.75rem;
+                }
+
+                .tf-modal .modal-footer {
+                    padding: 1rem 1.75rem;
+                    border-top: 1px solid var(--tf-line);
+                    background: var(--tf-bg);
+                    gap: .5rem;
+                }
+
+                .tf-modal-desc {
+                    color: var(--tf-muted);
+                    font-size: .92rem;
+                }
+
+                .tf-facts {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                    gap: 1rem;
+                    margin: 1.1rem 0 1.6rem;
+                    padding: 1rem 1.1rem;
+                    background: var(--tf-bg);
+                    border: 1px solid var(--tf-line);
+                    border-radius: var(--tf-radius-lg);
+                }
+
+                .tf-facts dt {
+                    font-size: .75rem;
+                    font-weight: 600;
+                    color: var(--tf-muted);
+                    margin-bottom: .35rem;
+                }
+
+                .tf-facts dd {
+                    font-size: .92rem;
+                    font-weight: 600;
+                }
+
+                .tf-section-title {
+                    font-size: 1rem;
+                    font-weight: 700;
+                    margin-bottom: .1rem;
+                }
+
+                @media (max-width: 991.98px) {
+                    .tf-pick-col {
+                        border-left: 0;
+                        border-top: 1px solid var(--tf-line);
+                    }
+                }
+
+                @media (max-width: 767.98px) {
+                    .tf-main {
+                        padding: 1.5rem .75rem 3rem;
+                    }
+
+                    .tf-stats {
+                        width: 100%;
+                    }
+
+                    .tf-stats>div {
+                        flex: 1;
+                        min-width: 0;
+                    }
+
+                    .tf-form-col,
+                    .tf-pick-col,
+                    .tf-card-head,
+                    .tf-card-foot {
+                        padding-left: 1.1rem;
+                        padding-right: 1.1rem;
+                    }
+
+                    .tf-card-foot .tf-btn-primary {
+                        width: 100%;
+                        justify-content: center;
+                    }
+
+                    .tf-act-text {
+                        display: none;
+                    }
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+
+                    .tf-main *,
+                    .tf-modal * {
+                        transition: none !important;
+                    }
+                }
+            </style>
+
+            <main class="tf-main">
+                <div class="tf-wrap">
+
+                    <!-- 1. CREATE A NEW TASK SECTION -->
+                    <section class="tf-card" aria-labelledby="create-title">
+                        <div class="tf-card-head">
+                            <h2 id="create-title">Create a new task</h2>
+                            <p class="text-muted small mb-0">Add specifications and select a qualified team member.</p>
+                        </div>
+                        <form onsubmit="return false">
+                            <div class="row g-0">
+                                <div class="col-lg-6 tf-form-col">
+                                    <div class="mb-3">
+                                        <label class="tf-label" for="task-title">Title</label>
+                                        <input type="text" class="form-control tf-input" id="task-title"
+                                            placeholder="e.g. Implement webhook dispatch service...">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="tf-label" for="task-desc">Description</label>
+                                        <textarea class="form-control tf-input" id="task-desc" rows="4"
+                                            placeholder="Detail the business requirements, API parameters, or test cases..."></textarea>
+                                    </div>
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-sm-6">
+                                            <label class="tf-label" for="task-priority">Priority</label>
+                                            <select class="form-select tf-input" id="task-priority">
+                                                <option selected>High</option>
+                                                <option>Medium</option>
+                                                <option>Low</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="tf-label" for="task-deadline">Deadline</label>
+                                            <input type="date" class="form-control tf-input" id="task-deadline">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="tf-label">Required Tech Tags</span>
+                                        <div class="tf-tagbox">
+                                            <span class="tf-tag">React</span>
+                                            <span class="tf-tag">Node.js</span>
+                                            <button type="button" class="tf-tag tf-tag-add"><i
+                                                    class="bi bi-plus-lg"></i>Add tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 tf-pick-col">
+                                    <span class="tf-label">Select a member</span>
+                                    <p class="tf-hint">Filter by skill. Matching candidates appear first.</p>
+                                    <div class="tf-picker">
+                                        <div class="tf-chips" role="radiogroup" aria-label="Filter members by skill">
+                                            <input type="radio" class="btn-check" name="new-skill" id="new-sk-all"
+                                                value="all" checked>
+                                            <label class="tf-chip" for="new-sk-all">All skills</label>
+                                            <input type="radio" class="btn-check" name="new-skill" id="new-sk-react"
+                                                value="react">
+                                            <label class="tf-chip" for="new-sk-react">React</label>
+                                            <input type="radio" class="btn-check" name="new-skill" id="new-sk-node"
+                                                value="node">
+                                            <label class="tf-chip" for="new-sk-node">Node.js</label>
+                                            <input type="radio" class="btn-check" name="new-skill" id="new-sk-python"
+                                                value="python">
+                                            <label class="tf-chip" for="new-sk-python">Python</label>
+                                            <input type="radio" class="btn-check" name="new-skill" id="new-sk-sql"
+                                                value="sql">
+                                            <label class="tf-chip" for="new-sk-sql">SQL</label>
+                                            <input type="radio" class="btn-check" name="new-skill" id="new-sk-uiux"
+                                                value="uiux">
+                                            <label class="tf-chip" for="new-sk-uiux">UI/UX</label>
+                                        </div>
+                                        <div class="tf-members">
+                                            <div class="tf-member" data-skills="react node">
+                                                <input type="radio" class="btn-check" name="new-member" id="new-m-maya">
+                                                <label class="tf-member-card" for="new-m-maya">
+                                                    <span class="tf-avatar tf-a1">MO</span>
+                                                    <span class="tf-member-info">
+                                                        <span class="tf-member-name">Maya Okafor</span>
+                                                        <span class="tf-member-role">Full-Stack Lead</span>
+                                                        <span class="tf-member-skills"><span
+                                                                class="tf-skill">React</span><span
+                                                                class="tf-skill">Node.js</span></span>
+                                                    </span>
+                                                    <span class="tf-match"><i class="bi bi-check2-circle"></i>Skill
+                                                        match</span>
+                                                    <span class="tf-radio" aria-hidden="true"></span>
+                                                </label>
+                                            </div>
+                                            <div class="tf-member" data-skills="uiux">
+                                                <input type="radio" class="btn-check" name="new-member"
+                                                    id="new-m-sofia">
+                                                <label class="tf-member-card" for="new-m-sofia">
+                                                    <span class="tf-avatar tf-a4">SR</span>
+                                                    <span class="tf-member-info">
+                                                        <span class="tf-member-name">Sofia Reyes</span>
+                                                        <span class="tf-member-role">Product Designer</span>
+                                                        <span class="tf-member-skills"><span
+                                                                class="tf-skill">UI/UX</span><span
+                                                                class="tf-skill">Figma</span></span>
+                                                    </span>
+                                                    <span class="tf-match"><i class="bi bi-check2-circle"></i>Skill
+                                                        match</span>
+                                                    <span class="tf-radio" aria-hidden="true"></span>
+                                                </label>
+                                            </div>
+                                            <div class="tf-member" data-skills="sql">
+                                                <input type="radio" class="btn-check" name="new-member"
+                                                    id="new-m-daniel">
+                                                <label class="tf-member-card" for="new-m-daniel">
+                                                    <span class="tf-avatar tf-a5">DP</span>
+                                                    <span class="tf-member-info">
+                                                        <span class="tf-member-name">Daniel Park</span>
+                                                        <span class="tf-member-role">Data Engineer</span>
+                                                        <span class="tf-member-skills"><span
+                                                                class="tf-skill">SQL</span><span
+                                                                class="tf-skill">PostgreSQL</span></span>
+                                                    </span>
+                                                    <span class="tf-radio" aria-hidden="true"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tf-card-foot">
+                                <button type="submit" class="btn tf-btn-primary">
+                                    <i class="bi bi-lightning-charge"></i>Create &amp; assign
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- 2. ALL TASKS TABLE SECTION -->
+                    <section class="tf-card" aria-labelledby="tasks-table-title">
+                        <div class="tf-card-head">
+                            <h2 id="tasks-table-title">All tasks</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table tf-table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Task Details</th>
+                                        <th scope="col">Tech Stack (Domain &amp; Skills)</th>
+                                        <th scope="col">Priority</th>
+                                        <th scope="col">Timeline</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Assigned To</th>
+                                        <th scope="col" class="text-end">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Task 1: Assigned -> View, Edit, Delete -->
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bold d-block text-dark">Build API Endpoints</span>
+                                            <small class="text-muted">TASK-101 &bull; REST API Layer</small>
+                                        </td>
+                                        <td>
+                                            <div class="tf-tech-stack-cell">
+                                                <span class="tf-domain-badge tf-domain-backend"><i
+                                                        class="bi bi-server"></i> Backend</span>
+                                                <div class="tf-subskills">
+                                                    <span class="tf-tag">Node.js</span>
+                                                    <span class="tf-tag">Express</span>
+                                                    <span class="tf-tag">REST API</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="tf-pill tf-pr-high"><span class="tf-dot"></span>High</span>
+                                        </td>
+                                        <td class="text-muted fw-semibold">3 days left</td>
+                                        <td><span class="tf-pill tf-st-progress"><span class="tf-dot"></span>In
+                                                Progress</span></td>
+                                        <td>
+                                            <span class="tf-assignee">
+                                                <span class="tf-avatar tf-avatar-sm tf-a1">MO</span>
+                                                Maya Okafor
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="tf-actions">
+                                                <button type="button" class="btn tf-act" data-bs-toggle="modal"
+                                                    data-bs-target="#t1-view" title="View specs">
+                                                    <i class="bi bi-eye"></i> View
+                                                </button>
+                                                <button type="button" class="btn tf-act" data-bs-toggle="modal"
+                                                    data-bs-target="#t1-edit" title="Edit task details">
+                                                    <i class="bi bi-pencil-square"></i> Edit
+                                                </button>
+                                                <button type="button" class="btn tf-act tf-act-danger"
+                                                    data-bs-toggle="modal" data-bs-target="#t1-delete"
+                                                    title="Delete assigned task">
+                                                    <i class="bi bi-trash3"></i> Delete
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Task 2: Unassigned -> View, Assign -->
+                                    <tr class="tf-row-unassigned">
+                                        <td>
+                                            <span class="fw-bold d-block text-dark">Design Checkout Flow</span>
+                                            <small class="text-muted">TASK-102 &bull; Customer Checkout UI</small>
+                                        </td>
+                                        <td>
+                                            <div class="tf-tech-stack-cell">
+                                                <span class="tf-domain-badge tf-domain-design"><i
+                                                        class="bi bi-palette"></i> UI/UX Design</span>
+                                                <div class="tf-subskills">
+                                                    <span class="tf-tag">Figma</span>
+                                                    <span class="tf-tag">Wireframing</span>
+                                                    <span class="tf-tag">Design System</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="tf-pill tf-pr-high"><span class="tf-dot"></span>High</span>
+                                        </td>
+                                        <td class="text-muted fw-semibold">5 days left</td>
+                                        <td><span class="tf-pill tf-st-todo"><span class="tf-dot"></span>To-Do</span>
+                                        </td>
+                                        <td><span class="tf-unassigned"><i class="bi bi-exclamation-circle-fill"></i>
+                                                Unassigned</span></td>
+                                        <td class="text-end">
+                                            <div class="tf-actions">
+                                                <button type="button" class="btn tf-act" data-bs-toggle="modal"
+                                                    data-bs-target="#t2-view" title="View specs">
+                                                    <i class="bi bi-eye"></i> View
+                                                </button>
+                                                <button type="button" class="btn tf-act tf-act-primary"
+                                                    data-bs-toggle="modal" data-bs-target="#t2-assign"
+                                                    title="Assign task to member">
+                                                    <i class="bi bi-person-check-fill"></i> Assign
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Task 3: Assigned -> View, Edit, Delete -->
+                                    <tr>
+                                        <td>
+                                            <span class="fw-bold d-block text-dark">Database Schema Migration</span>
+                                            <small class="text-muted">TASK-103 &bull; Database Architecture</small>
+                                        </td>
+                                        <td>
+                                            <div class="tf-tech-stack-cell">
+                                                <span class="tf-domain-badge tf-domain-database"><i
+                                                        class="bi bi-database"></i> Database</span>
+                                                <div class="tf-subskills">
+                                                    <span class="tf-tag">PostgreSQL</span>
+                                                    <span class="tf-tag">Supabase</span>
+                                                    <span class="tf-tag">RLS Security</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="tf-pill tf-pr-med"><span class="tf-dot"></span>Medium</span>
+                                        </td>
+                                        <td class="text-muted fw-semibold">7 days left</td>
+                                        <td><span class="tf-pill tf-st-review"><span class="tf-dot"></span>In
+                                                Review</span></td>
+                                        <td>
+                                            <span class="tf-assignee">
+                                                <span class="tf-avatar tf-avatar-sm tf-a5">DP</span>
+                                                Daniel Park
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="tf-actions">
+                                                <button type="button" class="btn tf-act" data-bs-toggle="modal"
+                                                    data-bs-target="#t3-view" title="View specs">
+                                                    <i class="bi bi-eye"></i> View
+                                                </button>
+                                                <button type="button" class="btn tf-act" data-bs-toggle="modal"
+                                                    data-bs-target="#t3-edit" title="Edit task details">
+                                                    <i class="bi bi-pencil-square"></i> Edit
+                                                </button>
+                                                <button type="button" class="btn tf-act tf-act-danger"
+                                                    data-bs-toggle="modal" data-bs-target="#t3-delete"
+                                                    title="Delete assigned task">
+                                                    <i class="bi bi-trash3"></i> Delete
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- =================================================================== -->
+                <!-- MODALS: TASK 1 (Build API Endpoints)                                -->
+                <!-- =================================================================== -->
+                <!-- View Modal -->
+                <div class="modal fade" id="t1-view" tabindex="-1" aria-labelledby="t1-view-title" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content tf-modal">
+                            <div class="modal-header">
+                                <div>
+                                    <p class="tf-modal-kicker">Task Reference &bull; TASK-101</p>
+                                    <h2 class="modal-title" id="t1-view-title">Build API Endpoints</h2>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="p-3 bg-light rounded border mb-3">
+                                    <h6 class="fw-bold mb-1 text-dark">Scope &amp; Acceptance Requirements</h6>
+                                    <p class="text-muted small mb-0 lh-base">
+                                        Implement secured REST endpoints for task creation, lifecycle progress, and
+                                        automated review submissions. All database queries must follow ACID guarantees
+                                        and enforce strict role validation.
+                                    </p>
+                                </div>
+                                <dl class="tf-facts">
+                                    <div>
+                                        <dt>Status</dt>
+                                        <dd><span class="tf-pill tf-st-progress"><span class="tf-dot"></span>In
+                                                Progress</span></dd>
+                                    </div>
+                                    <div>
+                                        <dt>Priority</dt>
+                                        <dd><span class="tf-pill tf-pr-high"><span class="tf-dot"></span>High</span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>Domain</dt>
+                                        <dd><span class="tf-domain-badge tf-domain-backend">Backend</span></dd>
+                                    </div>
+                                    <div>
+                                        <dt>Target Due</dt>
+                                        <dd>Oct 18, 2026</dd>
+                                    </div>
+                                </dl>
+                                <label class="tf-label">Current Owner</label>
+                                <div class="tf-static-member-card">
+                                    <div class="tf-static-member-left">
+                                        <span class="tf-avatar tf-avatar-lg tf-a1">MO</span>
+                                        <div>
+                                            <div class="tf-static-member-name">Maya Okafor</div>
+                                            <div class="tf-static-member-role">Full-Stack Lead &bull; Backend
+                                                Architecture</div>
+                                        </div>
+                                    </div>
+                                    <span class="tf-locked-badge"><i class="bi bi-shield-check text-primary"></i> Active
+                                        Owner</span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn tf-btn-ghost" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn tf-btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#t1-edit">
+                                    <i class="bi bi-pencil-square"></i> Edit Task
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="t1-edit" tabindex="-1" aria-labelledby="t1-edit-title" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content tf-modal">
+                            <form onsubmit="return false">
+                                <div class="modal-header">
+                                    <div>
+                                        <p class="tf-modal-kicker">Task Configuration &bull; TASK-101</p>
+                                        <h2 class="modal-title" id="t1-edit-title">Edit: Build API Endpoints</h2>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Audit Reason -->
+                                    <div class="tf-reason-box mb-4">
+                                        <label class="tf-label text-dark" for="t1-edit-reason-category">
+                                            <span><i class="bi bi-pen-fill text-warning me-1"></i> Reason for
+                                                Modification</span>
+                                            <span class="badge bg-warning text-dark">Required for Audit</span>
+                                        </label>
+                                        <div class="row g-2">
+                                            <div class="col-md-5">
+                                                <select class="form-select tf-input bg-white"
+                                                    id="t1-edit-reason-category" required>
+                                                    <option value="" disabled selected>Select reason...</option>
+                                                    <option value="scope">Scope Adjustment</option>
+                                                    <option value="schedule">Deadline Reschedule</option>
+                                                    <option value="skills">Updated Skill Requirements</option>
+                                                    <option value="priority">Priority Escalation</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control tf-input bg-white"
+                                                    placeholder="Provide context on why this task is being edited..."
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="tf-label" for="t1-edit-title-field">Task Title</label>
+                                        <input type="text" class="form-control tf-input" id="t1-edit-title-field"
+                                            value="Build API Endpoints" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="tf-label" for="t1-edit-desc">Task Description</label>
+                                        <textarea class="form-control tf-input" id="t1-edit-desc"
+                                            rows="3">Implement secured REST endpoints for user authentication, task status cycles, and review submissions with ACID compliance.</textarea>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-4">
+                                            <label class="tf-label" for="t1-edit-status">Status</label>
+                                            <select class="form-select tf-input" id="t1-edit-status">
+                                                <option value="todo">To-Do</option>
+                                                <option value="progress" selected>In Progress</option>
+                                                <option value="review">In Review</option>
+                                                <option value="done">Completed</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="tf-label" for="t1-edit-priority">Priority</label>
+                                            <select class="form-select tf-input" id="t1-edit-priority">
+                                                <option value="high" selected>High</option>
+                                                <option value="med">Medium</option>
+                                                <option value="low">Low</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="tf-label" for="t1-edit-due">Due Date</label>
+                                            <input type="date" class="form-control tf-input" id="t1-edit-due"
+                                                value="2026-10-18" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Related Skills -->
+                                    <div class="mb-4">
+                                        <label class="tf-label">
+                                            <span>Required Tech Skills (Backend Stack)</span>
+                                            <span class="text-muted fw-normal small">Toggle relevant stack skills</span>
+                                        </label>
+                                        <div class="tf-selectable-tags">
+                                            <input type="checkbox" class="btn-check" id="tag-node" checked>
+                                            <label class="tf-tag-checkbox" for="tag-node"><i class="bi bi-check2"></i>
+                                                Node.js</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-express" checked>
+                                            <label class="tf-tag-checkbox" for="tag-express"><i
+                                                    class="bi bi-check2"></i> Express</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-rest" checked>
+                                            <label class="tf-tag-checkbox" for="tag-rest"><i class="bi bi-check2"></i>
+                                                REST APIs</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-postgre" checked>
+                                            <label class="tf-tag-checkbox" for="tag-postgre"><i
+                                                    class="bi bi-check2"></i> PostgreSQL</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-jwt">
+                                            <label class="tf-tag-checkbox" for="tag-jwt"><i class="bi bi-plus"></i> JWT
+                                                Auth</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-redis">
+                                            <label class="tf-tag-checkbox" for="tag-redis"><i class="bi bi-plus"></i>
+                                                Redis Caching</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Locked Member -->
+                                    <div>
+                                        <label class="tf-label">
+                                            <span>Task Owner</span>
+                                            <span class="text-muted fw-normal small"><i class="bi bi-lock-fill"></i>
+                                                Name cannot be changed from this form</span>
+                                        </label>
+                                        <div class="tf-static-member-card">
+                                            <div class="tf-static-member-left">
+                                                <span class="tf-avatar tf-avatar-lg tf-a1">MO</span>
+                                                <div>
+                                                    <div class="tf-static-member-name">Maya Okafor</div>
+                                                    <div class="tf-static-member-role">Full-Stack Lead &bull; Backend
+                                                        Architecture</div>
+                                                </div>
+                                            </div>
+                                            <span class="tf-locked-badge"><i class="bi bi-lock-fill"></i> Read
+                                                Only</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn tf-btn-ghost"
+                                        data-bs-dismiss="modal">Discard</button>
+                                    <button type="submit" class="btn tf-btn-primary" data-bs-dismiss="modal">
+                                        <i class="bi bi-save2"></i> Save Changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete Modal -->
+                <div class="modal fade" id="t1-delete" tabindex="-1" aria-labelledby="t1-delete-title"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content tf-modal">
+                            <form onsubmit="return false">
+                                <div class="modal-header">
+                                    <div>
+                                        <p class="tf-modal-kicker tf-modal-kicker-danger">Confirm Deletion &bull;
+                                            TASK-101</p>
+                                        <h2 class="modal-title" id="t1-delete-title">Delete Assigned Task?</h2>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-muted small mb-3">
+                                        You are deleting <strong class="text-dark">"Build API Endpoints"</strong>
+                                        assigned to <strong class="text-dark">Maya Okafor</strong>. This will unbind
+                                        active branch tracking and sprint dependencies.
+                                    </p>
+                                    <!-- Audit Reason -->
+                                    <div class="tf-reason-box tf-reason-box-danger mb-3">
+                                        <label class="tf-label text-danger" for="t1-del-reason">
+                                            <span><i class="bi bi-exclamation-triangle-fill me-1"></i> Reason for
+                                                Deletion</span>
+                                            <span class="badge bg-danger">Required</span>
+                                        </label>
+                                        <select class="form-select tf-input bg-white mb-2" id="t1-del-reason" required>
+                                            <option value="" disabled selected>Select deletion reason...</option>
+                                            <option value="deprecated">Requirement Deprecated by Stakeholders</option>
+                                            <option value="duplicate">Duplicate Work Item</option>
+                                            <option value="restructured">Merged into New Sprint Epic</option>
+                                            <option value="blocked">Permanently Blocked</option>
+                                        </select>
+                                        <textarea class="form-control tf-input bg-white" rows="2"
+                                            placeholder="Document reason for team sprint review..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn tf-btn-ghost" data-bs-dismiss="modal">Keep
+                                        Task</button>
+                                    <button type="submit" class="btn tf-btn-danger" data-bs-dismiss="modal">
+                                        <i class="bi bi-trash3-fill"></i> Delete Task
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =================================================================== -->
+                <!-- MODALS: TASK 2 (Design Checkout Flow)                               -->
+                <!-- =================================================================== -->
+                <!-- View Modal -->
+                <div class="modal fade" id="t2-view" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content tf-modal">
+                            <div class="modal-header">
+                                <div>
+                                    <p class="tf-modal-kicker">Task Reference &bull; TASK-102</p>
+                                    <h2 class="modal-title">Design Checkout Flow</h2>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-muted small mb-3">Design all responsive states of cart review, delivery
+                                    addresses, voucher inputs, and checkout completion screens.</p>
+                                <dl class="tf-facts">
+                                    <div>
+                                        <dt>Status</dt>
+                                        <dd><span class="tf-pill tf-st-todo"><span class="tf-dot"></span>To-Do</span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>Domain</dt>
+                                        <dd><span class="tf-domain-badge tf-domain-design">UI/UX Design</span></dd>
+                                    </div>
+                                </dl>
+                                <div class="p-3 bg-light rounded border text-muted small"><i
+                                        class="bi bi-info-circle me-1"></i> This task is currently open and waiting for
+                                    assignment.</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn tf-btn-ghost" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn tf-btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#t2-assign"><i class="bi bi-person-check-fill"></i> Assign
+                                    Task</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assign Modal -->
+                <div class="modal fade" id="t2-assign" tabindex="-1" aria-labelledby="t2-assign-title"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content tf-modal">
+                            <form onsubmit="return false">
+                                <div class="modal-header">
+                                    <div>
+                                        <p class="tf-modal-kicker">Resource Assignment &bull; TASK-102</p>
+                                        <h2 class="modal-title" id="t2-assign-title">Assign: Design Checkout Flow</h2>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Fixed Assignee Card -->
+                                    <div class="mb-4">
+                                        <label class="tf-label">
+                                            <span>Designated Assignee</span>
+                                            <span class="text-muted fw-normal small"><i class="bi bi-lock-fill"></i>
+                                                Name is locked and cannot be changed</span>
+                                        </label>
+                                        <div class="tf-static-member-card">
+                                            <div class="tf-static-member-left">
+                                                <span class="tf-avatar tf-avatar-lg tf-a4">SR</span>
+                                                <div>
+                                                    <div class="tf-static-member-name">Sofia Reyes</div>
+                                                    <div class="tf-static-member-role">Product Designer &bull; UI/UX
+                                                        Team</div>
+                                                </div>
+                                            </div>
+                                            <span class="tf-locked-badge"><i class="bi bi-lock-fill"></i> Fixed
+                                                Assignee</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scope & Checklist -->
+                                    <div class="tf-content-box mb-3">
+                                        <h6 class="fw-bold mb-2 text-dark"><i
+                                                class="bi bi-card-checklist text-primary me-1"></i> Delivery Criteria
+                                            &amp; Acceptance Scope</h6>
+                                        <div class="row g-2">
+                                            <div class="col-sm-6">
+                                                <div class="form-check small">
+                                                    <input class="form-check-input" type="checkbox" id="t2-c1" checked>
+                                                    <label class="form-check-label text-muted" for="t2-c1">Mobile
+                                                        responsive Figma artboards (375px &amp; 1440px)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check small">
+                                                    <input class="form-check-input" type="checkbox" id="t2-c2" checked>
+                                                    <label class="form-check-label text-muted" for="t2-c2">Complete
+                                                        edge-case states (Empty Cart, Declined Payment)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check small">
+                                                    <input class="form-check-input" type="checkbox" id="t2-c3" checked>
+                                                    <label class="form-check-label text-muted" for="t2-c3">Interactive
+                                                        click-through prototype link</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check small">
+                                                    <input class="form-check-input" type="checkbox" id="t2-c4">
+                                                    <label class="form-check-label text-muted" for="t2-c4">Design System
+                                                        tokens handed off to Frontend team</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label for="assignMilestone" class="tf-label">Sprint Milestone Phase</label>
+                                            <select class="form-select tf-input" id="assignMilestone" required>
+                                                <option value="Sprint 3" selected>Sprint 3 - Customer Experience
+                                                    Overhaul</option>
+                                                <option value="Sprint 4">Sprint 4 - Payment Gateway Integration</option>
+                                                <option value="Q4">Q4 Production Release</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="assignHours" class="tf-label">Estimated Effort (Hours)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-light text-muted border-end-0"><i
+                                                        class="bi bi-clock"></i></span>
+                                                <input type="number" class="form-control tf-input border-start-0"
+                                                    id="assignHours" value="20" min="1" max="160" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label for="assignReviewer" class="tf-label">Lead Reviewer</label>
+                                            <select class="form-select tf-input" id="assignReviewer">
+                                                <option selected>Maya Okafor (Lead Engineer)</option>
+                                                <option>Arya Kagathara (Product Director)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="assignFigmaLink" class="tf-label">Figma / Spec URL</label>
+                                            <input type="text" class="form-control tf-input" id="assignFigmaLink"
+                                                value="figma.com/file/checkout-v2-wireframes">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="assignInstructions" class="tf-label">Handover Instructions &amp;
+                                            Briefing Notes</label>
+                                        <textarea class="form-control tf-input" id="assignInstructions" rows="2"
+                                            placeholder="Specify user research findings, checkout speed requirements, or accessibility standards..."></textarea>
+                                    </div>
+
+                                    <div class="form-check form-switch pt-1">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="notifyMemberCheck" checked>
+                                        <label class="form-check-label small fw-semibold text-muted"
+                                            for="notifyMemberCheck">
+                                            Send priority briefing notification and schedule calendar block for Sofia
+                                            Reyes
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn tf-btn-ghost"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn tf-btn-primary" data-bs-dismiss="modal">
+                                        <i class="bi bi-check2-circle"></i> Confirm Assignment
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =================================================================== -->
+                <!-- MODALS: TASK 3 (Database Schema Migration)                          -->
+                <!-- =================================================================== -->
+                <!-- View Modal -->
+                <div class="modal fade" id="t3-view" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content tf-modal">
+                            <div class="modal-header">
+                                <div>
+                                    <p class="tf-modal-kicker">Task Reference &bull; TASK-103</p>
+                                    <h2 class="modal-title">Database Schema Migration</h2>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-muted small mb-3">Normalized relational schemas, row policies, and
+                                    trigger procedures for project teams.</p>
+                                <div class="tf-static-member-card">
+                                    <div class="tf-static-member-left">
+                                        <span class="tf-avatar tf-avatar-lg tf-a5">DP</span>
+                                        <div>
+                                            <div class="tf-static-member-name">Daniel Park</div>
+                                            <div class="tf-static-member-role">Database Architect</div>
+                                        </div>
+                                    </div>
+                                    <span class="tf-locked-badge"><i class="bi bi-shield-check text-primary"></i>
+                                        Assigned</span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn tf-btn-ghost" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn tf-btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#t3-edit"><i class="bi bi-pencil-square"></i> Edit Task</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="t3-edit" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content tf-modal">
+                            <form onsubmit="return false">
+                                <div class="modal-header">
+                                    <div>
+                                        <p class="tf-modal-kicker">Task Configuration &bull; TASK-103</p>
+                                        <h2 class="modal-title">Edit: Database Schema Migration</h2>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Audit Reason -->
+                                    <div class="tf-reason-box mb-4">
+                                        <label class="tf-label text-dark" for="t3-edit-reason-category">
+                                            <span><i class="bi bi-pen-fill text-warning me-1"></i> Reason for
+                                                Modification</span>
+                                            <span class="badge bg-warning text-dark">Required for Audit</span>
+                                        </label>
+                                        <div class="row g-2 mb-2">
+                                            <div class="col-md-5">
+                                                <select class="form-select tf-input bg-white"
+                                                    id="t3-edit-reason-category" required>
+                                                    <option value="" disabled selected>Select change reason...</option>
+                                                    <option value="schema_drift">Schema Drift Resolution</option>
+                                                    <option value="schedule">Deadline Reschedule</option>
+                                                    <option value="policy_update">Security Policy Update</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control tf-input bg-white"
+                                                    placeholder="Why is this schema task being altered?" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="tf-label" for="t3-title-input">Task Title</label>
+                                        <input type="text" class="form-control tf-input" id="t3-title-input"
+                                            value="Database Schema Migration" required>
+                                    </div>
+
+                                    <!-- Related Database Skills -->
+                                    <div class="mb-4">
+                                        <label class="tf-label">Required Tech Skills (Database Stack)</label>
+                                        <div class="tf-selectable-tags">
+                                            <input type="checkbox" class="btn-check" id="tag-postgres" checked>
+                                            <label class="tf-tag-checkbox" for="tag-postgres"><i
+                                                    class="bi bi-check2"></i> PostgreSQL</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-supabase" checked>
+                                            <label class="tf-tag-checkbox" for="tag-supabase"><i
+                                                    class="bi bi-check2"></i> Supabase</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-rls" checked>
+                                            <label class="tf-tag-checkbox" for="tag-rls"><i class="bi bi-check2"></i>
+                                                RLS Policies</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-mysql">
+                                            <label class="tf-tag-checkbox" for="tag-mysql"><i class="bi bi-plus"></i>
+                                                MySQL</label>
+
+                                            <input type="checkbox" class="btn-check" id="tag-prisma">
+                                            <label class="tf-tag-checkbox" for="tag-prisma"><i class="bi bi-plus"></i>
+                                                Prisma ORM</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Locked Member -->
+                                    <div>
+                                        <label class="tf-label"><span>Assigned Member</span><span
+                                                class="text-muted fw-normal small"><i class="bi bi-lock-fill"></i> Name
+                                                cannot be changed</span></label>
+                                        <div class="tf-static-member-card">
+                                            <div class="tf-static-member-left">
+                                                <span class="tf-avatar tf-avatar-lg tf-a5">DP</span>
+                                                <div>
+                                                    <div class="tf-static-member-name">Daniel Park</div>
+                                                    <div class="tf-static-member-role">Database Architect</div>
+                                                </div>
+                                            </div>
+                                            <span class="tf-locked-badge"><i class="bi bi-lock-fill"></i> Read
+                                                Only</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn tf-btn-ghost"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn tf-btn-primary" data-bs-dismiss="modal"><i
+                                            class="bi bi-save2"></i> Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete Modal -->
+                <div class="modal fade" id="t3-delete" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content tf-modal">
+                            <form onsubmit="return false">
+                                <div class="modal-header">
+                                    <div>
+                                        <p class="tf-modal-kicker tf-modal-kicker-danger">Confirm Deletion &bull;
+                                            TASK-103</p>
+                                        <h2 class="modal-title">Delete Database Task?</h2>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-muted small mb-3">Deleting this task will unassign <strong>Daniel
+                                            Park</strong> and discard associated migration scripts.</p>
+                                    <!-- Audit Reason -->
+                                    <div class="tf-reason-box tf-reason-box-danger mb-3">
+                                        <label class="tf-label text-danger" for="t3-del-reason">
+                                            <span><i class="bi bi-exclamation-triangle-fill me-1"></i> Reason for
+                                                Deletion</span>
+                                            <span class="badge bg-danger">Required</span>
+                                        </label>
+                                        <select class="form-select tf-input bg-white mb-2" id="t3-del-reason" required>
+                                            <option value="" disabled selected>Select deletion reason...</option>
+                                            <option value="redundant">Migrations Consolidated in Root Script</option>
+                                            <option value="obsolete">Target Table Deprecated</option>
+                                        </select>
+                                        <textarea class="form-control tf-input bg-white" rows="2"
+                                            placeholder="Enter reason details..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn tf-btn-ghost"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn tf-btn-danger" data-bs-dismiss="modal"><i
+                                            class="bi bi-trash3-fill"></i> Delete Task</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -394,7 +394,7 @@ pure CSS filtering) */
     height: 9px;
     border-radius: 50%;
 }
-.k-active, .tf-presence {
+.k-active {
     background: var(--tf-teal);
 }
 .k-idle {
@@ -411,16 +411,7 @@ pure CSS filtering) */
     height: 44px;
     font-size: .82rem;
 }
-.tf-presence {
-    position: absolute;
-    right: -1px;
-    bottom: -1px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid var(--tf-surface);
-}
-.tf-mrow:has(.status-sel option[value="Idle"]:checked) .tf-presence {
+.tf-mrow:has(.status-sel option[value="Idle"]:checked){
     background: #94a3b8;
 }
 .tf-mrow:has(.status-sel option[value="Idle"]:checked) .tf-mavatar {
@@ -578,10 +569,10 @@ pure CSS filtering) */
     {
     background: #dc2626;
 }
-.tf-mrow:has(.status-sel option[value="On leave"]:checked) .tf-presence {
+.tf-mrow:has(.status-sel option[value="On leave"]:checked) {
     background: #eab308;
 }
-.tf-mrow:has(.status-sel option[value="Suspended"]:checked) .tf-presence {
+.tf-mrow:has(.status-sel option[value="Suspended"]:checked) {
     background: #dc2626;
 }
 .tf-mrow:has(.status-sel option[value="On leave"]:checked) .tf-mavatar,

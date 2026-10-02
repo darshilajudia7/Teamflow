@@ -56,12 +56,19 @@ main {
     padding: 1.5rem;
     height: 100%;
 }
+
 .tf-card-title {
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: -.01em;
     margin: 0;
 }
+
+.tf-link{
+    color:var(--tf-ink);
+    text-decoration: none;
+}
+
 .tf-sub {
     color: var(--tf-muted);
     font-size: .85rem;
