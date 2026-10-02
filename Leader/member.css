@@ -1,0 +1,591 @@
+:root {
+    --tf-primary: #4f46e5;
+    --tf-primary-dark: #3730a3;
+    --tf-primary-soft: #eef2ff;
+    --tf-primary-soft-hover: #e0e7ff;
+    --tf-primary-border: #dbeafe;
+    --tf-primary-border-hover: #c7d2fe;
+    --tf-cyan: #06b6d4;
+    --tf-teal: #0d9488;
+    --tf-amber: #eab308;
+
+    --tf-bg: #f8fafc;
+    --tf-surface: #ffffff;
+    --tf-ink: #0f172a;
+    --tf-muted: #64748b;
+    --tf-line: #e2e8f0;
+    --tf-line-dashed: #cbd5e1;
+    --tf-line-dashed-hover: #94a3b8;
+
+    --tf-radius-md: 0.5rem;
+    --tf-radius-lg: 1rem;
+    --tf-radius-xl: 1.5rem;
+    --tf-radius-pill: 9999px;
+
+    --tf-shadow-sm: 0 4px 10px rgba(79, 70, 229, 0.1);
+    --tf-shadow-card: 0 8px 18px rgba(15, 23, 42, 0.05);
+    --tf-shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+    --tf-shadow-cta: 0 20px 40px rgba(79, 70, 229, 0.25);
+    --tf-shadow-btn: 0 10px 24px rgba(15, 23, 42, 0.2);
+
+    --tf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --tf-transition-fast: 0.25s var(--tf-ease);
+    --tf-transition-base: 0.3s var(--tf-ease);
+    --tf-transition-slow: 0.35s var(--tf-ease);
+}
+
+/* admin-members.css — Members & Skills (needs root.css;
+pure CSS filtering) */
+.tf-main {
+    padding: 1.5rem;
+}
+@media (min-width: 1200px) {
+    .tf-main {
+        padding: 2rem;
+    }
+}
+.tf-card {
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-xl);
+    box-shadow: var(--tf-shadow-card);
+}
+.tf-sub {
+    color: var(--tf-muted);
+    font-size: .82rem;
+}
+
+/* Search */
+.tf-search {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+}
+.tf-search i {
+    position: absolute;
+    left: .95rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--tf-muted);
+    pointer-events: none;
+}
+.tf-search .form-control {
+    padding: .7rem 1rem .7rem 2.7rem;
+    border: 1px dashed var(--tf-line-dashed);
+    border-radius: var(--tf-radius-lg);
+    background: var(--tf-surface);
+    font-size: .9rem;
+    transition: var(--tf-transition-fast);
+}
+.tf-search .form-control:hover {
+    border-color: var(--tf-line-dashed-hover);
+}
+.tf-search .form-control:focus {
+    border-style: solid;
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 .25rem rgba(79,70,229,.15);
+}
+
+/* Skill filter chips */
+.tf-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+.tf-fr {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.tf-fr + label {
+    cursor: pointer;
+    user-select: none;
+    padding: .45rem 1rem;
+    background: var(--tf-surface);
+    color: var(--tf-muted);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-pill);
+    font-weight: 600;
+    font-size: .85rem;
+    transition: var(--tf-transition-fast);
+}
+.tf-fr + label:hover {
+    border-color: var(--tf-primary-border-hover);
+    color: var(--tf-primary);
+    background: var(--tf-primary-soft);
+}
+.tf-fr:checked + label {
+    background: var(--tf-primary);
+    border-color: var(--tf-primary-dark);
+    color: #fff;
+    box-shadow: var(--tf-shadow-sm);
+}
+.tf-fr:focus-visible + label {
+    outline: 3px solid var(--tf-primary-border-hover);
+    outline-offset: 2px;
+}
+
+/* Row filtering with :has() */
+.tf-members-page:has(#f-react:checked) .tf-mrow:not([data-skills~="react"]),
+.tf-members-page:has(#f-node:checked) .tf-mrow:not([data-skills~="node"]),
+.tf-members-page:has(#f-python:checked) .tf-mrow:not([data-skills~="python"]),
+.tf-members-page:has(#f-uiux:checked) .tf-mrow:not([data-skills~="uiux"]),
+.tf-members-page:has(#f-figma:checked) .tf-mrow:not([data-skills~="figma"]),
+.tf-members-page:has(#f-ts:checked) .tf-mrow:not([data-skills~="ts"]) {
+    display: none;
+}
+
+/* Table */
+.tf-table {
+    --bs-table-bg: transparent;
+    margin: 0;
+}
+.tf-table thead th {
+    background: var(--tf-bg);
+    color: var(--tf-muted);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: .9rem 1.25rem;
+    border-bottom: 1px solid var(--tf-line);
+    white-space: nowrap;
+}
+.tf-table tbody td {
+    padding: .9rem 1.25rem;
+    border-bottom: 1px solid var(--tf-line);
+}
+.tf-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+.tf-table tbody tr {
+    transition: var(--tf-transition-fast);
+}
+.tf-table tbody tr:hover {
+    background: var(--tf-bg);
+}
+.tf-mavatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex: none;
+    display: grid;
+    place-items: center;
+    font-size: .78rem;
+    font-weight: 800;
+    background: var(--s);
+    color: var(--c);
+    border: 1px solid var(--c);
+}
+.tf-skill {
+    display: inline-flex;
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border: 1px solid var(--tf-primary-border);
+    font-size: .78rem;
+    font-weight: 700;
+    padding: .25rem .75rem;
+    border-radius: var(--tf-radius-pill);
+    white-space: nowrap;
+}
+
+/* Role / status pill selects */
+.tf-pillsel {
+    width: auto;
+    min-width: 118px;
+    font-size: .82rem;
+    font-weight: 700;
+    padding: .35rem 2rem .35rem .85rem;
+    border-radius: var(--tf-radius-pill);
+    cursor: pointer;
+    transition: var(--tf-transition-fast);
+    background-color: var(--tf-surface);
+    color: var(--tf-ink);
+}
+.tf-pillsel:focus, .tf-input:focus {
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 .25rem rgba(79,70,229,.15);
+}
+.role-sel:has(option[value="Leader"]:checked) {
+    background-color: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border-color: var(--tf-primary-border-hover);
+}
+.status-sel:has(option[value="Active"]:checked) {
+    background-color: #f0fdfa;
+    color: var(--tf-teal);
+    border-color: #99f6e4;
+}
+.status-sel:has(option[value="Idle"]:checked) {
+    background-color: #f1f5f9;
+    color: var(--tf-muted);
+    border-color: var(--tf-line-dashed);
+}
+.tf-input {
+    border-radius: var(--tf-radius-md);
+    border-color: var(--tf-line);
+}
+
+/* Buttons */
+.btn-tf, .btn-dashed {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .6rem 1.2rem;
+    font-weight: 600;
+    font-size: .88rem;
+    border-radius: var(--tf-radius-pill);
+    transition: var(--tf-transition-fast);
+    white-space: nowrap;
+}
+.btn-tf {
+    background: var(--tf-primary);
+    color: #fff;
+    border: 0;
+}
+.btn-tf:hover {
+    background: var(--tf-primary-dark);
+    color: #fff;
+    box-shadow: var(--tf-shadow-cta);
+    transform: translateY(-1px);
+}
+.btn-tf.soft {
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+}
+.btn-tf.soft:hover {
+    background: var(--tf-primary-soft-hover);
+    box-shadow: none;
+    color: var(--tf-primary-dark);
+}
+.btn-dashed {
+    background: var(--tf-surface);
+    color: var(--tf-primary-dark);
+    border: 1px dashed var(--tf-line-dashed);
+}
+.btn-dashed:hover {
+    border-style: solid;
+    border-color: var(--tf-primary);
+    background: var(--tf-primary-soft);
+}
+.btn-tf i, .btn-dashed i {
+    font-size: 1.15rem;
+}
+
+/* Modals */
+.tf-modal .modal-content {
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-xl);
+    box-shadow: var(--tf-shadow-hover);
+}
+.tf-modal .modal-header, .tf-modal .modal-footer {
+    border-color: var(--tf-line);
+    padding: 1.1rem 1.5rem;
+}
+.tf-modal .modal-body {
+    padding: 1.5rem;
+}
+
+/* Design polish */
+.tf-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin: 0;
+}
+
+/* Summary strip */
+.tf-mini {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-xl);
+    box-shadow: var(--tf-shadow-card);
+    transition: var(--tf-transition-base);
+}
+.tf-mini:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--tf-shadow-hover);
+}
+.tf-mini-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--tf-radius-lg);
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    flex: none;
+}
+.tf-mini-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.03em;
+    margin-bottom: .2rem;
+}
+.i-primary {
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary);
+}
+.i-teal {
+    background: #f0fdfa;
+    color: var(--tf-teal);
+}
+.i-amber {
+    background: #fefce8;
+    color: #a16207;
+}
+.i-slate {
+    background: #f1f5f9;
+    color: var(--tf-muted);
+}
+
+/* Toolbar card */
+.tf-toolbar {
+    padding: .85rem 1rem;
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-xl);
+    box-shadow: var(--tf-shadow-card);
+}
+.tf-toolbar .tf-search .form-control {
+    border-style: solid;
+    border-color: var(--tf-line);
+    background: var(--tf-bg);
+}
+.tf-toolbar .tf-search .form-control:focus {
+    background: var(--tf-surface);
+    border-color: var(--tf-primary);
+}
+.tf-toolbar .tf-fr + label {
+    background: var(--tf-bg);
+}
+.tf-toolbar .tf-fr:checked + label {
+    background: var(--tf-primary);
+}
+
+/* Card header + legend */
+.tf-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--tf-line);
+}
+.tf-key {
+    display: flex;
+    gap: 1rem;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--tf-muted);
+}
+.tf-key span {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+}
+.tf-key i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+.k-active, .tf-presence {
+    background: var(--tf-teal);
+}
+.k-idle {
+    background: #94a3b8;
+}
+
+/* Avatar with presence dot (follows the Status select) */
+.tf-avwrap {
+    position: relative;
+    flex: none;
+}
+.tf-mavatar {
+    width: 44px;
+    height: 44px;
+    font-size: .82rem;
+}
+.tf-presence {
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--tf-surface);
+}
+.tf-mrow:has(.status-sel option[value="Idle"]:checked) .tf-presence {
+    background: #94a3b8;
+}
+.tf-mrow:has(.status-sel option[value="Idle"]:checked) .tf-mavatar {
+    filter: grayscale(.6);
+    opacity: .8;
+}
+
+/* Skill chip colors by area */
+.tf-skill.sk-fe {
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border-color: var(--tf-primary-border-hover);
+}
+.tf-skill.sk-be {
+    background: #ecfeff;
+    color: #0e7490;
+    border-color: #a5f3fc;
+}
+.tf-skill.sk-ds {
+    background: #fefce8;
+    color: #854d0e;
+    border-color: #fde68a;
+}
+
+/* Table refinements */
+.tf-table thead th {
+    text-transform: uppercase;
+    font-size: .7rem;
+    letter-spacing: .06em;
+}
+.tf-table tbody td {
+    padding: 1rem 1.5rem;
+}
+.tf-table thead th:first-child {
+    padding-left: 1.5rem;
+}
+.tf-table tbody tr:hover {
+    background: var(--tf-primary-soft);
+}
+.tf-table tbody tr:hover .tf-pillsel {
+    border-color: var(--tf-primary-border-hover);
+}
+
+/* Action bar */
+.tf-actionbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    padding: 1rem 1.25rem;
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-xl);
+    box-shadow: var(--tf-shadow-card);
+}
+@media (max-width: 575.98px) {
+    .tf-actionbar .ms-auto
+    {
+    margin-left: 0 !important;
+    width: 100%;
+    justify-content: center;
+}
+}
+
+/* Roles (limited-time leadership) & statuses */
+.tf-pillsel {
+    min-width: 130px;
+}
+.role-sel:has(option[value="leader-1"]:checked) {
+    background-color: var(--tf-primary);
+    color: #fff;
+    border-color: var(--tf-primary-dark);
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.role-sel:has(option[value="leader-2"]:checked) {
+    background-color: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+    border-color: var(--tf-primary-border-hover);
+}
+.role-sel:has(option[value="leader-3"]:checked) {
+    background-color: #ecfeff;
+    color: #0e7490;
+    border-color: #a5f3fc;
+}
+.role-sel optgroup {
+    font-size: .75rem;
+    color: var(--tf-muted);
+    font-style: normal;
+}
+.role-sel option {
+    color: var(--tf-ink);
+    background: #fff;
+}
+
+/* Term picker: only visible when a leader rank is selected */
+.term-wrap, .term-field {
+    display: none;
+}
+.tf-mrow:has(.role-sel option[value^="leader"]:checked) .term-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-top: .55rem;
+}
+.tf-role-form:has(option[value^="leader"]:checked) .term-field {
+    display: block;
+}
+.term-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .7rem;
+    font-weight: 700;
+    color: #854d0e;
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    padding: .2rem .55rem;
+    border-radius: var(--tf-radius-pill);
+    white-space: nowrap;
+}
+.term-tag i {
+    font-size: .9rem;
+}
+.tf-termsel {
+    width: auto;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .2rem 1.75rem .2rem .6rem;
+    border: 1px dashed var(--tf-line-dashed);
+    border-radius: var(--tf-radius-pill);
+    background-color: var(--tf-surface);
+    color: var(--tf-muted);
+    cursor: pointer;
+}
+.tf-termsel:focus {
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 .25rem rgba(79,70,229,.15);
+}
+
+/* Extra statuses */
+.status-sel:has(option[value="On leave"]:checked) {
+    background-color: #fefce8;
+    color: #854d0e;
+    border-color: #fde68a;
+}
+.status-sel:has(option[value="Suspended"]:checked) {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+.k-leave {
+    background: #eab308;
+} .k-susp
+    {
+    background: #dc2626;
+}
+.tf-mrow:has(.status-sel option[value="On leave"]:checked) .tf-presence {
+    background: #eab308;
+}
+.tf-mrow:has(.status-sel option[value="Suspended"]:checked) .tf-presence {
+    background: #dc2626;
+}
+.tf-mrow:has(.status-sel option[value="On leave"]:checked) .tf-mavatar,
+.tf-mrow:has(.status-sel option[value="Suspended"]:checked) .tf-mavatar {
+    filter: grayscale(.6);
+    opacity: .8;
+}

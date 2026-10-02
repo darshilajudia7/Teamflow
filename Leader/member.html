@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Profile · Group Task Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="member.css" rel="stylesheet">
+    <link href="slider.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="tf-shell">
+
+        <!-- Sidebar -->
+        <aside class="offcanvas-lg offcanvas-start tf-sidebar" tabindex="-1" id="sidebar" aria-label="Admin navigation">
+            <div class="offcanvas-body">
+                <a href="#" class="tf-side-brand">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span>
+                        <span class="tf-brand d-block">Lumen Team</span>
+                        <span class="tf-brand-sub">Admin workspace</span>
+                    </span>
+                </a>
+                <hr class="tf-side-divider">
+
+                <div class="tf-group dropdown">
+                    <button class="tf-group-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bx bx-group"></i>My Group
+                        <i class="bx bx-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">My Group</a></li>
+                        <li><a class="dropdown-item" href="#">Design Team</a></li>
+                        <li><a class="dropdown-item" href="#">Backend Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="tf-side-label">Manage</div>
+
+                <nav class="tf-side-nav">
+                    <a class="tf-side-link" href="dashboard.html" aria-current="page">
+                        <i class="bx bx-grid-alt"></i>Dashboard
+                    </a>
+                    <a class="tf-side-link active" href="#">
+                        <i class="bx bx-group"></i>Members &amp; Skills
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-task"></i>Task Builder
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-file-find"></i>Reviews
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-bar-chart-alt-2"></i>Analytics
+                    </a>
+                </nav>
+
+                <div class="tf-side-user">
+                    <span class="tf-avatar">A</span>
+                    <div>
+                        <div class="name">Aarav</div>
+                        <div class="role">Group admin</div>
+                    </div>
+                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                        <i class="bx bx-log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="tf-content">
+
+            <header class="tf-topbar">
+                <button class="tf-menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Open menu">
+                    <i class="bx bx-menu"></i></button>
+                <div>
+                    <h1>Dashboard</h1>
+                    <div class="sub">Overview of My Group</div>
+                </div>
+                <a href="#" class="btn-export ms-auto">
+                    <i class="bx bx-export"></i>Export
+                </a>
+                <span class="tf-avatar">A</span>
+            </header>
+
+            <!-- Main Section -->
+            <main class="tf-main">
+                <div class="tf-members-page">
+                    <!-- Summary strip -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-mini">
+                                <span class="tf-mini-icon i-primary">
+                                    <i class="bx bx-group"></i>
+                                </span>
+                                <div>
+                                    <div class="tf-mini-value">6</div>
+                                    <div class="tf-sub">Total members</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-mini">
+                                <span class="tf-mini-icon i-teal">
+                                    <i class="bx bx-pulse"></i>
+                                </span>
+                                <div>
+                                    <div class="tf-mini-value">5</div>
+                                    <div class="tf-sub">Active now</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-mini">
+                                <span class="tf-mini-icon i-amber">
+                                    <i class="bx bx-crown"></i>
+                                </span>
+                                <div>
+                                    <div class="tf-mini-value">2</div>
+                                    <div class="tf-sub">Leadership roles</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-mini">
+                                <span class="tf-mini-icon i-slate">
+                                    <i class="bx bx-moon"></i>
+                                </span>
+                                <div>
+                                    <div class="tf-mini-value">1</div>
+                                    <div class="tf-sub">Idle</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter & Search Toolbar -->
+                    <div class="tf-toolbar d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                        <form class="tf-search" role="search" method="get" action="#">
+                            <i class="bx bx-search"></i>
+                            <input type="search" name="q" class="form-control" placeholder="Search members..."
+                                aria-label="Search members">
+                        </form>
+                        <div class="tf-filters" role="radiogroup" aria-label="Filter by skill">
+                            <input type="radio" name="skill" id="f-all" class="tf-fr" checked>
+
+                            <label for="f-all">All</label>
+                            <input type="radio" name="skill" id="f-react" class="tf-fr">
+
+                            <label for="f-react">React</label>
+                            <input type="radio" name="skill" id="f-node" class="tf-fr">
+
+                            <label for="f-node">Node.js</label>
+                            <input type="radio" name="skill" id="f-python" class="tf-fr">
+
+                            <label for="f-python">Python</label>
+                            <input type="radio" name="skill" id="f-uiux" class="tf-fr">
+
+                            <label for="f-uiux">UI/UX</label>
+                            <input type="radio" name="skill" id="f-figma" class="tf-fr">
+
+                            <label for="f-figma">Figma</label>
+                            <input type="radio" name="skill" id="f-ts" class="tf-fr">
+
+                            <label for="f-ts">TypeScript</label>
+                        </div>
+                    </div>
+
+                    <!-- Members Table -->
+                    <form id="membersForm" method="post" action="#">
+                        <section class="tf-card p-0 overflow-hidden" aria-label="Group members">
+                            <div class="tf-card-head">
+                                <div>
+                                    <h2 class="tf-card-title">Group members</h2>
+                                    <div class="tf-sub">Assign member access, hierarchical leadership, and term duration
+                                    </div>
+                                </div>
+                                <div class="tf-key">
+                                    <span><i class="k-active"></i>Active</span>
+                                    <span><i class="k-idle"></i>Idle</span>
+                                    <span><i class="k-leave"></i>On leave</span>
+                                    <span><i class="k-susp"></i>Suspended</span>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table tf-table align-middle mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Member</th>
+                                            <th scope="col">Skills</th>
+                                            <th scope="col">Role &amp; Duration</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Row 1: Maya Okafor -->
+                                        <tr class="tf-mrow" data-skills="react node">
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="tf-avwrap">
+                                                        <span class="tf-mavatar"
+                                                            style="--c:#4f46e5;--s:#eef2ff">MO</span>
+                                                        <span class="tf-presence"></span>
+                                                    </span>
+                                                    <div>
+                                                        <div class="fw-semibold">Maya Okafor</div>
+                                                        <div class="tf-sub">maya.okafor@lumen.team</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="tf-skill sk-fe">React</span>
+                                                    <span class="tf-skill sk-be">Node.js</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel role-sel" name="role-MO"
+                                                    aria-label="Role for Maya Okafor">
+                                                    <optgroup label="Permanent / Base Roles">
+                                                        <option value="member">Member</option>
+                                                        <option value="senior-member">Senior Member</option>
+                                                        <option value="guest">Guest / Viewer</option>
+                                                    </optgroup>
+                                                    <optgroup label="Leadership Hierarchy">
+                                                        <option value="leader-1">1st Leader (Team Lead)</option>
+                                                        <option value="leader-2" selected>2nd Leader (Co-Lead)</option>
+                                                        <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                                    </optgroup>
+                                                    <optgroup label="External / Project">
+                                                        <option value="contractor">External Contractor</option>
+                                                        <option value="intern">Intern / Trainee</option>
+                                                    </optgroup>
+                                                </select>
+                                                <div class="term-wrap">
+                                                    <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
+                                                    <select class="form-select tf-termsel" name="term-MO"
+                                                        aria-label="Role duration for Maya Okafor">
+                                                        <option value="permanent">Permanent</option>
+                                                        <option value="1w">1 week</option>
+                                                        <option value="2w">2 weeks</option>
+                                                        <option value="1m" selected>1 month</option>
+                                                        <option value="quarter">1 quarter</option>
+                                                        <option value="sprint">Until sprint ends</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel status-sel" name="status-MO"
+                                                    aria-label="Status for Maya Okafor">
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Idle">Idle</option>
+                                                    <option value="On leave">On leave</option>
+                                                    <option value="Suspended">Suspended</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 2: Liam Novak -->
+                                        <tr class="tf-mrow" data-skills="python">
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="tf-avwrap">
+                                                        <span class="tf-mavatar"
+                                                            style="--c:#0891b2;--s:#ecfeff">LN</span>
+                                                        <span class="tf-presence"></span></span>
+                                                    <div>
+                                                        <div class="fw-semibold">Liam Novak</div>
+                                                        <div class="tf-sub">liam.novak@lumen.team</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="tf-skill sk-be">Python</span>
+                                                    <span class="tf-skill sk-be">Django</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel role-sel" name="role-LN"
+                                                    aria-label="Role for Liam Novak">
+                                                    <optgroup label="Permanent / Base Roles">
+                                                        <option value="member" selected>Member</option>
+                                                        <option value="senior-member">Senior Member</option>
+                                                        <option value="guest">Guest / Viewer</option>
+                                                    </optgroup>
+                                                    <optgroup label="Leadership Hierarchy">
+                                                        <option value="leader-1">1st Leader (Team Lead)</option>
+                                                        <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                                        <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                                    </optgroup>
+                                                    <optgroup label="External / Project">
+                                                        <option value="contractor">External Contractor</option>
+                                                        <option value="intern">Intern / Trainee</option>
+                                                    </optgroup>
+                                                </select>
+                                                <div class="term-wrap">
+                                                    <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
+                                                    <select class="form-select tf-termsel" name="term-LN"
+                                                        aria-label="Role duration for Liam Novak">
+                                                        <option value="permanent">Permanent</option>
+                                                        <option value="1w">1 week</option>
+                                                        <option value="2w" selected>2 weeks</option>
+                                                        <option value="1m">1 month</option>
+                                                        <option value="quarter">1 quarter</option>
+                                                        <option value="sprint">Until sprint ends</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel status-sel" name="status-LN"
+                                                    aria-label="Status for Liam Novak">
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Idle">Idle</option>
+                                                    <option value="On leave">On leave</option>
+                                                    <option value="Suspended">Suspended</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 3 -->
+                                        <tr class="tf-mrow" data-skills="uiux figma">
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="tf-avwrap">
+                                                        <span class="tf-mavatar"
+                                                            style="--c:#a16207;--s:#fefce8">SR</span>
+                                                        <span class="tf-presence"></span>
+                                                    </span>
+                                                    <div>
+                                                        <div class="fw-semibold">Sofia Reyes</div>
+                                                        <div class="tf-sub">sofia.reyes@lumen.team</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="tf-skill sk-ds">UI/UX</span>
+                                                    <span class="tf-skill sk-ds">Figma</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel role-sel" name="role-SR"
+                                                    aria-label="Role for Sofia Reyes">
+                                                    <optgroup label="Permanent / Base Roles">
+                                                        <option value="member" selected>Member</option>
+                                                        <option value="senior-member">Senior Member</option>
+                                                        <option value="guest">Guest / Viewer</option>
+                                                    </optgroup>
+                                                    <optgroup label="Leadership Hierarchy">
+                                                        <option value="leader-1">1st Leader (Team Lead)</option>
+                                                        <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                                        <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                                    </optgroup>
+                                                    <optgroup label="External / Project">
+                                                        <option value="contractor">External Contractor</option>
+                                                        <option value="intern">Intern / Trainee</option>
+                                                    </optgroup>
+                                                </select>
+                                                <div class="term-wrap">
+                                                    <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
+                                                    <select class="form-select tf-termsel" name="term-SR"
+                                                        aria-label="Role duration for Sofia Reyes">
+                                                        <option value="permanent">Permanent</option>
+                                                        <option value="1w">1 week</option>
+                                                        <option value="2w" selected>2 weeks</option>
+                                                        <option value="1m">1 month</option>
+                                                        <option value="quarter">1 quarter</option>
+                                                        <option value="sprint">Until sprint ends</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel status-sel" name="status-SR"
+                                                    aria-label="Status for Sofia Reyes">
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Idle">Idle</option>
+                                                    <option value="On leave">On leave</option>
+                                                    <option value="Suspended">Suspended</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 4: Noah Kim -->
+                                        <tr class="tf-mrow" data-skills="ts">
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="tf-avwrap">
+                                                        <span class="tf-mavatar"
+                                                            style="--c:#3730a3;--s:#e0e7ff">NK</span>
+                                                        <span class="tf-presence"></span>
+                                                    </span>
+                                                    <div>
+                                                        <div class="fw-semibold">Noah Kim</div>
+                                                        <div class="tf-sub">noah.kim@lumen.team</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="tf-skill sk-fe">TypeScript</span>
+                                                    <span class="tf-skill sk-fe">Next.js</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel role-sel" name="role-NK"
+                                                    aria-label="Role for Noah Kim">
+                                                    <optgroup label="Permanent / Base Roles">
+                                                        <option value="member">Member</option>
+                                                        <option value="senior-member">Senior Member</option>
+                                                        <option value="guest">Guest / Viewer</option>
+                                                    </optgroup>
+                                                    <optgroup label="Leadership Hierarchy">
+                                                        <option value="leader-1" selected>1st Leader (Team Lead)
+                                                        </option>
+                                                        <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                                        <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                                    </optgroup>
+                                                    <optgroup label="External / Project">
+                                                        <option value="contractor">External Contractor</option>
+                                                        <option value="intern">Intern / Trainee</option>
+                                                    </optgroup>
+                                                </select>
+                                                <div class="term-wrap">
+                                                    <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
+                                                    <select class="form-select tf-termsel" name="term-NK"
+                                                        aria-label="Role duration for Noah Kim">
+                                                        <option value="permanent">Permanent</option>
+                                                        <option value="1w">1 week</option>
+                                                        <option value="2w" selected>2 weeks</option>
+                                                        <option value="1m">1 month</option>
+                                                        <option value="quarter">1 quarter</option>
+                                                        <option value="sprint">Until sprint ends</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel status-sel" name="status-NK"
+                                                    aria-label="Status for Noah Kim">
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Idle">Idle</option>
+                                                    <option value="On leave">On leave</option>
+                                                    <option value="Suspended">Suspended</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 5: Elena Vidal -->
+                                        <tr class="tf-mrow" data-skills="">
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="tf-avwrap">
+                                                        <span class="tf-mavatar"
+                                                            style="--c:#64748b;--s:#f1f5f9">EV</span>
+                                                        <span class="tf-presence"></span></span>
+                                                    <div>
+                                                        <div class="fw-semibold">Elena Vidal</div>
+                                                        <div class="tf-sub">elena.vidal@lumen.team</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="tf-skill sk-be">SQL</span>
+                                                    <span class="tf-skill sk-be">Supabase</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel role-sel" name="role-EV"
+                                                    aria-label="Role for Elena Vidal">
+                                                    <optgroup label="Permanent / Base Roles">
+                                                        <option value="member" selected>Member</option>
+                                                        <option value="senior-member">Senior Member</option>
+                                                        <option value="guest">Guest / Viewer</option>
+                                                    </optgroup>
+                                                    <optgroup label="Leadership Hierarchy">
+                                                        <option value="leader-1">1st Leader (Team Lead)</option>
+                                                        <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                                        <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                                    </optgroup>
+                                                    <optgroup label="External / Project">
+                                                        <option value="contractor">External Contractor</option>
+                                                        <option value="intern">Intern / Trainee</option>
+                                                    </optgroup>
+                                                </select>
+                                                <div class="term-wrap">
+                                                    <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
+                                                    <select class="form-select tf-termsel" name="term-EV"
+                                                        aria-label="Role duration for Elena Vidal">
+                                                        <option value="permanent">Permanent</option>
+                                                        <option value="1w">1 week</option>
+                                                        <option value="2w" selected>2 weeks</option>
+                                                        <option value="1m">1 month</option>
+                                                        <option value="quarter">1 quarter</option>
+                                                        <option value="sprint">Until sprint ends</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel status-sel" name="status-EV"
+                                                    aria-label="Status for Elena Vidal">
+                                                    <option value="Active">Active</option>
+                                                    <option value="Idle" selected>Idle</option>
+                                                    <option value="On leave">On leave</option>
+                                                    <option value="Suspended">Suspended</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Row 6: Omar Haddad -->
+                                        <tr class="tf-mrow" data-skills="">
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="tf-avwrap"><span class="tf-mavatar"
+                                                            style="--c:#0d9488;--s:#f0fdfa">OH</span>
+                                                        <span class="tf-presence"></span></span>
+                                                    <div>
+                                                        <div class="fw-semibold">Omar Haddad</div>
+                                                        <div class="tf-sub">omar.haddad@lumen.team</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="tf-skill sk-fe">React Native</span>
+                                                    <span class="tf-skill sk-fe">Expo</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel role-sel" name="role-OH"
+                                                    aria-label="Role for Omar Haddad">
+                                                    <optgroup label="Permanent / Base Roles">
+                                                        <option value="member" selected>Member</option>
+                                                        <option value="senior-member">Senior Member</option>
+                                                        <option value="guest">Guest / Viewer</option>
+                                                    </optgroup>
+                                                    <optgroup label="Leadership Hierarchy">
+                                                        <option value="leader-1">1st Leader (Team Lead)</option>
+                                                        <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                                        <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                                    </optgroup>
+                                                    <optgroup label="External / Project">
+                                                        <option value="contractor">External Contractor</option>
+                                                        <option value="intern">Intern / Trainee</option>
+                                                    </optgroup>
+                                                </select>
+                                                <div class="term-wrap">
+                                                    <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
+                                                    <select class="form-select tf-termsel" name="term-OH"
+                                                        aria-label="Role duration for Omar Haddad">
+                                                        <option value="permanent">Permanent</option>
+                                                        <option value="1w">1 week</option>
+                                                        <option value="2w" selected>2 weeks</option>
+                                                        <option value="1m">1 month</option>
+                                                        <option value="quarter">1 quarter</option>
+                                                        <option value="sprint">Until sprint ends</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select tf-pillsel status-sel" name="status-OH"
+                                                    aria-label="Status for Omar Haddad">
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Idle">Idle</option>
+                                                    <option value="On leave">On leave</option>
+                                                    <option value="Suspended">Suspended</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </form>
+
+                    <!-- Actions -->
+                    <div class="tf-actionbar mt-3">
+                        <button type="button" class="btn-tf" data-bs-toggle="modal" data-bs-target="#addMember">
+                            <i class="bx bx-user-plus"></i>Add group member
+                        </button>
+                        <button type="button" class="btn-dashed" data-bs-toggle="modal" data-bs-target="#bulkRole">
+                            <i class="bx bx-edit-alt"></i>Bulk role update
+                        </button>
+                        <span class="tf-sub ms-1">Limited-term roles automatically revert upon tenure expiration.</span>
+                        <button type="submit" form="membersForm" class="btn-tf soft ms-auto">
+                            <i class="bx bx-save"></i>Save changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Add Member Modal -->
+                <div class="modal fade tf-modal" id="addMember" tabindex="-1" aria-labelledby="addMemberTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <form class="modal-content tf-role-form" method="post" action="#">
+                            <div class="modal-header">
+                                <h2 class="modal-title fs-5 fw-bold" id="addMemberTitle">Add group member</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small" for="nm-name">Full name</label>
+                                    <input type="text" class="form-control tf-input" id="nm-name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small" for="nm-mail">Email</label>
+                                    <input type="email" class="form-control tf-input" id="nm-mail" name="email"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small" for="nm-role">Role</label>
+                                    <select class="form-select tf-input" id="nm-role" name="role">
+                                        <optgroup label="Permanent / Base Roles">
+                                            <option value="member" selected>Member</option>
+                                            <option value="senior-member">Senior Member</option>
+                                            <option value="guest">Guest / Viewer</option>
+                                        </optgroup>
+                                        <optgroup label="Leadership Hierarchy">
+                                            <option value="leader-1">1st Leader (Team Lead)</option>
+                                            <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                            <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                        </optgroup>
+                                        <optgroup label="External / Project">
+                                            <option value="contractor">External Contractor</option>
+                                            <option value="intern">Intern / Trainee</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="term-field mt-3">
+                                        <label class="form-label fw-semibold small" for="nm-term">Tenure
+                                            Duration</label>
+                                        <select class="form-select tf-input" id="nm-term" name="term">
+                                            <option value="permanent">Permanent</option>
+                                            <option value="1w">1 week</option>
+                                            <option value="2w" selected>2 weeks</option>
+                                            <option value="1m">1 month</option>
+                                            <option value="quarter">1 quarter</option>
+                                            <option value="sprint">Until sprint ends</option>
+                                        </select>
+                                        <div class="tf-sub mt-1">If limited time is selected, the role reverts to Member
+                                            once expired.</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-label fw-semibold small">Skills</div>
+                                    <div class="tf-filters">
+                                        <input type="checkbox" class="tf-fr" name="skills" value="React" id="ns-react">
+                                        <label for="ns-react">React</label>
+                                        <input type="checkbox" class="tf-fr" name="skills" value="Node.js" id="ns-node">
+                                        <label for="ns-node">Node.js</label>
+                                        <input type="checkbox" class="tf-fr" name="skills" value="Python"
+                                            id="ns-python">
+                                        <label for="ns-python">Python</label>
+                                        <input type="checkbox" class="tf-fr" name="skills" value="UI/UX" id="ns-uiux">
+                                        <label for="ns-uiux">UI/UX</label>
+                                        <input type="checkbox" class="tf-fr" name="skills" value="Figma" id="ns-figma">
+                                        <label for="ns-figma">Figma</label>
+                                        <input type="checkbox" class="tf-fr" name="skills" value="TypeScript"
+                                            id="ns-ts">
+                                        <label for="ns-ts">TypeScript</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-dashed" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn-tf"><i class="bx bx-user-plus"></i>Add member</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Bulk Role Modal -->
+                <div class="modal fade tf-modal" id="bulkRole" tabindex="-1" aria-labelledby="bulkTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <form class="modal-content tf-role-form" method="post" action="#">
+                            <div class="modal-header">
+                                <h2 class="modal-title fs-5 fw-bold" id="bulkTitle">Bulk role update</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small" for="bk-role">Set role to</label>
+                                    <select class="form-select tf-input" id="bk-role" name="role">
+                                        <optgroup label="Permanent / Base Roles">
+                                            <option value="member" selected>Member</option>
+                                            <option value="senior-member">Senior Member</option>
+                                            <option value="guest">Guest / Viewer</option>
+                                        </optgroup>
+                                        <optgroup label="Leadership Hierarchy">
+                                            <option value="leader-1">1st Leader (Team Lead)</option>
+                                            <option value="leader-2">2nd Leader (Co-Lead)</option>
+                                            <option value="leader-3">3rd Leader (Associate Lead)</option>
+                                        </optgroup>
+                                        <optgroup label="External / Project">
+                                            <option value="contractor">External Contractor</option>
+                                            <option value="intern">Intern / Trainee</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="term-field mt-3">
+                                        <label class="form-label fw-semibold small" for="bk-term">Tenure
+                                            Duration</label>
+                                        <select class="form-select tf-input" id="bk-term" name="term">
+                                            <option value="permanent">Permanent</option>
+                                            <option value="1w">1 week</option>
+                                            <option value="2w" selected>2 weeks</option>
+                                            <option value="1m">1 month</option>
+                                            <option value="quarter">1 quarter</option>
+                                            <option value="sprint">Until sprint ends</option>
+                                        </select>
+                                        <div class="tf-sub mt-1">If limited time is selected, the role reverts to Member
+                                            once expired.</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="form-label fw-semibold small" for="bk-for">Apply to</label>
+                                    <select class="form-select tf-input" id="bk-for" name="target">
+                                        <option>All members</option>
+                                        <option>Idle members</option>
+                                        <option>Members with React</option>
+                                        <option>Members with Node.js</option>
+                                        <option>Members with Python</option>
+                                        <option>Members with UI/UX</option>
+                                        <option>Members with Figma</option>
+                                        <option>Members with TypeScript</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-dashed" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn-tf">Apply</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
