@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submission Reviews · Lumen Team</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="reviews.css">
+    <style>
+        .tf-review-overview {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+
+        .tf-review-kicker {
+            color: var(--tf-primary);
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+        }
+
+        .tf-review-page-title {
+            margin: .25rem 0 .35rem;
+            color: var(--tf-ink);
+            font-size: clamp(1.65rem, 3vw, 2.1rem);
+            font-weight: 800;
+            letter-spacing: -.045em;
+        }
+
+        .tf-review-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .55rem .8rem;
+            border: 1px solid var(--tf-line);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--tf-muted);
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        .tf-review-updated i {
+            color: var(--tf-teal);
+            font-size: 1rem;
+        }
+
+        .tf-review-stat {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            height: 100%;
+            min-height: 86px;
+            padding: 1rem;
+            border: 1px solid var(--tf-line);
+            border-radius: var(--tf-radius-lg);
+            background: #fff;
+            box-shadow: var(--tf-shadow-card);
+        }
+
+        .tf-review-stat-icon {
+            display: grid;
+            flex: none;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border-radius: 13px;
+            font-size: 1.3rem;
+        }
+
+        .tf-review-stat-icon.purple {
+            color: #4f46e5;
+            background: #eef2ff;
+        }
+
+        .tf-review-stat-icon.teal {
+            color: #0d9488;
+            background: #ccfbf1;
+        }
+
+        .tf-review-stat-icon.amber {
+            color: #b45309;
+            background: #fef3c7;
+        }
+
+        .tf-review-stat-icon.blue {
+            color: #0369a1;
+            background: #e0f2fe;
+        }
+
+        .tf-review-stat strong,
+        .tf-review-stat span:not(.tf-review-stat-icon) {
+            display: block;
+        }
+
+        .tf-review-stat strong {
+            color: var(--tf-ink);
+            font-size: 1.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .tf-review-stat div>span {
+            margin-top: .18rem;
+            color: var(--tf-muted);
+            font-size: .73rem;
+            font-weight: 600;
+        }
+
+        .tf-sub-task small {
+            margin-left: .35rem;
+            color: var(--tf-muted);
+            font-size: .68rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .tf-detail-title {
+            text-transform: none;
+        }
+
+        .tf-review-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .45rem;
+            margin-top: .65rem;
+        }
+
+        .tf-review-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            padding: .25rem .55rem;
+            border: 1px solid var(--tf-line);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--tf-muted);
+            font-size: .7rem;
+            font-weight: 700;
+        }
+
+        .tf-review-meta i {
+            color: var(--tf-primary);
+            font-size: .9rem;
+        }
+
+        .tf-reviews:has(#sub-daniel:checked) #detail-daniel {
+            display: block;
+            animation: tf-fade .35s var(--tf-ease);
+        }
+
+        .tf-reviews>.col-lg-4 {
+            min-width: 0;
+        }
+
+        .tf-reviews>.col-lg-8 {
+            min-width: 0;
+        }
+
+        #detail-maya .tf-editor {
+            display: none;
+        }
+
+        .tf-approved-state {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .tf-approved-state:focus-visible+.btn-approve {
+            outline: 3px solid var(--tf-primary-border-hover);
+            outline-offset: 3px;
+        }
+
+        .tf-review-done {
+            display: none;
+        }
+
+        .tf-reviews:has(#approved-maya:checked) #detail-maya,
+        .tf-reviews:has(#approved-daniel:checked) #detail-daniel,
+        .tf-reviews:has(#approved-sofia:checked) #detail-sofia {
+            display: none !important;
+        }
+
+        .tf-reviews:has(#approved-maya:checked) #sub-maya+.tf-sub-item,
+        .tf-reviews:has(#approved-daniel:checked) #sub-daniel+.tf-sub-item,
+        .tf-reviews:has(#approved-sofia:checked) #sub-sofia+.tf-sub-item {
+            display: none;
+        }
+
+        .tf-reviews:has(#approved-maya:checked):has(#sub-maya:checked) #detail-column .tf-review-done,
+        .tf-reviews:has(#approved-daniel:checked):has(#sub-daniel:checked) #detail-column .tf-review-done,
+        .tf-reviews:has(#approved-sofia:checked):has(#sub-sofia:checked) #detail-column .tf-review-done {
+            display: block;
+        }
+
+        .tf-sub-item {
+            margin-bottom: .75rem;
+        }
+
+        .tf-sub-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .tf-upload-card {
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid var(--tf-line);
+            border-radius: var(--tf-radius-lg);
+            background: #fff;
+        }
+
+        .tf-upload-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .6rem;
+            padding: .8rem 1rem;
+            border-bottom: 1px solid var(--tf-line);
+            font-size: .88rem;
+            font-weight: 800;
+        }
+
+        .tf-upload-file {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            padding: 1rem;
+        }
+
+        .tf-upload-file-icon {
+            display: grid;
+            width: 46px;
+            height: 46px;
+            flex: none;
+            place-items: center;
+            border-radius: 13px;
+            background: #eef2ff;
+            color: var(--tf-primary);
+            font-size: 1.55rem;
+        }
+
+        .tf-upload-file-info {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .tf-upload-file-info strong {
+            display: block;
+            overflow-wrap: anywhere;
+            color: var(--tf-ink);
+            font-size: .86rem;
+        }
+
+        .tf-upload-file-info span {
+            color: var(--tf-muted);
+            font-size: .75rem;
+        }
+
+        .tf-upload-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            padding: 0 1rem 1rem;
+        }
+
+        .tf-review-done {
+            padding: 2.5rem 1.5rem;
+            border: 1px dashed var(--tf-line-dashed);
+            border-radius: var(--tf-radius-xl);
+            background: #fff;
+            text-align: center;
+        }
+
+        .tf-review-done i {
+            color: var(--tf-teal);
+            font-size: 2.4rem;
+        }
+
+        .tf-review-done h2 {
+            margin: .65rem 0 .3rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .tf-change-modal .modal-content {
+            border: 0;
+            border-radius: var(--tf-radius-xl);
+            box-shadow: var(--tf-shadow-hover);
+        }
+
+        .tf-change-modal .modal-header,
+        .tf-change-modal .modal-footer {
+            padding: 1.2rem 1.4rem;
+        }
+
+        .tf-change-modal .modal-body {
+            padding: 0 1.4rem 1.25rem;
+        }
+
+        @media (max-width: 575.98px) {
+            .tf-review-updated {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tf-shell">
+
+        <!-- Sidebar -->
+        <aside class="offcanvas-lg offcanvas-start tf-sidebar" tabindex="-1" id="sidebar" aria-label="Admin navigation">
+            <div class="offcanvas-body">
+                <a href="#" class="tf-side-brand">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span>
+                        <span class="tf-brand d-block">Lumen Team</span>
+                        <span class="tf-brand-sub">Admin workspace</span>
+                    </span>
+                </a>
+                <hr class="tf-side-divider">
+
+                <div class="tf-group dropdown">
+                    <button class="tf-group-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bx bx-group"></i>My Group
+                        <i class="bx bx-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">My Group</a></li>
+                        <li><a class="dropdown-item" href="#">Design Team</a></li>
+                        <li><a class="dropdown-item" href="#">Backend Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="tf-side-label">Manage</div>
+
+                <nav class="tf-side-nav">
+                    <a class="tf-side-link" href="dashboard.html">
+                        <i class="bx bx-grid-alt"></i>Dashboard
+                    </a>
+                    <a class="tf-side-link" href="member.html">
+                        <i class="bx bx-group"></i>Members &amp; Skills
+                    </a>
+                    <a class="tf-side-link" href="task.html">
+                        <i class="bx bx-task"></i>Task Builder
+                    </a>
+                    <a class="tf-side-link active" href="reviews.html" aria-current="page">
+                        <i class="bx bx-file-find"></i>Reviews
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-bar-chart-alt-2"></i>Analytics
+                    </a>
+                </nav>
+
+                <div class="tf-side-user">
+                    <span class="tf-avatar">A</span>
+                    <div>
+                        <div class="name">Aarav</div>
+                        <div class="role">Group admin</div>
+                    </div>
+                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                        <i class="bx bx-log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="tf-content">
+
+            <header class="tf-topbar">
+                <button class="tf-menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Open menu">
+                    <i class="bx bx-menu"></i></button>
+                <div>
+                    <h1>Reviews</h1>
+                    <div class="sub">Review submitted work from your group</div>
+                </div>
+                <a href="#" class="btn-export ms-auto">
+                    <i class="bx bx-export"></i>Export
+                </a>
+                <span class="tf-avatar">A</span>
+            </header>
+
+            <main class="tf-main">
+                <section class="tf-review-overview mb-4" aria-labelledby="reviewsTitle">
+                    <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-3">
+                        <div>
+                            <span class="tf-review-kicker">LUMEN TEAM · ADMIN WORKSPACE</span>
+                            <h1 class="tf-review-page-title" id="reviewsTitle">Submission reviews</h1>
+                            <p class="tf-sub mb-0">Check each deliverable against its task requirements, then approve it
+                                or send clear feedback.</p>
+                        </div>
+                        <span class="tf-review-updated"><i class="bx bx-time-five"></i> Queue updated just now</span>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-review-stat">
+                                <span class="tf-review-stat-icon purple">
+                                    <i class="bx bx-inbox"></i>
+                                </span>
+                                <div>
+                                    <strong>3</strong>
+                                    <span>Awaiting review</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-review-stat">
+                                <span class="tf-review-stat-icon teal">
+                                    <i class="bx bx-check-circle"></i>
+                                </span>
+                                <div>
+                                    <strong>12</strong>
+                                    <span>Approved this sprint</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-review-stat">
+                                <span class="tf-review-stat-icon amber">
+                                    <i class="bx bx-revision"></i>
+                                </span>
+                                <div>
+                                    <strong>2</strong>
+                                    <span>Changes requested</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="tf-review-stat">
+                                <span class="tf-review-stat-icon blue">
+                                    <i class="bx bx-stopwatch"></i>
+                                </span>
+                                <div>
+                                    <strong>12m</strong>
+                                    <span>Oldest submission</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="tf-reviews row g-3 g-lg-4 align-items-start">
+                    <div class="col-lg-4">
+                        <section class="tf-card" aria-labelledby="queueTitle">
+                            <div class="tf-queue-head">
+                                <div>
+                                    <h2 class="tf-card-title" id="queueTitle">Review queue</h2>
+                                    <div class="tf-sub">Submitted work · oldest first</div>
+                                </div>
+                                <span class="tf-count-chip">3</span>
+                            </div>
+
+                            <input type="radio" class="tf-rv-radio" name="sub" id="sub-maya" checked>
+                            <label class="tf-sub-item" for="sub-maya">
+                                <span class="tf-sub-top">
+                                    <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MO</span>
+                                    <b>Maya Okafor</b>
+                                    <span class="tf-newdot" title="New"></span>
+                                </span>
+                                <span class="tf-sub-task">Build API Endpoints <small>TASK-101</small></span>
+                                <span class="tf-sub-foot">
+                                    <span class="tf-ftype">
+                                        <i class="bx bx-code-alt"></i>Code · 3 files
+                                    </span>
+                                    <span class="tf-time">
+                                        <i class="bx bx-time-five"></i>12 min ago
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="radio" class="tf-rv-radio" name="sub" id="sub-daniel">
+                            <label class="tf-sub-item" for="sub-daniel">
+                                <span class="tf-sub-top">
+                                    <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">DP</span>
+                                    <b>Daniel Park</b>
+                                </span>
+                                <span class="tf-sub-task">Database Schema Migration
+                                    <small>TASK-103</small>
+                                </span>
+                                <span class="tf-sub-foot">
+                                    <span class="tf-ftype">
+                                        <i class="bx bx-data"></i>SQL · 4 files
+                                    </span>
+                                    <span class="tf-time">
+                                        <i class="bx bx-time-five"></i>1 h ago
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="radio" class="tf-rv-radio" name="sub" id="sub-sofia">
+                            <label class="tf-sub-item" for="sub-sofia">
+                                <span class="tf-sub-top">
+                                    <span class="tf-mavatar" style="--c:#a16207;--s:#fefce8">SR</span>
+                                    <b>Sofia Reyes</b>
+                                </span>
+                                <span class="tf-sub-task">Design Checkout Flow
+                                    <small>TASK-102</small>
+                                </span>
+                                <span class="tf-sub-foot">
+                                    <span class="tf-ftype">
+                                        <i class="bx bx-palette"></i>
+                                        Figma · PDF</span>
+                                    <span class="tf-time">
+                                        <i class="bx bx-time-five"></i>
+                                        2 h ago</span>
+                                </span>
+                            </label>
+                            <div class="tf-queue-note">
+                                <i class="bx bx-info-circle"></i>Showing all 3 submissions
+                                awaiting a decision.
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-8" id="detail-column">
+                        <form class="tf-detail tf-card p-0 overflow-hidden mb-0" id="detail-maya" method="post"
+                            action="#">
+                            <input type="hidden" name="submission" value="maya">
+                            <div class="tf-detail-head">
+                                <div>
+                                    <h2 class="tf-detail-title">Build API Endpoints</h2>
+                                    <div class="tf-sub">TASK-101 · REST API Layer · submitted by Maya Okafor</div>
+                                    <div class="tf-review-meta">
+                                        <span> <i class="bx bxs-flag-alt"></i>
+                                            High priority
+                                        </span>
+
+                                        <span>
+                                            <i class="bx bx-code-alt"></i>
+                                            Node.js · Express · REST API
+                                        </span>
+                                        <span>
+                                            <i class="bx bx-calendar"></i>
+                                            Due Oct 18, 2026
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="tf-detail-actions">
+                                    <button type="button" class="btn-changes" data-bs-toggle="modal"
+                                        data-bs-target="#changes-maya">
+                                        <i class="bx bx-revision"></i>Request Changes
+                                    </button>
+                                    <input class="tf-approved-state" type="checkbox" id="approved-maya"
+                                        aria-label="Mark Build API Endpoints approved">
+                                    <label class="btn-approve mb-0" for="approved-maya">
+                                        <i class="bx bx-check-circle"></i>Approve
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tf-detail-body">
+                                <div class="row g-3 g-lg-4">
+                                    <div class="col-md-5">
+                                        <div class="tf-pane">
+                                            <div class="tf-pane-head">
+                                                <span>Criteria</span>
+                                                <span class="tf-sub">3 of 5 met</span>
+                                            </div>
+                                            <ul class="tf-crit-list">
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="All CRUD endpoints are implemented" id="c-maya0" checked>
+                                                    <label for="c-maya0">All CRUD endpoints are implemented</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Input validation on every route" id="c-maya1" checked>
+                                                    <label for="c-maya1">Input validation on every route</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Errors use the standard response format" id="c-maya2"
+                                                        checked>
+                                                    <label for="c-maya2">Errors use the standard response format</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Tests cover happy path and errors" id="c-maya3">
+                                                    <label for="c-maya3">Tests cover happy path and errors</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="README documents each endpoint" id="c-maya4">
+                                                    <label for="c-maya4">README documents each endpoint</label>
+                                                </li>
+                                            </ul>
+                                            <div class="tf-crit-meter">
+                                                <div class="progress" role="progressbar" aria-label="Criteria met"
+                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress-bar" style="width:60%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <section class="tf-upload-card" aria-labelledby="mayaSubmissionTitle">
+                                            <div class="tf-upload-head">
+                                                <span id="mayaSubmissionTitle">Member submission</span>
+                                                <span class="badge text-bg-success rounded-pill">Submitted</span>
+                                            </div>
+                                            <div class="tf-upload-file">
+                                                <span class="tf-upload-file-icon">
+                                                    <i class="bx bxs-file-archive"></i>
+                                                </span>
+                                                <div class="tf-upload-file-info">
+                                                    <strong>api-endpoints-v1.zip</strong>
+                                                    <span>ZIP archive · 8.6 MB · uploaded 12 minutes ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="px-3 pb-3">
+                                                <div class="tf-sub mb-2">Repository link</div>
+                                                <div
+                                                    class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-3 rounded-3 border bg-light">
+                                                    <span class="fw-semibold small text-break">
+                                                        <i class="bx bxl-github me-1"></i>
+                                                        github.com/lumen-team/platform-api
+                                                    </span>
+                                                    <span class="badge text-bg-light border text-success">
+                                                        <i class="bx bx-check-circle me-1"></i>
+                                                        Link attached
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="tf-upload-actions">
+                                                <a href="../uploads/api-endpoints-v1.zip" class="btn-tf" download>
+                                                    <i class="bx bx-download"></i>Download submission
+                                                </a>
+                                                <a href="https://github.com/lumen-team/platform-api"
+                                                    class="btn btn-outline-secondary rounded-pill fw-semibold"
+                                                    target="_blank" rel="noopener">
+                                                    <i class="bx bx-link-external me-1"></i>Open repository
+                                                </a>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="tf-editor">
+                                            <div class="tf-editor-bar">
+                                                <div class="tf-dots" aria-hidden="true">
+                                                    <i></i><i></i><i></i>
+                                                </div>
+                                                <ul class="nav tf-tabs" role="tablist">
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link active" data-bs-toggle="tab"
+                                                            data-bs-target="#mf-0" type="button"
+                                                            role="tab">routes/tasks.js</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" data-bs-toggle="tab"
+                                                            data-bs-target="#mf-1" type="button"
+                                                            role="tab">validators.js</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" data-bs-toggle="tab"
+                                                            data-bs-target="#mf-2" type="button"
+                                                            role="tab">tasks.test.js</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade show active" id="mf-0" role="tabpanel"
+                                                    tabindex="0">
+                                                    <ol class="tf-code">
+                                                        <li><span class="k">const</span> router =
+                                                            <span class="k">require</span>(
+                                                            <span class="s">'express'</span>).Router();
+                                                        </li>
+                                                        <li><span class="k">const</span> { validateTask } =
+                                                            <span class="k">require</span>(
+                                                            <span class="s">'../validators'</span>);
+                                                        </li>
+                                                        <li> </li>
+                                                        <li>router.get(
+                                                            <span class="s">'/tasks'</span>, <span
+                                                                class="k">async</span> (req, res) =&gt; {
+                                                        </li>
+                                                        <li>
+                                                            <span class="k">const</span> tasks = <span
+                                                                class="k">await</span> Task.find({ group: req.user.group
+                                                            });
+                                                        </li>
+                                                        <li> res.json(tasks);</li>
+                                                        <li>});</li>
+                                                        <li> </li>
+                                                        <li>router.post(
+                                                            <span class="s">'/tasks'</span>, validateTask,
+                                                            <span class="k">async</span> (req, res) =&gt; {
+                                                        </li>
+                                                        <li>
+                                                            <span class="k">const</span> task =
+                                                            <span class="k">await</span> Task.create(req.body);
+                                                        </li>
+                                                        <li> res.status(
+                                                            <span class="n">201</span>).json(task);
+                                                        </li>
+                                                        <li>});</li>
+                                                    </ol>
+                                                </div>
+                                                <div class="tab-pane fade" id="mf-1" role="tabpanel" tabindex="0">
+                                                    <ol class="tf-code">
+                                                        <li><span class="k">exports</span>.validateTask = (req, res,
+                                                            <span class="k">next</span>) =&gt; {
+                                                        </li>
+                                                        <li> <span class="k">const</span> { title, deadline } =
+                                                            req.body;</li>
+                                                        <li> <span class="k">if</span> (!title || title.length &lt;
+                                                            <span class="n">3</span>) {
+                                                        </li>
+                                                        <li> <span class="k">return</span> res.status(<span
+                                                                class="n">400</span>).json({ error: <span
+                                                                class="s">'Title is too short'</span> });</li>
+                                                        <li> }</li>
+                                                        <li class="hl"> <span class="c">// TODO: validate the deadline
+                                                                as well</span></li>
+                                                        <li> <span class="k">next</span>();</li>
+                                                        <li>};</li>
+                                                    </ol>
+                                                </div>
+                                                <div class="tab-pane fade" id="mf-2" role="tabpanel" tabindex="0">
+                                                    <ol class="tf-code">
+                                                        <li>
+                                                            <span class="k">describe</span>(
+                                                            <span class="s">'POST
+                                                                /tasks'</span>, () =&gt; {
+                                                        </li>
+                                                        <li>
+                                                            <span class="k">it</span>(
+                                                            <span class="s">'creates a
+                                                                task'</span>,
+                                                            <span class="k">async</span> () =&gt; {
+                                                        </li>
+                                                        <li>
+                                                            <span class="k">const</span> res = <span
+                                                                class="k">await</span> request(app).post(
+                                                            <span class="s">'/tasks'</span>).send({ title:
+                                                            <span class="s">'Docs'</span> });
+                                                        </li>
+                                                        <li>
+                                                            <span class="k">expect</span>(res.status).toBe(
+                                                            <span class="n">201</span>);
+                                                        </li>
+                                                        <li> });</li>
+                                                        <li>});</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="tf-review-done" role="status">
+                            <i class="bx bx-check-circle"></i>
+                            <h2>Submission approved</h2>
+                            <p class="tf-sub mb-0">Build API Endpoints has been removed from the pending review queue.
+                            </p>
+                        </div>
+                        <div class="modal fade tf-change-modal" id="changes-maya" tabindex="-1"
+                            aria-labelledby="changesMayaTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <form class="modal-content" action="#" method="post">
+                                    <input type="hidden" name="submission" value="maya">
+                                    <input type="hidden" name="decision" value="changes">
+                                    <div class="modal-header">
+                                        <div>
+                                            <div class="tf-review-kicker">TASK-101 · MAYA OKAFOR</div>
+                                            <h2 class="modal-title fs-5 fw-bold" id="changesMayaTitle">Request changes
+                                            </h2>
+                                        </div><button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="tf-sub">Add clear, actionable notes. Maya will see this feedback with
+                                            the returned task.</p>
+                                        <label class="form-label fw-bold small" for="fb-maya">Feedback for
+                                            Maya</label>
+                                        <textarea class="form-control" id="fb-maya" name="feedback" rows="5" required
+                                            placeholder="Describe what needs to be updated or submitted..."></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light rounded-pill fw-semibold"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-warning rounded-pill fw-bold">
+                                            <i class="bx bx-revision me-1"></i>Send changes
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <form class="tf-detail tf-card p-0 overflow-hidden mb-0" id="detail-daniel" method="post"
+                            action="#">
+                            <input type="hidden" name="submission" value="daniel">
+                            <div class="tf-detail-head">
+                                <div>
+                                    <h2 class="tf-detail-title">Database Schema Migration</h2>
+                                    <div class="tf-sub">TASK-103 · Database Architecture · submitted by Daniel Park
+                                    </div>
+                                    <div class="tf-review-meta">
+                                        <span><i class="bx bxs-flag-alt"></i>Medium priority</span>
+                                        <span><i class="bx bx-data"></i>PostgreSQL · Supabase · RLS</span>
+                                        <span><i class="bx bx-calendar"></i>Due in 7 days</span>
+                                    </div>
+                                </div>
+                                <div class="tf-detail-actions">
+                                    <button type="button" class="btn-changes" data-bs-toggle="modal"
+                                        data-bs-target="#changes-daniel">
+                                        <i class="bx bx-revision"></i>Request Changes</button>
+                                    <input class="tf-approved-state" type="checkbox" id="approved-daniel"
+                                        aria-label="Mark Database Schema Migration approved">
+                                    <label class="btn-approve mb-0" for="approved-daniel">
+                                        <i class="bx bx-check-circle"></i>Approve</label>
+                                </div>
+                            </div>
+                            <div class="tf-detail-body">
+                                <div class="row g-3 g-lg-4">
+                                    <div class="col-lg-5">
+                                        <div class="tf-pane">
+                                            <div class="tf-pane-head">
+                                                <span>Task acceptance criteria</span>
+                                                <span class="tf-sub">4 of 5 met</span>
+                                            </div>
+                                            <ul class="tf-crit-list">
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Normalized schema migration is included" id="c-daniel0"
+                                                        checked>
+                                                    <label for="c-daniel0">Normalized schema migration is
+                                                        included</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Row-level security policies are applied" id="c-daniel1"
+                                                        checked>
+                                                    <label for="c-daniel1">Row-level security policies are
+                                                        applied</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Migration has a safe rollback path" id="c-daniel2"
+                                                        checked>
+                                                    <label for="c-daniel2">Migration has a safe rollback
+                                                        path</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Schema changes are documented" id="c-daniel3">
+                                                    <label for="c-daniel3">Schema changes are documented</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Automated migration tests pass" id="c-daniel4" checked>
+                                                    <label for="c-daniel4">Automated migration tests
+                                                        pass</label>
+                                                </li>
+                                            </ul>
+                                            <div class="tf-crit-meter">
+                                                <div class="progress" role="progressbar" aria-label="Criteria met"
+                                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress-bar" style="width:80%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="tf-pane">
+                                            <div class="tf-pane-head">
+                                                <span>Submitted repository</span>
+                                                <span class="tf-sub">Updated 1 h ago</span>
+                                            </div>
+                                            <div class="tf-repo">
+                                                <div class="tf-repo-head">
+                                                    <span class="ic"><i class="bx bxl-github"></i></span>
+                                                    <div>
+                                                        <div class="fw-bold">lumen-team/platform-api</div>
+                                                        <div class="tf-sub">
+                                                            <i class="bx bx-git-branch"></i>
+                                                            feature/schema-migration
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tf-repo-stats">
+                                                    <div><b>8</b><span class="tf-sub">commits</span></div>
+                                                    <div><b>6</b><span class="tf-sub">files</span></div>
+                                                    <div><b>+246</b><span class="tf-sub">lines</span></div>
+                                                </div>
+                                                <ul class="tf-commits">
+                                                    <li><code>c3d8a10</code>Add normalized project and task tables</li>
+                                                    <li><code>ab229f4</code>Apply row-level security policies</li>
+                                                    <li><code>6ef0a32</code>Add migration rollback and tests</li>
+                                                </ul>
+                                                <a href="https://github.com/lumen-team/platform-api" class="btn-tf"
+                                                    target="_blank" rel="noopener"><i
+                                                        class="bx bx-link-external"></i>Open repository</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="tf-review-done" role="status"><i class="bx bx-check-circle"></i>
+                            <h2>Submission approved</h2>
+                            <p class="tf-sub mb-0">Database Schema Migration has been removed from the pending review
+                                queue.</p>
+                        </div>
+                        <div class="modal fade tf-change-modal" id="changes-daniel" tabindex="-1"
+                            aria-labelledby="changesDanielTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <form class="modal-content" action="#" method="post">
+                                    <input type="hidden" name="submission" value="daniel">
+                                    <input type="hidden" name="decision" value="changes">
+                                    <div class="modal-header">
+                                        <div>
+                                            <div class="tf-review-kicker">TASK-103 · DANIEL PARK</div>
+                                            <h2 class="modal-title fs-5 fw-bold" id="changesDanielTitle">Request changes
+                                            </h2>
+                                        </div><button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="tf-sub">Add clear, actionable notes. Daniel will see this feedback
+                                            with the returned task.</p>
+                                        <label class="form-label fw-bold small" for="fb-daniel">Feedback for
+                                            Daniel</label>
+                                        <textarea class="form-control" id="fb-daniel" name="feedback" rows="5" required
+                                            placeholder="Describe what needs to be updated or submitted..."></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light rounded-pill fw-semibold"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-warning rounded-pill fw-bold"><i
+                                                class="bx bx-revision me-1"></i>Send changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <form class="tf-detail tf-card p-0 overflow-hidden mb-0" id="detail-sofia" method="post"
+                            action="#">
+                            <input type="hidden" name="submission" value="sofia">
+                            <div class="tf-detail-head">
+                                <div>
+                                    <h2 class="tf-detail-title">Design Checkout Flow</h2>
+                                    <div class="tf-sub">TASK-102 · Customer Checkout UI · submitted by Sofia Reyes</div>
+                                    <div class="tf-review-meta">
+                                        <span><i class="bx bxs-flag-alt"></i>High priority</span>
+                                        <span><i class="bx bx-palette"></i>Figma · Wireframing · Design System</span>
+                                        <span><i class="bx bx-calendar"></i>Due in 5 days</span>
+                                    </div>
+                                </div>
+                                <div class="tf-detail-actions">
+                                    <button type="button" class="btn-changes" data-bs-toggle="modal"
+                                        data-bs-target="#changes-sofia">
+                                        <i class="bx bx-revision"></i>Request
+                                        Changes</button>
+                                    <input class="tf-approved-state" type="checkbox" id="approved-sofia"
+                                        aria-label="Mark Design Checkout Flow approved">
+                                    <label class="btn-approve mb-0" for="approved-sofia">
+                                        <i class="bx bx-check-circle"></i>Approve</label>
+                                </div>
+                            </div>
+                            <div class="tf-detail-body">
+                                <div class="row g-3 g-lg-4">
+                                    <div class="col-lg-5">
+                                        <div class="tf-pane">
+                                            <div class="tf-pane-head">
+                                                <span>Task acceptance criteria</span>
+                                                <span class="tf-sub">3 of 4 met</span>
+                                            </div>
+                                            <ul class="tf-crit-list">
+                                                <li><input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Responsive Figma artboards at 375px and 1440px"
+                                                        id="c-sofia0" checked>
+                                                    <label for="c-sofia0">Responsive Figma artboards at
+                                                        375px and 1440px</label>
+                                                </li>
+                                                <li><input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Empty cart and declined payment edge states"
+                                                        id="c-sofia1">
+                                                    <label for="c-sofia1">Empty cart and declined payment edge
+                                                        states</label>
+                                                </li>
+                                                <li><input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Interactive click-through prototype" id="c-sofia2"
+                                                        checked>
+                                                    <label for="c-sofia2">Interactive click-through prototype</label>
+                                                </li>
+                                                <li><input type="checkbox" class="tf-crit-check" name="criteria"
+                                                        value="Design-system tokens handed to frontend" id="c-sofia3"
+                                                        checked>
+                                                    <label for="c-sofia3">Design-system tokens handed to
+                                                        frontend</label>
+                                                </li>
+                                            </ul>
+                                            <div class="tf-crit-meter">
+                                                <div class="progress" role="progressbar" aria-label="Criteria met"
+                                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress-bar" style="width:75%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="tf-pane">
+                                            <div class="tf-pane-head"><span>Submitted design · TASK-102</span><span
+                                                    class="tf-sub">3 pages</span></div>
+                                            <div class="tf-design" role="img"
+                                                aria-label="Preview of three checkout screens: cart, payment, confirmation">
+                                                <div class="tf-phone">
+                                                    <div class="lbl">Cart</div>
+                                                    <div class="bar p"></div>
+                                                    <div class="box"></div>
+                                                    <div class="box"></div>
+                                                    <div class="bar s"></div>
+                                                    <div class="cta"></div>
+                                                </div>
+                                                <div class="tf-phone">
+                                                    <div class="lbl">Payment</div>
+                                                    <div class="bar p"></div>
+                                                    <div class="bar"></div>
+                                                    <div class="bar"></div>
+                                                    <div class="box"></div>
+                                                    <div class="cta"></div>
+                                                </div>
+                                                <div class="tf-phone">
+                                                    <div class="lbl">Confirmation</div>
+                                                    <div class="box" style="height:70px"></div>
+                                                    <div class="bar p"></div>
+                                                    <div class="bar s"></div>
+                                                    <div class="cta"></div>
+                                                </div>
+                                            </div>
+                                            <ul class="tf-files">
+                                                <li><i class="bx bxl-figma"></i>checkout-flow.fig<span
+                                                        class="tf-sub">2.4 MB</span></li>
+                                                <li><i class="bx bxs-file-pdf"></i>checkout-flow.pdf<span
+                                                        class="tf-sub">860 KB</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="tf-review-done" role="status"><i class="bx bx-check-circle"></i>
+                            <h2>Submission approved</h2>
+                            <p class="tf-sub mb-0">Design Checkout Flow has been removed from the pending review queue.
+                            </p>
+                        </div>
+                        <div class="modal fade tf-change-modal" id="changes-sofia" tabindex="-1"
+                            aria-labelledby="changesSofiaTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <form class="modal-content" action="#" method="post">
+                                    <input type="hidden" name="submission" value="sofia">
+                                    <input type="hidden" name="decision" value="changes">
+                                    <div class="modal-header">
+                                        <div>
+                                            <div class="tf-review-kicker">TASK-102 · SOFIA REYES</div>
+                                            <h2 class="modal-title fs-5 fw-bold" id="changesSofiaTitle">Request changes
+                                            </h2>
+                                        </div><button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="tf-sub">Add clear, actionable notes. Sofia will see this feedback with
+                                            the returned task.</p><label class="form-label fw-bold small"
+                                            for="fb-sofia">Feedback for Sofia</label><textarea class="form-control"
+                                            id="fb-sofia" name="feedback" rows="5" required
+                                            placeholder="Describe what needs to be updated or submitted..."></textarea>
+                                    </div>
+                                    <div class="modal-footer"><button type="button"
+                                            class="btn btn-light rounded-pill fw-semibold"
+                                            data-bs-dismiss="modal">Cancel</button><button type="submit"
+                                            class="btn btn-warning rounded-pill fw-bold"><i
+                                                class="bx bx-revision me-1"></i>Send changes</button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
