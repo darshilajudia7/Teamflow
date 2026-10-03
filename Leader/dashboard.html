@@ -42,33 +42,45 @@
 
                 <div class="tf-side-label">Manage</div>
 
-                <nav class="tf-side-nav">
-                    <a class="tf-side-link active" href="admin-dashboard.html" aria-current="page">
+                <!-- Primary Navigation Links -->
+                <nav class="tf-side-nav" aria-label="Admin sidebar navigation">
+                    <!-- Dashboard — currently active -->
+                    <a class="tf-side-link active" href="dashboard.html" aria-current="page">
                         <i class="bx bx-grid-alt"></i>Dashboard
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Project Setup — create/manage projects -->
+                    <a class="tf-side-link" href="project.html">
+                        <i class="bx bx-folder-plus"></i>Project Setup
+                    </a>
+                    <!-- Members & Skills — view/manage team members -->
+                    <a class="tf-side-link" href="member.html">
                         <i class="bx bx-group"></i>Members &amp; Skills
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Task Builder — create and assign tasks -->
+                    <a class="tf-side-link" href="task.html">
                         <i class="bx bx-task"></i>Task Builder
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Reviews — approve/reject member submissions -->
+                    <a class="tf-side-link" href="reviews.html">
                         <i class="bx bx-file-find"></i>Reviews
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Analytics — contribution scores and charts -->
+                    <a class="tf-side-link" href="analystics.html">
                         <i class="bx bx-bar-chart-alt-2"></i>Analytics
                     </a>
                 </nav>
 
+                <!-- Logged-in Admin User Strip -->
                 <div class="tf-side-user">
                     <span class="tf-avatar">A</span>
                     <div>
                         <div class="name">Aarav</div>
                         <div class="role">Group admin</div>
                     </div>
-                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                    <!-- Logout — redirects back to landing page -->
+                    <a href="../index.html" class="tf-icon-btn" aria-label="Log out" title="Log out">
                         <i class="bx bx-log-out"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </aside>
@@ -228,32 +240,32 @@
 
                             <ul class="tf-members">
                                 <li class="tf-member">
-                                    <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MC</span>
+                                    <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MN</span>
                                     <div class="tf-minfo">
-                                        <div class="fw-semibold">Maya Chen</div>
+                                        <div class="fw-semibold">Maya Nair</div>
                                         <div class="tf-sub">Frontend &middot; React, TypeScript</div>
                                     </div>
                                     <div class="tf-load load-busy">
                                         <div class="d-flex justify-content-between tf-sub mb-1">
                                             <span>85%</span>
                                         </div>
-                                        <div class="progress" role="progressbar" aria-label="Maya Chen workload"
+                                        <div class="progress" role="progressbar" aria-label="Maya Nair workload"
                                             aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
                                             <div class="progress-bar" style="width:85%"></div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="tf-member">
-                                    <span class="tf-mavatar" style="--c:#dc2626;--s:#fef2f2">DO</span>
+                                    <span class="tf-mavatar" style="--c:#dc2626;--s:#fef2f2">RN</span>
                                     <div class="tf-minfo">
-                                        <div class="fw-semibold">Daniel Okafor</div>
+                                        <div class="fw-semibold">Rohit Nair</div>
                                         <div class="tf-sub">Backend &middot; Node.js, SQL</div>
                                     </div>
                                     <div class="tf-load load-over">
                                         <div class="d-flex justify-content-between tf-sub mb-1">
                                             <span>100%</span>
                                         </div>
-                                        <div class="progress" role="progressbar" aria-label="Daniel Okafor workload"
+                                        <div class="progress" role="progressbar" aria-label="Rohit Nair workload"
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                             <div class="progress-bar" style="width:100%"></div>
                                         </div>
@@ -276,32 +288,32 @@
                                     </div>
                                 </li>
                                 <li class="tf-member">
-                                    <span class="tf-mavatar" style="--c:#0891b2;--s:#ecfeff">SA</span>
+                                    <span class="tf-mavatar" style="--c:#0891b2;--s:#ecfeff">SS</span>
                                     <div class="tf-minfo">
-                                        <div class="fw-semibold">Sofia Alvarez</div>
+                                        <div class="fw-semibold">Saanvi Shah</div>
                                         <div class="tf-sub">Full-stack &middot; Next.js, Supabase</div>
                                     </div>
                                     <div class="tf-load load-ok">
                                         <div class="d-flex justify-content-between tf-sub mb-1">
                                             <span>70%</span>
                                         </div>
-                                        <div class="progress" role="progressbar" aria-label="Sofia Alvarez workload"
+                                        <div class="progress" role="progressbar" aria-label="Saanvi Shah workload"
                                             aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
                                             <div class="progress-bar" style="width:70%"></div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="tf-member">
-                                    <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">ML</span>
+                                    <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">MS</span>
                                     <div class="tf-minfo">
-                                        <div class="fw-semibold">Marcus Lee</div>
+                                        <div class="fw-semibold">Manav Sharma</div>
                                         <div class="tf-sub">Backend &middot; Express, Python</div>
                                     </div>
                                     <div class="tf-load load-free">
                                         <div class="d-flex justify-content-between tf-sub mb-1">
                                             <span>55%</span>
                                         </div>
-                                        <div class="progress" role="progressbar" aria-label="Marcus Lee workload"
+                                        <div class="progress" role="progressbar" aria-label="Manav Sharma workload"
                                             aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
                                             <div class="progress-bar" style="width:55%"></div>
                                         </div>
@@ -320,7 +332,7 @@
                                     <i class="bx bx-error-circle"></i></span>
                                 <div class="flex-grow-1">
                                     <div class="fw-semibold">Overdue: 'Payment gateway' — 2d late</div>
-                                    <div class="tf-sub">Assigned to Daniel</div>
+                                    <div class="tf-sub">Assigned to Rohit</div>
                                 </div>
                                 <a href="#" class="btn-review">Review
                                     <i class="bx bx-chevron-right"></i>

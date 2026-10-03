@@ -1,0 +1,613 @@
+/*  CSS Custom Properties (Design Tokens) ─ */
+:root {
+    --tf-primary: #4f46e5;
+    --tf-primary-lt: #eef2ff;
+    --tf-teal: #0d9488;
+    --tf-teal-lt: #f0fdfa;
+    --tf-ink: #0f172a;
+    --tf-muted: #64748b;
+    --tf-line: #e2e8f0;
+    --tf-bg: #f8fafc;
+    --tf-surface: #ffffff;
+    --tf-radius: 14px;
+    --tf-radius-lg: 18px;
+    --tf-shadow: 0 2px 8px rgba(15, 23, 42, .08);
+    --tf-shadow-lg: 0 8px 30px rgba(15, 23, 42, .12);
+    --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/*  Base ─ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--tf-bg);
+    color: var(--tf-ink);
+    margin: 0;
+}
+
+/*  Main Content Background  */
+.tf-main {
+    padding: 1.5rem;
+}
+
+/*  Card Base  */
+.tf-card {
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--tf-shadow);
+}
+
+.tf-card-head {
+    margin-bottom: 1rem;
+}
+
+.tf-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--tf-ink);
+    margin: 0 0 .2rem;
+}
+
+/*  Step Indicator Bar ─ */
+.tf-steps-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-lg);
+    padding: 1rem 1.5rem;
+    box-shadow: var(--tf-shadow);
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.tf-step {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--tf-muted);
+}
+
+.tf-step-num {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--tf-line);
+    font-size: .75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: background .2s, color .2s;
+}
+
+/* Active step */
+.tf-step--active .tf-step-num {
+    background: var(--tf-primary);
+    color: #fff;
+}
+
+.tf-step--active .tf-step-label {
+    color: var(--tf-primary);
+    font-weight: 700;
+}
+
+/* Completed step */
+.tf-step--done .tf-step-num {
+    background: #22c55e;
+    color: #fff;
+}
+
+.tf-step-line {
+    flex: 1;
+    min-width: 24px;
+    height: 2px;
+    background: var(--tf-line);
+    border-radius: 2px;
+    margin: 0 .4rem;
+}
+
+/*  Project Cards  */
+.tf-proj-card {
+    background: var(--tf-surface);
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-lg);
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    box-shadow: var(--tf-shadow);
+    transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+
+.tf-proj-card:hover {
+    box-shadow: var(--tf-shadow-lg);
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+}
+
+/* Highlighted active project */
+.tf-proj-card--active {
+    border-color: rgba(79, 70, 229, .3);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .06), var(--tf-shadow);
+}
+
+.tf-proj-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tf-proj-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.4rem;
+}
+
+/* Status Badges */
+.tf-proj-status {
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .28rem .7rem;
+    border-radius: 999px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.tf-proj-status--active {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.tf-proj-status--review {
+    background: #fffbeb;
+    color: #b45309;
+}
+
+.tf-proj-status--planning {
+    background: var(--tf-primary-lt);
+    color: var(--tf-primary);
+}
+
+/* Project Name & Description */
+.tf-proj-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--tf-ink);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.tf-proj-desc {
+    font-size: .83rem;
+    color: var(--tf-muted);
+    margin: 0;
+    line-height: 1.55;
+    flex: 1;
+}
+
+/* Skill Tags on Project Card */
+.tf-proj-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+}
+
+.tf-skill-tag {
+    font-size: .72rem;
+    font-weight: 600;
+    background: var(--tf-primary-lt);
+    color: var(--tf-primary);
+    border-radius: 6px;
+    padding: .2rem .6rem;
+    white-space: nowrap;
+}
+
+/* Project Meta (members, tasks, deadline) */
+.tf-proj-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    font-size: .78rem;
+    color: var(--tf-muted);
+}
+
+.tf-proj-meta span {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.tf-proj-meta i {
+    font-size: .9rem;
+}
+
+/* Progress Section */
+.tf-proj-progress {
+    margin-top: auto;
+}
+
+/* Action Buttons Row */
+.tf-proj-actions {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: .25rem;
+}
+
+/*  Button Variants  */
+.tf-btn-primary {
+    background: var(--tf-primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .5rem 1.1rem;
+    font-weight: 600;
+    font-size: .85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: background .18s, transform .15s;
+    text-decoration: none;
+}
+
+.tf-btn-primary:hover {
+    background: #4338ca;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.tf-btn-outline {
+    background: transparent;
+    color: var(--tf-ink);
+    border: 1.5px solid var(--tf-line);
+    border-radius: 10px;
+    padding: .5rem 1.1rem;
+    font-weight: 600;
+    font-size: .85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: border-color .18s, background .18s;
+}
+
+.tf-btn-outline:hover {
+    border-color: var(--tf-primary);
+    color: var(--tf-primary);
+    background: var(--tf-primary-lt);
+}
+
+/* Small button variants */
+.tf-btn-sm {
+    padding: .32rem .8rem;
+    font-size: .78rem;
+    border-radius: 8px;
+}
+
+.tf-btn-danger {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1.5px solid #fecaca;
+    border-radius: 8px;
+    padding: .32rem .6rem;
+    font-size: .85rem;
+    display: inline-flex;
+    align-items: center;
+    transition: background .18s;
+}
+
+.tf-btn-danger:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.tf-btn-danger-solid {
+    background: #dc2626;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .5rem 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: background .18s;
+}
+
+.tf-btn-danger-solid:hover {
+    background: #b91c1c;
+    color: #fff;
+}
+
+/*  Modal Styling  */
+.tf-modal {
+    border-radius: var(--tf-radius-lg);
+    border: 1px solid var(--tf-line);
+    overflow: hidden;
+}
+
+.tf-modal-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    border-bottom: 1px solid var(--tf-line);
+    padding: 1.25rem 1.5rem;
+}
+
+.tf-modal-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--tf-ink);
+    margin: 0 0 .2rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.tf-modal-title i {
+    color: var(--tf-primary);
+    font-size: 1.3rem;
+}
+
+.tf-modal-sub {
+    font-size: .82rem;
+    color: var(--tf-muted);
+}
+
+.tf-modal-body {
+    padding: 1.5rem;
+}
+
+.tf-modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--tf-line);
+    background: #f8fafc;
+    display: flex;
+    justify-content: flex-end;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+/*  Form Controls  */
+.tf-label {
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--tf-ink);
+    display: block;
+    margin-bottom: .4rem;
+    letter-spacing: .01em;
+}
+
+.tf-required {
+    color: #dc2626;
+}
+
+.tf-input {
+    border: 1.5px solid var(--tf-line);
+    border-radius: 10px;
+    padding: .6rem .85rem;
+    font-family: var(--font);
+    font-size: .88rem;
+    color: var(--tf-ink);
+    transition: border-color .18s, box-shadow .18s;
+    background: #fff;
+}
+
+.tf-input:focus {
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .12);
+    outline: none;
+}
+
+.tf-hint {
+    font-size: .78rem;
+    color: var(--tf-muted);
+    margin: -.1rem 0 .75rem;
+}
+
+/*  Skill Groups in Modal  */
+.tf-skill-group {
+    border: 1px solid var(--tf-line);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tf-skill-group-label {
+    background: var(--tf-bg);
+    padding: .5rem 1rem;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--tf-muted);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    border-bottom: 1px solid var(--tf-line);
+}
+
+.tf-skill-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .75rem 1rem;
+}
+
+.tf-skill-check {
+    margin: 0;
+}
+
+.tf-skill-check .form-check-input:checked {
+    background-color: var(--tf-primary);
+    border-color: var(--tf-primary);
+}
+
+.tf-skill-check label {
+    font-size: .83rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: .2rem .5rem;
+    border-radius: 6px;
+    transition: background .15s;
+}
+
+.tf-skill-check input:checked+label {
+    color: var(--tf-primary);
+    background: var(--tf-primary-lt);
+}
+
+/*  Selected Skills Preview  */
+.tf-selected-skills-preview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .75rem;
+    padding: .6rem .85rem;
+    background: var(--tf-bg);
+    border: 1px solid var(--tf-line);
+    border-radius: 10px;
+    min-height: 42px;
+}
+
+.tf-preview-label {
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--tf-muted);
+    flex-shrink: 0;
+}
+
+.tf-preview-pill {
+    font-size: .72rem;
+    font-weight: 700;
+    background: var(--tf-primary);
+    color: #fff;
+    border-radius: 6px;
+    padding: .18rem .6rem;
+}
+
+/*  Danger Alert Block ─ */
+.tf-danger-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 1rem;
+    color: #991b1b;
+    font-size: .85rem;
+}
+
+.tf-danger-alert>i {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: .1rem;
+}
+
+/*  Workflow Guide Banner  */
+.tf-workflow-guide {
+    background: linear-gradient(135deg, #f0f4ff 0%, #fafbff 100%);
+    border: 1px solid #dde4f0;
+    border-radius: var(--tf-radius-lg);
+    padding: 1.5rem;
+}
+
+.tf-wg-title {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--tf-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.tf-wg-step {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+}
+
+.tf-wg-num {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--tf-primary);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.tf-wg-step strong {
+    display: block;
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--tf-ink);
+    margin-bottom: .2rem;
+}
+
+.tf-wg-step p {
+    font-size: .78rem;
+    color: var(--tf-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/*  Export Button (Topbar) ─ */
+.btn-export {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .45rem 1rem;
+    border: 1.5px solid var(--tf-line);
+    border-radius: 10px;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--tf-muted);
+    text-decoration: none;
+    background: var(--tf-surface);
+    transition: border-color .18s, color .18s;
+}
+
+.btn-export:hover {
+    border-color: var(--tf-primary);
+    color: var(--tf-primary);
+}
+
+/*  Responsive Tweaks  */
+@media (max-width: 575px) {
+    .tf-steps-bar {
+        gap: .3rem;
+    }
+
+    .tf-step-line {
+        min-width: 12px;
+    }
+
+    .tf-step-label {
+        display: none;
+    }
+
+    .tf-modal-footer {
+        flex-direction: column;
+    }
+}

@@ -42,33 +42,45 @@
 
                 <div class="tf-side-label">Manage</div>
 
-                <nav class="tf-side-nav">
-                    <a class="tf-side-link" href="dashboard.html" aria-current="page">
+                <!-- Primary Navigation Links -->
+                <nav class="tf-side-nav" aria-label="Admin sidebar navigation">
+                    <!-- Dashboard -->
+                    <a class="tf-side-link" href="dashboard.html">
                         <i class="bx bx-grid-alt"></i>Dashboard
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Project Setup -->
+                    <a class="tf-side-link" href="project.html">
+                        <i class="bx bx-folder-plus"></i>Project Setup
+                    </a>
+                    <!-- Members & Skills -->
+                    <a class="tf-side-link" href="member.html">
                         <i class="bx bx-group"></i>Members &amp; Skills
                     </a>
-                    <a class="tf-side-link active" href="#">
+                    <!-- Task Builder — currently active -->
+                    <a class="tf-side-link active" href="task.html" aria-current="page">
                         <i class="bx bx-task"></i>Task Builder
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Reviews -->
+                    <a class="tf-side-link" href="reviews.html">
                         <i class="bx bx-file-find"></i>Reviews
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Analytics -->
+                    <a class="tf-side-link" href="analystics.html">
                         <i class="bx bx-bar-chart-alt-2"></i>Analytics
                     </a>
                 </nav>
 
+                <!-- Logged-in Admin User Strip -->
                 <div class="tf-side-user">
                     <span class="tf-avatar">A</span>
                     <div>
                         <div class="name">Aarav</div>
                         <div class="role">Group admin</div>
                     </div>
-                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                    <!-- Logout — redirects back to landing page -->
+                    <a href="../index.html" class="tf-icon-btn" aria-label="Log out" title="Log out">
                         <i class="bx bx-log-out"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </aside>
@@ -166,7 +178,7 @@
                                                 <label class="tf-member-card" for="new-m-maya">
                                                     <span class="tf-avatar tf-a1">MO</span>
                                                     <span class="tf-member-info">
-                                                        <span class="tf-member-name">Maya Okafor</span>
+                                                        <span class="tf-member-name">Maya Nair</span>
                                                         <span class="tf-member-role">Full-Stack Lead</span>
                                                         <span class="tf-member-skills"><span
                                                                 class="tf-skill">React</span><span
@@ -183,7 +195,7 @@
                                                 <label class="tf-member-card" for="new-m-sofia">
                                                     <span class="tf-avatar tf-a4">SR</span>
                                                     <span class="tf-member-info">
-                                                        <span class="tf-member-name">Sofia Reyes</span>
+                                                        <span class="tf-member-name">Saanvi Rao</span>
                                                         <span class="tf-member-role">Product Designer</span>
                                                         <span class="tf-member-skills"><span
                                                                 class="tf-skill">UI/UX</span><span
@@ -198,9 +210,9 @@
                                                 <input type="radio" class="btn-check" name="new-member"
                                                     id="new-m-daniel">
                                                 <label class="tf-member-card" for="new-m-daniel">
-                                                    <span class="tf-avatar tf-a5">DP</span>
+                                                    <span class="tf-avatar tf-a5">KM</span>
                                                     <span class="tf-member-info">
-                                                        <span class="tf-member-name">Daniel Park</span>
+                                                        <span class="tf-member-name">Karan Mehta</span>
                                                         <span class="tf-member-role">Data Engineer</span>
                                                         <span class="tf-member-skills"><span
                                                                 class="tf-skill">SQL</span><span
@@ -264,8 +276,8 @@
                                                 Progress</span></td>
                                         <td>
                                             <span class="tf-assignee">
-                                                <span class="tf-avatar tf-avatar-sm tf-a1">MO</span>
-                                                Maya Okafor
+                                                <span class="tf-avatar tf-avatar-sm tf-a1">MN</span>
+                                                Maya Nair
                                             </span>
                                         </td>
                                         <td class="text-end">
@@ -350,8 +362,8 @@
                                                 Review</span></td>
                                         <td>
                                             <span class="tf-assignee">
-                                                <span class="tf-avatar tf-avatar-sm tf-a5">DP</span>
-                                                Daniel Park
+                                                <span class="tf-avatar tf-avatar-sm tf-a5">KM</span>
+                                                Karan Mehta
                                             </span>
                                         </td>
                                         <td class="text-end">
@@ -379,9 +391,7 @@
 
                 </div>
 
-                <!-- =================================================================== -->
                 <!-- MODALS: TASK 1 (Build API Endpoints)                                -->
-                <!-- =================================================================== -->
                 <!-- View Modal -->
                 <div class="modal fade" id="t1-view" tabindex="-1" aria-labelledby="t1-view-title" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -426,9 +436,9 @@
                                 <label class="tf-label">Current Owner</label>
                                 <div class="tf-static-member-card">
                                     <div class="tf-static-member-left">
-                                        <span class="tf-avatar tf-avatar-lg tf-a1">MO</span>
+                                        <span class="tf-avatar tf-avatar-lg tf-a1">MN</span>
                                         <div>
-                                            <div class="tf-static-member-name">Maya Okafor</div>
+                                            <div class="tf-static-member-name">Maya Nair</div>
                                             <div class="tf-static-member-role">Full-Stack Lead &bull; Backend
                                                 Architecture</div>
                                         </div>
@@ -567,9 +577,9 @@
                                         </label>
                                         <div class="tf-static-member-card">
                                             <div class="tf-static-member-left">
-                                                <span class="tf-avatar tf-avatar-lg tf-a1">MO</span>
+                                                <span class="tf-avatar tf-avatar-lg tf-a1">MN</span>
                                                 <div>
-                                                    <div class="tf-static-member-name">Maya Okafor</div>
+                                                    <div class="tf-static-member-name">Maya Nair</div>
                                                     <div class="tf-static-member-role">Full-Stack Lead &bull; Backend
                                                         Architecture</div>
                                                 </div>
@@ -609,7 +619,7 @@
                                 <div class="modal-body">
                                     <p class="text-muted small mb-3">
                                         You are deleting <strong class="text-dark">"Build API Endpoints"</strong>
-                                        assigned to <strong class="text-dark">Maya Okafor</strong>. This will unbind
+                                        assigned to <strong class="text-dark">Maya Nair</strong>. This will unbind
                                         active branch tracking and sprint dependencies.
                                     </p>
                                     <!-- Audit Reason -->
@@ -642,9 +652,7 @@
                     </div>
                 </div>
 
-                <!-- =================================================================== -->
                 <!-- MODALS: TASK 2 (Design Checkout Flow)                               -->
-                <!-- =================================================================== -->
                 <!-- View Modal -->
                 <div class="modal fade" id="t2-view" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -711,7 +719,7 @@
                                             <div class="tf-static-member-left">
                                                 <span class="tf-avatar tf-avatar-lg tf-a4">SR</span>
                                                 <div>
-                                                    <div class="tf-static-member-name">Sofia Reyes</div>
+                                                    <div class="tf-static-member-name">Saanvi Rao</div>
                                                     <div class="tf-static-member-role">Product Designer &bull; UI/UX
                                                         Team</div>
                                                 </div>
@@ -783,8 +791,8 @@
                                         <div class="col-md-6">
                                             <label for="assignReviewer" class="tf-label">Lead Reviewer</label>
                                             <select class="form-select tf-input" id="assignReviewer">
-                                                <option selected>Maya Okafor (Lead Engineer)</option>
-                                                <option>Arya Kagathara (Product Director)</option>
+                                                <option selected>Maya Nair (Lead Engineer)</option>
+                                                <option>Aarohi Khatri (Product Director)</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6">
@@ -806,8 +814,8 @@
                                             id="notifyMemberCheck" checked>
                                         <label class="form-check-label small fw-semibold text-muted"
                                             for="notifyMemberCheck">
-                                            Send priority briefing notification and schedule calendar block for Sofia
-                                            Reyes
+                                            Send priority briefing notification and schedule calendar block for Saanvi
+                                            Rao
                                         </label>
                                     </div>
                                 </div>
@@ -823,9 +831,7 @@
                     </div>
                 </div>
 
-                <!-- =================================================================== -->
                 <!-- MODALS: TASK 3 (Database Schema Migration)                          -->
-                <!-- =================================================================== -->
                 <!-- View Modal -->
                 <div class="modal fade" id="t3-view" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -843,9 +849,9 @@
                                     trigger procedures for project teams.</p>
                                 <div class="tf-static-member-card">
                                     <div class="tf-static-member-left">
-                                        <span class="tf-avatar tf-avatar-lg tf-a5">DP</span>
+                                        <span class="tf-avatar tf-avatar-lg tf-a5">KM</span>
                                         <div>
-                                            <div class="tf-static-member-name">Daniel Park</div>
+                                            <div class="tf-static-member-name">Karan Mehta</div>
                                             <div class="tf-static-member-role">Database Architect</div>
                                         </div>
                                     </div>
@@ -941,7 +947,7 @@
                                             <div class="tf-static-member-left">
                                                 <span class="tf-avatar tf-avatar-lg tf-a5">DP</span>
                                                 <div>
-                                                    <div class="tf-static-member-name">Daniel Park</div>
+                                                    <div class="tf-static-member-name">Karan Mehta</div>
                                                     <div class="tf-static-member-role">Database Architect</div>
                                                 </div>
                                             </div>
@@ -976,8 +982,8 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p class="text-muted small mb-3">Deleting this task will unassign <strong>Daniel
-                                            Park</strong> and discard associated migration scripts.</p>
+                                    <p class="text-muted small mb-3">Deleting this task will unassign <strong>Karan
+                                            Mehta</strong> and discard associated migration scripts.</p>
                                     <!-- Audit Reason -->
                                     <div class="tf-reason-box tf-reason-box-danger mb-3">
                                         <label class="tf-label text-danger" for="t3-del-reason">

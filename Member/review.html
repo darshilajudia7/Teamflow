@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Revisions · Lumen Team</title>
+    <title>Reviews · Lumen Team</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,7 +16,7 @@
         rel="stylesheet">
 
     <link href="../navbar.css" rel="stylesheet">
-    <link href="revision.css" rel="stylesheet">
+    <link href="review.css" rel="stylesheet">
 </head>
 
 <body class="member-page">
@@ -34,7 +34,7 @@
                     <div class="nav-pill-group">
                         <a class="nav-pill-link" href="dashboard.html">Dashboard</a>
                         <a class="nav-pill-link" href="task.html">My Tasks</a>
-                        <a class="nav-pill-link active" href="revision.html" aria-current="page">Revisions</a>
+                        <a class="nav-pill-link active" href="review.html" aria-current="page">Reviews</a>
                         <a class="nav-pill-link" href="history.html">History</a>
                     </div>
                 </nav>
@@ -93,7 +93,8 @@
                 <i class="bx bx-grid-alt"></i> Dashboard
             </a>
             <a class="tf-menu-link" href="task.html"><i class="bx bx-task"></i> My Tasks</a>
-            <a class="tf-menu-link active" href="revision.html" aria-current="page"><i class="bx bx-revision"></i> Revisions</a>
+            <a class="tf-menu-link active" href="review.html" aria-current="page"><i class="bx bx-Review"></i>
+                Reviews</a>
             <a class="tf-menu-link" href="history.html"><i class="bx bx-history"></i> History</a>
         </nav>
     </div>
@@ -105,7 +106,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
                 <div>
                     <span class="text-uppercase fw-bold small text-primary">Member workspace</span>
-                    <h1 class="h3 fw-bold mb-1">Revisions to complete</h1>
+                    <h1 class="h3 fw-bold mb-1">Reviews to complete</h1>
                     <p class="tf-sub mb-0">Resolve leader feedback and resubmit the latest version for review.</p>
                 </div>
                 <span class="tf-section-pill"><i class="bx bx-error-circle me-1"></i>2 tasks need changes</span>
@@ -113,8 +114,8 @@
 
             <div class="d-flex flex-column gap-4">
 
-                <!-- ================= CARD 1: CHECKOUT FLOW ================= -->
-                <article class="tf-revision-card" id="revision-checkout">
+                <!-- CARD 1: CHECKOUT FLOW -->
+                <article class="tf-Review-card" id="Review-checkout">
                     <!-- Title Bar & Priority -->
                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
                         <div class="d-flex flex-wrap align-items-center gap-2">
@@ -123,7 +124,7 @@
                                 Priority</span>
                         </div>
                         <span class="tf-status-chip warning">
-                            <i class="bx bx-revision me-1"></i> Changes requested · 2 items
+                            <i class="bx bx-Review me-1"></i> Changes requested · 2 items
                         </span>
                     </div>
 
@@ -154,7 +155,8 @@
                                 <i class="bx bx-right-arrow-alt text-muted"></i>
                                 <div class="tf-deadline-badge">
                                     <span class="tf-sub-xs text-danger">New Extended Deadline:</span>
-                                    <strong class="text-danger"><i class="bx bx-time-five me-1"></i>Due Mon, Oct 5</strong>
+                                    <strong class="text-danger"><i class="bx bx-time-five me-1"></i>Due Mon, Oct
+                                        5</strong>
                                 </div>
                             </div>
                         </div>
@@ -163,9 +165,9 @@
                     <!-- Admin Feedback Panel -->
                     <div class="tf-feedback-block mb-3">
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="tf-feedback-label"><i class="bx bx-message-dots me-1"></i>Leader
-                                feedback</span>
-                            <span class="tf-sub small">Reviewed by <strong>Priya Nair</strong> (Lead Project
+                            <span class="tf-feedback-label"><i class="bx bx-message-dots me-1"></i>Admin Feedback &amp;
+                                Updates</span>
+                            <span class="tf-sub small">Updated by Admin: <strong>Priya Nair</strong> (Lead Project
                                 Manager)</span>
                         </div>
                         <ul class="tf-feedback-list mb-0">
@@ -204,8 +206,8 @@
                     </form>
                 </article>
 
-                <!-- ================= CARD 2: API ENDPOINTS ================= -->
-                <article class="tf-revision-card" id="revision-api">
+                <!-- CARD 2: API ENDPOINTS -->
+                <article class="tf-Review-card" id="Review-api">
                     <!-- Title Bar & Priority -->
                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
                         <div class="d-flex flex-wrap align-items-center gap-2">
@@ -214,7 +216,7 @@
                                 Priority</span>
                         </div>
                         <span class="tf-status-chip warning">
-                            <i class="bx bx-revision me-1"></i> Changes requested · 1 item
+                            <i class="bx bx-Review me-1"></i> Changes requested · 1 item
                         </span>
                     </div>
 
@@ -244,7 +246,8 @@
                                 <i class="bx bx-right-arrow-alt text-muted"></i>
                                 <div class="tf-deadline-badge">
                                     <span class="tf-sub-xs text-danger">New Extended Deadline:</span>
-                                    <strong class="text-danger"><i class="bx bx-time-five me-1"></i>Due Fri, Oct 2</strong>
+                                    <strong class="text-danger"><i class="bx bx-time-five me-1"></i>Due Fri, Oct
+                                        2</strong>
                                 </div>
                             </div>
                         </div>
@@ -253,9 +256,10 @@
                     <!-- Admin Feedback Panel -->
                     <div class="tf-feedback-block mb-3">
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="tf-feedback-label"><i class="bx bx-message-dots me-1"></i>Leader
-                                feedback</span>
-                            <span class="tf-sub small">Reviewed by <strong>Marcus Lee</strong> (Lead Architect)</span>
+                            <span class="tf-feedback-label"><i class="bx bx-message-dots me-1"></i>Admin Feedback &amp;
+                                Updates</span>
+                            <span class="tf-sub small">Updated by Admin: <strong>Nikhil Sharma</strong> (Lead
+                                Architect)</span>
                         </div>
                         <ul class="tf-feedback-list mb-0">
                             <li>Add rate-limiting middleware to all public authentication and login routes to avoid
@@ -290,19 +294,51 @@
                     </form>
                 </article>
 
+                <!-- CARD 3: APPROVED TASK -->
+                <article class="tf-Review-card" id="Review-auth">
+                    <!-- Title Bar & Priority -->
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                        <div class="d-flex flex-wrap align-items-center gap-2">
+                            <h2 class="tf-task-title mb-0">Authentication Module</h2>
+                            <span class="tf-priority-badge priority-done" style="background:#d1fae5; color:#065f46;"><i
+                                    class="bx bxs-check-circle me-1"></i>Approved</span>
+                        </div>
+                        <span class="tf-status-chip"
+                            style="background:#d1fae5; color:#065f46; border:1px solid #34d399;">
+                            <i class="bx bx-check-double me-1"></i> Review Passed
+                        </span>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="tf-task-desc mb-3">
+                        Integrated JWT based authentication and user registration endpoints. Added password hashing and
+                        securely handled session tokens on the client side.
+                    </p>
+
+                    <!-- Admin Feedback Panel -->
+                    <div class="tf-feedback-block mb-3" style="background:#f0fdf4; border-color:#bbf7d0;">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="tf-feedback-label" style="color:#166534;"><i
+                                    class="bx bx-message-check me-1"></i>Admin Feedback &amp; Updates</span>
+                            <span class="tf-sub small">Updated by Admin: <strong>Priya Nair</strong></span>
+                        </div>
+                        <ul class="tf-feedback-list mb-0" style="color:#166534;">
+                            <li>Great work on implementing the rate limiting and securely storing the tokens in httpOnly
+                                cookies. The code is clean and perfectly meets our security standards.</li>
+                        </ul>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="history.html#history-auth" class="btn btn-tf-ghost text-decoration-none"
+                            style="background-color: #f8f9fa;">
+                            <i class="bx bx-history me-1"></i> View in History
+                        </a>
+                    </div>
+                </article>
+
             </div>
         </div>
     </main>
-
-    <footer class="member-footer">
-        <div class="container member-footer-inner">
-            <p>© 2026 Lumen Team · Member workspace</p>
-            <nav aria-label="Member workspace pages">
-                <a href="dashboard.html">Dashboard</a><a href="task.html">My Tasks</a>
-                <a href="revision.html" aria-current="page">Revisions</a><a href="history.html">History</a><a href="profile.html">My Profile</a>
-            </nav>
-        </div>
-    </footer>
 
 
     <!-- VIEW DETAILS MODAL 1: CHECKOUT FLOW -->
@@ -314,7 +350,7 @@
                     <div class="tf-item-icon i-primary"><i class="bx bx-cart"></i></div>
                     <div>
                         <h4 class="modal-title fw-bold mb-0">Checkout flow · Detailed Lifecycle</h4>
-                            <span class="tf-sub">Initial submission archive and requested changes</span>
+                        <span class="tf-sub">Initial submission archive and requested changes</span>
                     </div>
                 </div>
                 <a href="#close" class="tf-modal-close-btn" aria-label="Close modal">&times;</a>
@@ -339,7 +375,8 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <span class="tf-sub-xs text-danger d-block">Extended Deadline</span>
-                            <span class="fw-bold small text-danger"><i class="bx bx-calendar me-1"></i>Due Mon, Oct 5</span>
+                            <span class="fw-bold small text-danger"><i class="bx bx-calendar me-1"></i>Due Mon, Oct
+                                5</span>
                         </div>
                     </div>
                 </div>
@@ -371,7 +408,10 @@
                                                 Mehul</div>
                                         </div>
                                     </div>
-                                    <span class="btn btn-sm btn-light border" title="Archive retained in submission history" aria-label="Archive retained in submission history"><i class="bx bx-archive-in"></i></span>
+                                    <span class="btn btn-sm btn-light border"
+                                        title="Archive retained in submission history"
+                                        aria-label="Archive retained in submission history"><i
+                                            class="bx bx-archive-in"></i></span>
                                 </div>
                             </div>
                             <div>
@@ -385,7 +425,7 @@
 
                     <!-- Right: Admin Update (v2 Changes Requested) -->
                     <div class="col-lg-6">
-                        <div class="tf-history-pane active-revision h-100">
+                        <div class="tf-history-pane active-Review h-100">
                             <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
                                 <span class="badge bg-warning-subtle text-warning-emphasis fw-bold px-2 py-1">Admin
                                     Update &amp; Review (v2 Req)</span>
@@ -442,7 +482,7 @@
                     <div class="tf-item-icon i-cyan"><i class="bx bx-data"></i></div>
                     <div>
                         <h4 class="modal-title fw-bold mb-0">API endpoints · Detailed Lifecycle</h4>
-                            <span class="tf-sub">Initial submission archive and requested changes</span>
+                        <span class="tf-sub">Initial submission archive and requested changes</span>
                     </div>
                 </div>
                 <a href="#close" class="tf-modal-close-btn" aria-label="Close modal">&times;</a>
@@ -467,7 +507,8 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <span class="tf-sub-xs text-danger d-block">Extended Deadline</span>
-                            <span class="fw-bold small text-danger"><i class="bx bx-calendar me-1"></i>Due Fri, Oct 2</span>
+                            <span class="fw-bold small text-danger"><i class="bx bx-calendar me-1"></i>Due Fri, Oct
+                                2</span>
                         </div>
                     </div>
                 </div>
@@ -499,7 +540,10 @@
                                                 Mehul</div>
                                         </div>
                                     </div>
-                                    <span class="btn btn-sm btn-light border" title="Archive retained in submission history" aria-label="Archive retained in submission history"><i class="bx bx-archive-in"></i></span>
+                                    <span class="btn btn-sm btn-light border"
+                                        title="Archive retained in submission history"
+                                        aria-label="Archive retained in submission history"><i
+                                            class="bx bx-archive-in"></i></span>
                                 </div>
                             </div>
                             <div>
@@ -513,7 +557,7 @@
 
                     <!-- Right: Admin Update (v2 Changes Requested) -->
                     <div class="col-lg-6">
-                        <div class="tf-history-pane active-revision h-100">
+                        <div class="tf-history-pane active-Review h-100">
                             <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
                                 <span class="badge bg-warning-subtle text-warning-emphasis fw-bold px-2 py-1">Admin
                                     Update &amp; Review (v2 Req)</span>
@@ -523,7 +567,7 @@
                                 <label class="tf-sub-xs text-muted">Reviewed By</label>
                                 <div class="d-flex align-items-center gap-2 mt-1">
                                     <span class="tf-mini-avatar">ML</span>
-                                    <span class="fw-semibold small">Marcus Lee (Lead Architect)</span>
+                                    <span class="fw-semibold small">Nikhil Sharma (Lead Architect)</span>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -574,7 +618,7 @@
                     <p class="text-secondary small mb-3">Provide a changelog explaining how you resolved the requested
                         items before finalizing.</p>
                     <div class="mb-3">
-                        <label class="form-label small fw-semibold text-dark">Revision Changelog</label>
+                        <label class="form-label small fw-semibold text-dark">Review Changelog</label>
                         <textarea class="form-control" rows="3"
                             placeholder="e.g., Added button spinners on click and resolved empty cart redirection..."></textarea>
                     </div>
@@ -600,7 +644,7 @@
                     <p class="text-secondary small mb-3">Provide a changelog explaining how you resolved the requested
                         items before finalizing.</p>
                     <div class="mb-3">
-                        <label class="form-label small fw-semibold text-dark">Revision Changelog</label>
+                        <label class="form-label small fw-semibold text-dark">Review Changelog</label>
                         <textarea class="form-control" rows="3"
                             placeholder="e.g., Integrated express-rate-limit middleware across public login endpoints..."></textarea>
                     </div>

@@ -150,7 +150,7 @@ body {
     box-shadow: 0 0 0 3px var(--tf-primary-focus-ring);
 }
 
-/* ================= Toggle (Board / List) ================= */
+/*  Toggle (Board / List)  */
 .tf-view-radio {
     position: absolute;
     opacity: 0;
@@ -203,7 +203,7 @@ body {
     display: none !important;
 }
 
-/* ================= Kanban Columns ================= */
+/*  Kanban Columns  */
 .tf-col-board {
     background: var(--tf-board-bg);
     border: 1px solid #e5e9f0;
@@ -236,10 +236,21 @@ body {
     border-radius: var(--tf-radius-pill);
 }
 
-.tf-stage-todo .tf-dot { background: var(--tf-muted-light); }
-.tf-stage-progress .tf-dot { background: var(--tf-primary); }
-.tf-stage-review .tf-dot { background: var(--tf-amber); }
-.tf-stage-done .tf-dot { background: var(--tf-teal); }
+.tf-stage-todo .tf-dot {
+    background: var(--tf-muted-light);
+}
+
+.tf-stage-progress .tf-dot {
+    background: var(--tf-primary);
+}
+
+.tf-stage-review .tf-dot {
+    background: var(--tf-amber);
+}
+
+.tf-stage-done .tf-dot {
+    background: var(--tf-teal);
+}
 
 .tf-count {
     font-size: 0.72rem;
@@ -272,7 +283,7 @@ body {
     color: var(--tf-ink);
 }
 
-/* ================= Task Cards ================= */
+/*  Task Cards  */
 .tf-col-body {
     display: flex;
     flex-direction: column;
@@ -392,10 +403,25 @@ body {
     border-radius: var(--tf-radius-xs);
 }
 
-.priority-high { background: var(--tf-danger-soft); color: var(--tf-danger-dark); }
-.priority-med { background: var(--tf-amber-soft); color: var(--tf-amber-dark); }
-.priority-low { background: #f1f5f9; color: var(--tf-muted); }
-.priority-done { background: var(--tf-teal-soft); color: var(--tf-teal-dark); }
+.priority-high {
+    background: var(--tf-danger-soft);
+    color: var(--tf-danger-dark);
+}
+
+.priority-med {
+    background: var(--tf-amber-soft);
+    color: var(--tf-amber-dark);
+}
+
+.priority-low {
+    background: #f1f5f9;
+    color: var(--tf-muted);
+}
+
+.priority-done {
+    background: var(--tf-teal-soft);
+    color: var(--tf-teal-dark);
+}
 
 /* Card Footers & Assignees */
 .tf-task-footer {
@@ -431,8 +457,13 @@ body {
     font-size: 0.6rem;
 }
 
-.tf-avatar.avatar-purple { background: #8b5cf6; }
-.tf-avatar.avatar-blue { background: #0284c7; }
+.tf-avatar.avatar-purple {
+    background: #8b5cf6;
+}
+
+.tf-avatar.avatar-blue {
+    background: #0284c7;
+}
 
 /* Open Button */
 .btn-open {
@@ -465,7 +496,7 @@ body {
     transform: translateX(2px);
 }
 
-/* ================= Enterprise List View ================= */
+/*  Enterprise List View  */
 .tf-card-list-view {
     background: var(--tf-surface);
     border: 1px solid var(--tf-line);
@@ -522,10 +553,21 @@ body {
     align-items: center;
 }
 
-.tf-item-icon.i-todo { color: var(--tf-muted-light); }
-.tf-item-icon.i-progress { color: var(--tf-primary); }
-.tf-item-icon.i-review { color: var(--tf-amber); }
-.tf-item-icon.i-done { color: var(--tf-teal); }
+.tf-item-icon.i-todo {
+    color: var(--tf-muted-light);
+}
+
+.tf-item-icon.i-progress {
+    color: var(--tf-primary);
+}
+
+.tf-item-icon.i-review {
+    color: var(--tf-amber);
+}
+
+.tf-item-icon.i-done {
+    color: var(--tf-teal);
+}
 
 .tf-stage-badge {
     font-size: 0.72rem;
@@ -534,23 +576,38 @@ body {
     border-radius: var(--tf-radius-pill);
 }
 
-.tf-stage-badge.todo { background: #f1f5f9; color: var(--tf-muted); }
-.tf-stage-badge.progress-st { background: var(--tf-primary-soft); color: var(--tf-primary-dark); }
-.tf-stage-badge.review { background: var(--tf-amber-soft); color: var(--tf-amber-dark); }
-.tf-stage-badge.done { background: var(--tf-teal-soft); color: var(--tf-teal-dark); }
+.tf-stage-badge.todo {
+    background: #f1f5f9;
+    color: var(--tf-muted);
+}
+
+.tf-stage-badge.progress-st {
+    background: var(--tf-primary-soft);
+    color: var(--tf-primary-dark);
+}
+
+.tf-stage-badge.review {
+    background: var(--tf-amber-soft);
+    color: var(--tf-amber-dark);
+}
+
+.tf-stage-badge.done {
+    background: var(--tf-teal-soft);
+    color: var(--tf-teal-dark);
+}
 
 .tf-list-row.is-completed .tf-list-title {
     text-decoration: line-through;
     color: var(--tf-muted);
 }
 
-/* ================= Responsive Breakpoints ================= */
+/*  Responsive Breakpoints  */
 @media (max-width: 767.98px) {
     .tf-list-row {
         grid-template-columns: 1fr;
         gap: 0.65rem;
     }
-    
+
     .tf-list-col {
         display: inline-flex;
         align-items: center;
@@ -561,7 +618,7 @@ body {
     .tf-seg-toggle {
         width: 100%;
     }
-    
+
     .tf-seg-toggle label {
         flex: 1;
         justify-content: center;

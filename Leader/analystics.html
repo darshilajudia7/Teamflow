@@ -42,33 +42,45 @@
 
                 <div class="tf-side-label">Manage</div>
 
-                <nav class="tf-side-nav">
-                    <a class="tf-side-link" href="admin-dashboard.html" aria-current="page">
+                <!-- Primary Navigation Links -->
+                <nav class="tf-side-nav" aria-label="Admin sidebar navigation">
+                    <!-- Dashboard -->
+                    <a class="tf-side-link" href="dashboard.html">
                         <i class="bx bx-grid-alt"></i>Dashboard
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Project Setup -->
+                    <a class="tf-side-link" href="project.html">
+                        <i class="bx bx-folder-plus"></i>Project Setup
+                    </a>
+                    <!-- Members & Skills -->
+                    <a class="tf-side-link" href="member.html">
                         <i class="bx bx-group"></i>Members &amp; Skills
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Task Builder -->
+                    <a class="tf-side-link" href="task.html">
                         <i class="bx bx-task"></i>Task Builder
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Reviews -->
+                    <a class="tf-side-link" href="reviews.html">
                         <i class="bx bx-file-find"></i>Reviews
                     </a>
-                    <a class="tf-side-link active" href="#">
+                    <!-- Analytics — currently active -->
+                    <a class="tf-side-link active" href="analystics.html" aria-current="page">
                         <i class="bx bx-bar-chart-alt-2"></i>Analytics
                     </a>
                 </nav>
 
+                <!-- Logged-in Admin User Strip -->
                 <div class="tf-side-user">
                     <span class="tf-avatar">A</span>
                     <div>
                         <div class="name">Aarav</div>
                         <div class="role">Group admin</div>
                     </div>
-                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                    <!-- Logout — back to landing page -->
+                    <a href="../index.html" class="tf-icon-btn" aria-label="Log out" title="Log out">
                         <i class="bx bx-log-out"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </aside>
@@ -120,9 +132,9 @@
                                 <div class="tf-podium">
                                     <div class="pod pod-2">
                                         <div class="pod-av">
-                                            <span class="tf-mavatar" style="--c:#0891b2;--s:#ecfeff">LN</span>
+                                            <span class="tf-mavatar" style="--c:#0891b2;--s:#ecfeff">VS</span>
                                         </div>
-                                        <b title="Liam Novak">Liam</b>
+                                        <b title="Vikram Shah">Vikram</b>
                                         <div class="pod-step">
                                             <span>2</span>
                                         </div>
@@ -130,9 +142,9 @@
                                     <div class="pod pod-1">
                                         <div class="pod-av">
                                             <i class="bx bxs-crown pod-crown" aria-hidden="true"></i>
-                                            <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MO</span>
+                                            <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MN</span>
                                         </div>
-                                        <b title="Maya Okafor">Maya</b>
+                                        <b title="Maya Nair">Maya</b>
                                         <div class="pod-step">
                                             <span>1</span>
                                         </div>
@@ -141,7 +153,7 @@
                                         <div class="pod-av">
                                             <span class="tf-mavatar" style="--c:#d97706;--s:#fefce8">SR</span>
                                         </div>
-                                        <b title="Sofia Reyes">Sofia</b>
+                                        <b title="Saanvi Rao">Saanvi</b>
                                         <div class="pod-step">
                                             <span>3</span>
                                         </div>
@@ -152,7 +164,7 @@
                                         <span class="tf-rank">4</span>
                                         <span class="tf-mavatar" style="--c:#0d9488;--s:#f0fdfa">OH</span>
                                         <span class="tf-lb-main">
-                                            <b>Omar Haddad</b>
+                                            <b>Omkar Hegde</b>
                                             <span class="tf-sub">Mobile · Design</span>
                                             <span class="tf-lb-bar"><i style="width:79%"></i>
                                             </span>
@@ -162,7 +174,7 @@
                                         <span class="tf-rank">5</span>
                                         <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">EV</span>
                                         <span class="tf-lb-main">
-                                            <b>Elena Vidal</b>
+                                            <b>Ekta Verma</b>
                                             <span class="tf-sub">Data · Backend</span>
                                             <span class="tf-lb-bar">
                                                 <i style="width:74%"></i>
@@ -223,30 +235,30 @@
                                         <div class="tf-sbar" data-t="react" style="--t:15">
                                             <b>15</b>
                                             <div class="tf-scol">
-                                                <i style="--n:8;--c:#4f46e5" data-tip="Maya Okafor · 8 tasks"></i>
-                                                <i style="--n:4;--c:#0d9488" data-tip="Omar Haddad · 4 tasks"></i>
-                                                <i style="--n:3;--c:#d97706" data-tip="Sofia Reyes · 3 tasks"></i>
+                                                <i style="--n:8;--c:#4f46e5" data-tip="Maya Nair · 8 tasks"></i>
+                                                <i style="--n:4;--c:#0d9488" data-tip="Omkar Hegde · 4 tasks"></i>
+                                                <i style="--n:3;--c:#d97706" data-tip="Saanvi Rao · 3 tasks"></i>
                                             </div>
                                         </div>
                                         <div class="tf-sbar" data-t="node" style="--t:13">
                                             <b>13</b>
                                             <div class="tf-scol">
-                                                <i style="--n:6;--c:#4f46e5" data-tip="Maya Okafor · 6 tasks"></i>
-                                                <i style="--n:5;--c:#0891b2" data-tip="Liam Novak · 5 tasks"></i>
-                                                <i style="--n:2;--c:#64748b" data-tip="Elena Vidal · 2 tasks"></i>
+                                                <i style="--n:6;--c:#4f46e5" data-tip="Maya Nair · 6 tasks"></i>
+                                                <i style="--n:5;--c:#0891b2" data-tip="Vikram Shah · 5 tasks"></i>
+                                                <i style="--n:2;--c:#64748b" data-tip="Ekta Verma · 2 tasks"></i>
                                             </div>
                                         </div>
                                         <div class="tf-sbar" data-t="python" style="--t:12"><b>12</b>
                                             <div class="tf-scol">
-                                                <i style="--n:9;--c:#0891b2" data-tip="Liam Novak · 9 tasks"></i>
-                                                <i style="--n:3;--c:#64748b" data-tip="Elena Vidal · 3 tasks"></i>
+                                                <i style="--n:9;--c:#0891b2" data-tip="Vikram Shah · 9 tasks"></i>
+                                                <i style="--n:3;--c:#64748b" data-tip="Ekta Verma · 3 tasks"></i>
                                             </div>
                                         </div>
                                         <div class="tf-sbar" data-t="uiux" style="--t:11"><b>11</b>
                                             <div class="tf-scol">
-                                                <i style="--n:8;--c:#d97706" data-tip="Sofia Reyes · 8 tasks"></i>
-                                                <i style="--n:2;--c:#0d9488" data-tip="Omar Haddad · 2 tasks"></i>
-                                                <i style="--n:1;--c:#4f46e5" data-tip="Maya Okafor · 1 tasks"></i>
+                                                <i style="--n:8;--c:#d97706" data-tip="Saanvi Rao · 8 tasks"></i>
+                                                <i style="--n:2;--c:#0d9488" data-tip="Omkar Hegde · 2 tasks"></i>
+                                                <i style="--n:1;--c:#4f46e5" data-tip="Maya Nair · 1 tasks"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -289,28 +301,28 @@
                                         <b>15</b>
                                     </li>
                                     <li style="--c:#0891b2">
-                                        <i class="d"></i>Liam
+                                        <i class="d"></i>Vikram
                                         <span class="bar">
                                             <span style="width:27%"></span>
                                         </span>
                                         <b>14</b>
                                     </li>
                                     <li style="--c:#d97706">
-                                        <i class="d"></i>Sofia
+                                        <i class="d"></i>Saanvi
                                         <span class="bar">
                                             <span style="width:22%"></span>
                                         </span>
                                         <b>11</b>
                                     </li>
                                     <li style="--c:#0d9488">
-                                        <i class="d"></i>Omar
+                                        <i class="d"></i>Omkar
                                         <span class="bar">
                                             <span style="width:12%"></span>
                                         </span>
                                         <b>6</b>
                                     </li>
                                     <li style="--c:#64748b">
-                                        <i class="d"></i>Elena
+                                        <i class="d"></i>Ekta
                                         <span class="bar">
                                             <span style="width:10%"></span>
                                         </span>

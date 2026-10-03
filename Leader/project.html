@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Page Title -->
+    <title>Project Setup · TeamFlow Admin</title>
+    <!-- Meta description for SEO -->
+    <meta name="description"
+        content="Create and configure a new project — select a name, required skills/languages, and description for your team.">
+
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- Shared Sidebar CSS -->
+    <link href="slider.css" rel="stylesheet">
+    <!-- Page-specific CSS -->
+    <link href="project.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- SHELL WRAPPER (sidebar + content area) -->
+    <div class="tf-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="offcanvas-lg offcanvas-start tf-sidebar" tabindex="-1" id="sidebar" aria-label="Admin navigation">
+            <div class="offcanvas-body">
+
+                <!-- Brand / Logo — links to Dashboard -->
+                <a href="dashboard.html" class="tf-side-brand">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span>
+                        <span class="tf-brand d-block">TeamFlow</span>
+                        <span class="tf-brand-sub">Admin workspace</span>
+                    </span>
+                </a>
+
+                <hr class="tf-side-divider">
+
+                <!-- Group Switcher Dropdown -->
+                <div class="tf-group dropdown">
+                    <button class="tf-group-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bx bx-group"></i>My Group
+                        <i class="bx bx-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">My Group</a></li>
+                        <li><a class="dropdown-item" href="#">Design Team</a></li>
+                        <li><a class="dropdown-item" href="#">Backend Team</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section Label -->
+                <div class="tf-side-label">Manage</div>
+
+                <!-- Primary Navigation Links -->
+                <nav class="tf-side-nav" aria-label="Admin sidebar navigation">
+                    <a class="tf-side-link" href="dashboard.html">
+                        <i class="bx bx-grid-alt"></i>Dashboard
+                    </a>
+                    <!-- Project Setup — currently active page -->
+                    <a class="tf-side-link active" href="project.html" aria-current="page">
+                        <i class="bx bx-folder-plus"></i>Project Setup
+                    </a>
+                    <a class="tf-side-link" href="member.html">
+                        <i class="bx bx-group"></i>Members &amp; Skills
+                    </a>
+                    <a class="tf-side-link" href="task.html">
+                        <i class="bx bx-task"></i>Task Builder
+                    </a>
+                    <a class="tf-side-link" href="reviews.html">
+                        <i class="bx bx-file-find"></i>Reviews
+                    </a>
+                    <a class="tf-side-link" href="analystics.html">
+                        <i class="bx bx-bar-chart-alt-2"></i>Analytics
+                    </a>
+                </nav>
+
+                <!-- Logged-in Admin User Strip -->
+                <div class="tf-side-user">
+                    <span class="tf-avatar">A</span>
+                    <div>
+                        <div class="name">Aarav</div>
+                        <div class="role">Group admin</div>
+                    </div>
+                    <!-- Logout — back to landing page -->
+                    <a href="../index.html" class="tf-icon-btn" aria-label="Log out" title="Log out">
+                        <i class="bx bx-log-out"></i>
+                    </a>
+                </div>
+
+            </div>
+        </aside>
+        <!-- END SIDEBAR -->
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="tf-content">
+
+            <!-- Top Bar -->
+            <header class="tf-topbar">
+                <button class="tf-menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Open sidebar menu">
+                    <i class="bx bx-menu"></i>
+                </button>
+                <div>
+                    <h1>Project Setup</h1>
+                    <div class="sub">Create a new project &amp; define required skills</div>
+                </div>
+                <a href="#" class="btn-export ms-auto">
+                    <i class="bx bx-export"></i>Export
+                </a>
+                <span class="tf-avatar">A</span>
+            </header>
+
+            <!-- PAGE MAIN -->
+            <main class="tf-main">
+
+                <!-- EXISTING PROJECTS LIST -->
+                <section class="tf-card mb-4" aria-labelledby="proj-list-title">
+                    <div class="tf-card-head d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2 id="proj-list-title" class="tf-card-title">Active Projects</h2>
+                            <p class="text-muted small mb-0">All projects in your workspace</p>
+                        </div>
+                        <!-- Trigger "Create Project" modal -->
+                        <button type="button" class="btn tf-btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#createProjectModal" id="newProjectBtn">
+                            <i class="bx bx-plus"></i> New Project
+                        </button>
+                    </div>
+
+                    <!-- Projects Grid -->
+                    <div class="row g-3 mt-1" id="projectsGrid">
+
+                        <!-- Project Card 1 -->
+                        <div class="col-md-6 col-xl-4">
+                            <article class="tf-proj-card tf-proj-card--active">
+                                <div class="tf-proj-card-head">
+                                    <span class="tf-proj-icon" style="background:#eef2ff;color:#4f46e5">
+                                        <i class="bx bx-store"></i>
+                                    </span>
+                                    <span class="tf-proj-status tf-proj-status--active">Active</span>
+                                </div>
+                                <h3 class="tf-proj-name">E-Commerce Platform</h3>
+                                <p class="tf-proj-desc">Full-stack e-commerce solution with cart, checkout, and payment
+                                    gateway integration.</p>
+                                <div class="tf-proj-skills">
+                                    <span class="tf-skill-tag">React</span>
+                                    <span class="tf-skill-tag">Node.js</span>
+                                    <span class="tf-skill-tag">PostgreSQL</span>
+                                    <span class="tf-skill-tag">REST API</span>
+                                </div>
+                                <div class="tf-proj-meta">
+                                    <span><i class="bx bx-user"></i> 6 members</span>
+                                    <span><i class="bx bx-task"></i> 12 tasks</span>
+                                    <span><i class="bx bx-calendar"></i> Due Oct 30</span>
+                                </div>
+                                <div class="tf-proj-progress">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Progress</small>
+                                        <small class="fw-semibold">68%</small>
+                                    </div>
+                                    <div class="progress" style="height:6px" role="progressbar" aria-valuenow="68"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar"
+                                            style="width:68%;background:var(--tf-primary,#4f46e5)"></div>
+                                    </div>
+                                </div>
+                                <div class="tf-proj-actions">
+                                    <!-- Assign Tasks — go to task builder -->
+                                    <a href="task.html" class="btn tf-btn-sm tf-btn-primary">
+                                        <i class="bx bx-task"></i> Assign Tasks
+                                    </a>
+                                    <button type="button" class="btn tf-btn-sm tf-btn-outline" data-bs-toggle="modal"
+                                        data-bs-target="#editProjectModal">
+                                        <i class="bx bx-edit"></i> Edit
+                                    </button>
+                                    <button type="button" class="btn tf-btn-sm tf-btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteProjectModal">
+                                        <i class="bx bx-trash"></i>
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Project Card 2 -->
+                        <div class="col-md-6 col-xl-4">
+                            <article class="tf-proj-card">
+                                <div class="tf-proj-card-head">
+                                    <span class="tf-proj-icon" style="background:#f0fdfa;color:#0d9488">
+                                        <i class="bx bx-mobile"></i>
+                                    </span>
+                                    <span class="tf-proj-status tf-proj-status--review">In Review</span>
+                                </div>
+                                <h3 class="tf-proj-name">Mobile App UI</h3>
+                                <p class="tf-proj-desc">Redesign of the mobile application with new design system and
+                                    accessibility improvements.</p>
+                                <div class="tf-proj-skills">
+                                    <span class="tf-skill-tag">Figma</span>
+                                    <span class="tf-skill-tag">UI/UX</span>
+                                    <span class="tf-skill-tag">Flutter</span>
+                                </div>
+                                <div class="tf-proj-meta">
+                                    <span><i class="bx bx-user"></i> 4 members</span>
+                                    <span><i class="bx bx-task"></i> 8 tasks</span>
+                                    <span><i class="bx bx-calendar"></i> Due Nov 15</span>
+                                </div>
+                                <div class="tf-proj-progress">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Progress</small>
+                                        <small class="fw-semibold">45%</small>
+                                    </div>
+                                    <div class="progress" style="height:6px" role="progressbar" aria-valuenow="45"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar" style="width:45%;background:#0d9488"></div>
+                                    </div>
+                                </div>
+                                <div class="tf-proj-actions">
+                                    <a href="task.html" class="btn tf-btn-sm tf-btn-primary">
+                                        <i class="bx bx-task"></i> Assign Tasks
+                                    </a>
+                                    <button type="button" class="btn tf-btn-sm tf-btn-outline" data-bs-toggle="modal"
+                                        data-bs-target="#editProjectModal">
+                                        <i class="bx bx-edit"></i> Edit
+                                    </button>
+                                    <button type="button" class="btn tf-btn-sm tf-btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteProjectModal">
+                                        <i class="bx bx-trash"></i>
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Project Card 3 -->
+                        <div class="col-md-6 col-xl-4">
+                            <article class="tf-proj-card">
+                                <div class="tf-proj-card-head">
+                                    <span class="tf-proj-icon" style="background:#fffbeb;color:#d97706">
+                                        <i class="bx bx-bar-chart-alt-2"></i>
+                                    </span>
+                                    <span class="tf-proj-status tf-proj-status--planning">Planning</span>
+                                </div>
+                                <h3 class="tf-proj-name">Data Analytics Dashboard</h3>
+                                <p class="tf-proj-desc">Business intelligence dashboard with real-time charts, KPIs, and
+                                    exportable reports.</p>
+                                <div class="tf-proj-skills">
+                                    <span class="tf-skill-tag">Python</span>
+                                    <span class="tf-skill-tag">SQL</span>
+                                    <span class="tf-skill-tag">D3.js</span>
+                                </div>
+                                <div class="tf-proj-meta">
+                                    <span><i class="bx bx-user"></i> 3 members</span>
+                                    <span><i class="bx bx-task"></i> 5 tasks</span>
+                                    <span><i class="bx bx-calendar"></i> Due Dec 01</span>
+                                </div>
+                                <div class="tf-proj-progress">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Progress</small>
+                                        <small class="fw-semibold">12%</small>
+                                    </div>
+                                    <div class="progress" style="height:6px" role="progressbar" aria-valuenow="12"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar" style="width:12%;background:#d97706"></div>
+                                    </div>
+                                </div>
+                                <div class="tf-proj-actions">
+                                    <a href="task.html" class="btn tf-btn-sm tf-btn-primary">
+                                        <i class="bx bx-task"></i> Assign Tasks
+                                    </a>
+                                    <button type="button" class="btn tf-btn-sm tf-btn-outline" data-bs-toggle="modal"
+                                        data-bs-target="#editProjectModal">
+                                        <i class="bx bx-edit"></i> Edit
+                                    </button>
+                                    <button type="button" class="btn tf-btn-sm tf-btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteProjectModal">
+                                        <i class="bx bx-trash"></i>
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- QUICK WORKFLOW GUIDE BANNER -->
+                <section class="tf-workflow-guide" aria-label="Workflow guide">
+                    <h3 class="tf-wg-title"><i class="bx bx-info-circle"></i> How the workflow works</h3>
+                    <div class="row g-3">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="tf-wg-step">
+                                <span class="tf-wg-num">1</span>
+                                <div>
+                                    <strong>Admin creates project</strong>
+                                    <p>Set name, description and required skills/languages.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="tf-wg-step">
+                                <span class="tf-wg-num" style="background:#0d9488">2</span>
+                                <div>
+                                    <strong>Members select skills</strong>
+                                    <p>Members update their skill profile so leader can match them.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="tf-wg-step">
+                                <span class="tf-wg-num" style="background:#d97706">3</span>
+                                <div>
+                                    <strong>Leader assigns tasks</strong>
+                                    <p>Tasks are created with deadlines &amp; assigned to skill-matched members.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="tf-wg-step">
+                                <span class="tf-wg-num" style="background:#dc2626">4</span>
+                                <div>
+                                    <strong>Submit &amp; Review</strong>
+                                    <p>Member submits work; leader approves or requests changes with reason.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+            <!-- END PAGE MAIN -->
+
+        </div>
+        <!-- END MAIN CONTENT AREA -->
+
+    </div>
+    <!-- END SHELL -->
+
+
+    <!--  MODAL: CREATE NEW PROJECT -->
+    <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel"
+        aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content tf-modal">
+
+                <!-- Modal Header -->
+                <div class="modal-header tf-modal-header">
+                    <div>
+                        <h2 class="modal-title tf-modal-title" id="createProjectModalLabel">
+                            <i class="bx bx-folder-plus"></i> Create New Project
+                        </h2>
+                        <p class="tf-modal-sub mb-0">Fill in the details to set up a new project for your team.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body tf-modal-body">
+                    <form id="createProjectForm" novalidate>
+
+                        <!-- Project Name (required) -->
+                        <div class="mb-4">
+                            <label for="projName" class="tf-label">
+                                Project Name <span class="tf-required">*</span>
+                            </label>
+                            <input type="text" class="form-control tf-input" id="projName" name="projName"
+                                placeholder="e.g. E-Commerce Platform, Mobile App Redesign…" required
+                                autocomplete="off">
+                            <div class="invalid-feedback">Project name is required.</div>
+                        </div>
+
+                        <!-- Description (required) -->
+                        <div class="mb-4">
+                            <label for="projDesc" class="tf-label">
+                                Description <span class="tf-required">*</span>
+                            </label>
+                            <textarea class="form-control tf-input" id="projDesc" name="projDesc" rows="4"
+                                placeholder="Describe the project goals, scope, and expected deliverables…"
+                                required></textarea>
+                            <div class="invalid-feedback">Please add a brief description.</div>
+                        </div>
+
+                        <!-- Required Skills / Languages -->
+                        <div class="mb-4">
+                            <label for="projSkills" class="tf-label">
+                                Required Skills / Languages <span class="tf-required">*</span>
+                            </label>
+                            <p class="tf-hint">Enter the skills manually (e.g. Frontend, Backend, Database, Design).</p>
+                            <input type="text" class="form-control tf-input" id="projSkills" name="projSkills"
+                                placeholder="e.g. React, Node.js, UI/UX" required>
+                            <div class="invalid-feedback">Please enter required skills.</div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer tf-modal-footer">
+                    <button type="button" class="btn tf-btn-outline" data-bs-dismiss="modal">Cancel</button>
+                    <!-- Save without navigating -->
+                    <button type="button" class="btn tf-btn-outline" id="saveProjectBtn">
+                        <i class="bx bx-save"></i> Save Project
+                    </button>
+                    <!-- Save and go directly to Task Builder -->
+                    <a href="task.html" class="btn tf-btn-primary" id="saveAndAssignBtn">
+                        <i class="bx bx-task"></i> Save &amp; Assign Tasks
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END CREATE PROJECT MODAL -->
+
+
+    <!-- 
+         MODAL: EDIT PROJECT
+     -->
+    <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel"
+        aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content tf-modal">
+                <div class="modal-header tf-modal-header">
+                    <div>
+                        <h2 class="modal-title tf-modal-title" id="editProjectModalLabel">
+                            <i class="bx bx-edit"></i> Edit Project
+                        </h2>
+                        <p class="tf-modal-sub mb-0">Update project details, skills or timeline.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body tf-modal-body">
+                    <form id="editProjectForm" novalidate>
+
+                        <div class="mb-4">
+                            <label for="editProjName" class="tf-label">Project Name <span
+                                    class="tf-required">*</span></label>
+                            <input type="text" class="form-control tf-input" id="editProjName"
+                                value="E-Commerce Platform" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="editProjDesc" class="tf-label">Description <span
+                                    class="tf-required">*</span></label>
+                            <textarea class="form-control tf-input" id="editProjDesc" rows="4"
+                                required>Full-stack e-commerce solution with cart, checkout, and payment gateway integration.</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="tf-label">Required Skills</label>
+                            <input type="text" class="form-control tf-input" id="editProjSkills" name="editProjSkills"
+                                value="React, Node.js, PostgreSQL">
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer tf-modal-footer">
+                    <button type="button" class="btn tf-btn-outline" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn tf-btn-primary" data-bs-dismiss="modal">
+                        <i class="bx bx-save"></i> Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END EDIT PROJECT MODAL -->
+
+
+    <!-- 
+         MODAL: DELETE PROJECT (requires reason)
+     -->
+    <div class="modal fade" id="deleteProjectModal" tabindex="-1" aria-labelledby="deleteProjectModalLabel"
+        aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content tf-modal">
+                <div class="modal-header tf-modal-header">
+                    <h2 class="modal-title tf-modal-title" id="deleteProjectModalLabel">
+                        <i class="bx bx-trash" style="color:#dc2626"></i> Delete Project?
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body tf-modal-body">
+                    <!-- Warning alert -->
+                    <div class="tf-danger-alert">
+                        <i class="bx bx-error-circle"></i>
+                        <div>
+                            <strong>This action cannot be undone.</strong>
+                            <p class="mb-0 mt-1">Deleting this project will permanently remove all tasks, submissions,
+                                and history.</p>
+                        </div>
+                    </div>
+                    <!-- Mandatory deletion reason -->
+                    <div class="mt-3">
+                        <label for="deleteReason" class="tf-label">
+                            Reason for deletion <span class="tf-required">*</span>
+                        </label>
+                        <textarea class="form-control tf-input" id="deleteReason" rows="3"
+                            placeholder="Provide a reason why this project is being deleted…" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer tf-modal-footer">
+                    <button type="button" class="btn tf-btn-outline" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn" id="confirmDeleteBtn"
+                        style="background:#dc2626;color:#fff;border-radius:10px;padding:.5rem 1.2rem;font-weight:600">
+                        <i class="bx bx-trash"></i> Yes, Delete Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END DELETE PROJECT MODAL -->
+
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /**
+         * "Save Project" — validates form then closes modal.
+         */
+        document.getElementById('saveProjectBtn').addEventListener('click', function () {
+            const form = document.getElementById('createProjectForm');
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+            bootstrap.Modal.getInstance(document.getElementById('createProjectModal')).hide();
+        });
+
+        /**
+         * "Save & Assign Tasks" — validates form before navigating to task.html.
+         */
+        document.getElementById('saveAndAssignBtn').addEventListener('click', function (e) {
+            const form = document.getElementById('createProjectForm');
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.classList.add('was-validated');
+            }
+        });
+
+        /**
+         * Delete confirmation — requires a non-empty reason before closing.
+         */
+        document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+            const reason = document.getElementById('deleteReason').value.trim();
+            if (!reason) {
+                document.getElementById('deleteReason').classList.add('is-invalid');
+                return;
+            }
+            bootstrap.Modal.getInstance(document.getElementById('deleteProjectModal')).hide();
+        });
+    </script>
+
+</body>
+
+</html>

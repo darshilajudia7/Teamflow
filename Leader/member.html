@@ -42,33 +42,45 @@
 
                 <div class="tf-side-label">Manage</div>
 
-                <nav class="tf-side-nav">
-                    <a class="tf-side-link" href="dashboard.html" aria-current="page">
+                <!-- Primary Navigation Links -->
+                <nav class="tf-side-nav" aria-label="Admin sidebar navigation">
+                    <!-- Dashboard -->
+                    <a class="tf-side-link" href="dashboard.html">
                         <i class="bx bx-grid-alt"></i>Dashboard
                     </a>
-                    <a class="tf-side-link active" href="#">
+                    <!-- Project Setup -->
+                    <a class="tf-side-link" href="project.html">
+                        <i class="bx bx-folder-plus"></i>Project Setup
+                    </a>
+                    <!-- Members & Skills — currently active -->
+                    <a class="tf-side-link active" href="member.html" aria-current="page">
                         <i class="bx bx-group"></i>Members &amp; Skills
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Task Builder -->
+                    <a class="tf-side-link" href="task.html">
                         <i class="bx bx-task"></i>Task Builder
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Reviews -->
+                    <a class="tf-side-link" href="reviews.html">
                         <i class="bx bx-file-find"></i>Reviews
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Analytics -->
+                    <a class="tf-side-link" href="analystics.html">
                         <i class="bx bx-bar-chart-alt-2"></i>Analytics
                     </a>
                 </nav>
 
+                <!-- Logged-in Admin User Strip -->
                 <div class="tf-side-user">
                     <span class="tf-avatar">A</span>
                     <div>
                         <div class="name">Aarav</div>
                         <div class="role">Group admin</div>
                     </div>
-                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                    <!-- Logout — redirects back to landing page -->
+                    <a href="../index.html" class="tf-icon-btn" aria-label="Log out" title="Log out">
                         <i class="bx bx-log-out"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </aside>
@@ -199,7 +211,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- Row 1: Maya Okafor -->
+                                        <!-- Row 1: Maya Nair -->
                                         <tr class="tf-mrow" data-skills="react node">
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
@@ -208,8 +220,8 @@
                                                             style="--c:#4f46e5;--s:#eef2ff">MO</span>
                                                     </span>
                                                     <div>
-                                                        <div class="fw-semibold">Maya Okafor</div>
-                                                        <div class="tf-sub">maya.okafor@lumen.team</div>
+                                                        <div class="fw-semibold">Maya Nair</div>
+                                                        <div class="tf-sub">maya.nair@lumen.team</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -220,8 +232,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <select class="form-select tf-pillsel role-sel" name="role-MO"
-                                                    aria-label="Role for Maya Okafor">
+                                                <select class="form-select tf-pillsel role-sel" name="role-MN"
+                                                    aria-label="Role for Maya Nair">
                                                     <optgroup label="Permanent / Base Roles">
                                                         <option value="member">Member</option>
                                                         <option value="senior-member">Senior Member</option>
@@ -239,8 +251,8 @@
                                                 </select>
                                                 <div class="term-wrap">
                                                     <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
-                                                    <select class="form-select tf-termsel" name="term-MO"
-                                                        aria-label="Role duration for Maya Okafor">
+                                                    <select class="form-select tf-termsel" name="term-MN"
+                                                        aria-label="Role duration for Maya Nair">
                                                         <option value="permanent">Permanent</option>
                                                         <option value="1w">1 week</option>
                                                         <option value="2w">2 weeks</option>
@@ -251,8 +263,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <select class="form-select tf-pillsel status-sel" name="status-MO"
-                                                    aria-label="Status for Maya Okafor">
+                                                <select class="form-select tf-pillsel status-sel" name="status-MN"
+                                                    aria-label="Status for Maya Nair">
                                                     <option value="Active" selected>Active</option>
                                                     <option value="Idle">Idle</option>
                                                     <option value="On leave">On leave</option>
@@ -261,7 +273,7 @@
                                             </td>
                                         </tr>
 
-                                        <!-- Row 2: Liam Novak -->
+                                        <!-- Row 2: Vikram Shah -->
                                         <tr class="tf-mrow" data-skills="python">
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
@@ -269,8 +281,8 @@
                                                         <span class="tf-mavatar"
                                                             style="--c:#0891b2;--s:#ecfeff">LN</span></span>
                                                     <div>
-                                                        <div class="fw-semibold">Liam Novak</div>
-                                                        <div class="tf-sub">liam.novak@lumen.team</div>
+                                                        <div class="fw-semibold">Vikram Shah</div>
+                                                        <div class="tf-sub">vikram.shah@lumen.team</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -281,8 +293,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <select class="form-select tf-pillsel role-sel" name="role-LN"
-                                                    aria-label="Role for Liam Novak">
+                                                <select class="form-select tf-pillsel role-sel" name="role-VS"
+                                                    aria-label="Role for Vikram Shah">
                                                     <optgroup label="Permanent / Base Roles">
                                                         <option value="member" selected>Member</option>
                                                         <option value="senior-member">Senior Member</option>
@@ -300,8 +312,8 @@
                                                 </select>
                                                 <div class="term-wrap">
                                                     <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
-                                                    <select class="form-select tf-termsel" name="term-LN"
-                                                        aria-label="Role duration for Liam Novak">
+                                                    <select class="form-select tf-termsel" name="term-VS"
+                                                        aria-label="Role duration for Vikram Shah">
                                                         <option value="permanent">Permanent</option>
                                                         <option value="1w">1 week</option>
                                                         <option value="2w" selected>2 weeks</option>
@@ -312,8 +324,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <select class="form-select tf-pillsel status-sel" name="status-LN"
-                                                    aria-label="Status for Liam Novak">
+                                                <select class="form-select tf-pillsel status-sel" name="status-VS"
+                                                    aria-label="Status for Vikram Shah">
                                                     <option value="Active" selected>Active</option>
                                                     <option value="Idle">Idle</option>
                                                     <option value="On leave">On leave</option>
@@ -331,8 +343,8 @@
                                                             style="--c:#a16207;--s:#fefce8">SR</span>
                                                     </span>
                                                     <div>
-                                                        <div class="fw-semibold">Sofia Reyes</div>
-                                                        <div class="tf-sub">sofia.reyes@lumen.team</div>
+                                                        <div class="fw-semibold">Saanvi Rao</div>
+                                                        <div class="tf-sub">saanvi.rao@lumen.team</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -344,7 +356,7 @@
                                             </td>
                                             <td>
                                                 <select class="form-select tf-pillsel role-sel" name="role-SR"
-                                                    aria-label="Role for Sofia Reyes">
+                                                    aria-label="Role for Saanvi Rao">
                                                     <optgroup label="Permanent / Base Roles">
                                                         <option value="member" selected>Member</option>
                                                         <option value="senior-member">Senior Member</option>
@@ -363,7 +375,7 @@
                                                 <div class="term-wrap">
                                                     <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
                                                     <select class="form-select tf-termsel" name="term-SR"
-                                                        aria-label="Role duration for Sofia Reyes">
+                                                        aria-label="Role duration for Saanvi Rao">
                                                         <option value="permanent">Permanent</option>
                                                         <option value="1w">1 week</option>
                                                         <option value="2w" selected>2 weeks</option>
@@ -375,7 +387,7 @@
                                             </td>
                                             <td>
                                                 <select class="form-select tf-pillsel status-sel" name="status-SR"
-                                                    aria-label="Status for Sofia Reyes">
+                                                    aria-label="Status for Saanvi Rao">
                                                     <option value="Active" selected>Active</option>
                                                     <option value="Idle">Idle</option>
                                                     <option value="On leave">On leave</option>
@@ -384,7 +396,7 @@
                                             </td>
                                         </tr>
 
-                                        <!-- Row 4: Noah Kim -->
+                                        <!-- Row 4: Nikhil Sharma -->
                                         <tr class="tf-mrow" data-skills="ts">
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
@@ -393,8 +405,8 @@
                                                             style="--c:#3730a3;--s:#e0e7ff">NK</span>
                                                     </span>
                                                     <div>
-                                                        <div class="fw-semibold">Noah Kim</div>
-                                                        <div class="tf-sub">noah.kim@lumen.team</div>
+                                                        <div class="fw-semibold">Nikhil Sharma</div>
+                                                        <div class="tf-sub">nikhil.sharma@lumen.team</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -405,8 +417,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <select class="form-select tf-pillsel role-sel" name="role-NK"
-                                                    aria-label="Role for Noah Kim">
+                                                <select class="form-select tf-pillsel role-sel" name="role-NS"
+                                                    aria-label="Role for Nikhil Sharma">
                                                     <optgroup label="Permanent / Base Roles">
                                                         <option value="member">Member</option>
                                                         <option value="senior-member">Senior Member</option>
@@ -425,8 +437,8 @@
                                                 </select>
                                                 <div class="term-wrap">
                                                     <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
-                                                    <select class="form-select tf-termsel" name="term-NK"
-                                                        aria-label="Role duration for Noah Kim">
+                                                    <select class="form-select tf-termsel" name="term-NS"
+                                                        aria-label="Role duration for Nikhil Sharma">
                                                         <option value="permanent">Permanent</option>
                                                         <option value="1w">1 week</option>
                                                         <option value="2w" selected>2 weeks</option>
@@ -437,8 +449,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <select class="form-select tf-pillsel status-sel" name="status-NK"
-                                                    aria-label="Status for Noah Kim">
+                                                <select class="form-select tf-pillsel status-sel" name="status-NS"
+                                                    aria-label="Status for Nikhil Sharma">
                                                     <option value="Active" selected>Active</option>
                                                     <option value="Idle">Idle</option>
                                                     <option value="On leave">On leave</option>
@@ -447,7 +459,7 @@
                                             </td>
                                         </tr>
 
-                                        <!-- Row 5: Elena Vidal -->
+                                        <!-- Row 5: Ekta Verma -->
                                         <tr class="tf-mrow" data-skills="">
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
@@ -455,8 +467,8 @@
                                                         <span class="tf-mavatar"
                                                             style="--c:#64748b;--s:#f1f5f9">EV</span></span>
                                                     <div>
-                                                        <div class="fw-semibold">Elena Vidal</div>
-                                                        <div class="tf-sub">elena.vidal@lumen.team</div>
+                                                        <div class="fw-semibold">Ekta Verma</div>
+                                                        <div class="tf-sub">ekta.verma@lumen.team</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -468,7 +480,7 @@
                                             </td>
                                             <td>
                                                 <select class="form-select tf-pillsel role-sel" name="role-EV"
-                                                    aria-label="Role for Elena Vidal">
+                                                    aria-label="Role for Ekta Verma">
                                                     <optgroup label="Permanent / Base Roles">
                                                         <option value="member" selected>Member</option>
                                                         <option value="senior-member">Senior Member</option>
@@ -487,7 +499,7 @@
                                                 <div class="term-wrap">
                                                     <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
                                                     <select class="form-select tf-termsel" name="term-EV"
-                                                        aria-label="Role duration for Elena Vidal">
+                                                        aria-label="Role duration for Ekta Verma">
                                                         <option value="permanent">Permanent</option>
                                                         <option value="1w">1 week</option>
                                                         <option value="2w" selected>2 weeks</option>
@@ -499,7 +511,7 @@
                                             </td>
                                             <td>
                                                 <select class="form-select tf-pillsel status-sel" name="status-EV"
-                                                    aria-label="Status for Elena Vidal">
+                                                    aria-label="Status for Ekta Verma">
                                                     <option value="Active">Active</option>
                                                     <option value="Idle" selected>Idle</option>
                                                     <option value="On leave">On leave</option>
@@ -508,15 +520,15 @@
                                             </td>
                                         </tr>
 
-                                        <!-- Row 6: Omar Haddad -->
+                                        <!-- Row 6: Omkar Hegde -->
                                         <tr class="tf-mrow" data-skills="">
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
                                                     <span class="tf-avwrap"><span class="tf-mavatar"
                                                             style="--c:#0d9488;--s:#f0fdfa">OH</span></span>
                                                     <div>
-                                                        <div class="fw-semibold">Omar Haddad</div>
-                                                        <div class="tf-sub">omar.haddad@lumen.team</div>
+                                                        <div class="fw-semibold">Omkar Hegde</div>
+                                                        <div class="tf-sub">omkar.hegde@lumen.team</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -528,7 +540,7 @@
                                             </td>
                                             <td>
                                                 <select class="form-select tf-pillsel role-sel" name="role-OH"
-                                                    aria-label="Role for Omar Haddad">
+                                                    aria-label="Role for Omkar Hegde">
                                                     <optgroup label="Permanent / Base Roles">
                                                         <option value="member" selected>Member</option>
                                                         <option value="senior-member">Senior Member</option>
@@ -547,7 +559,7 @@
                                                 <div class="term-wrap">
                                                     <span class="term-tag"><i class="bx bx-timer"></i>Duration</span>
                                                     <select class="form-select tf-termsel" name="term-OH"
-                                                        aria-label="Role duration for Omar Haddad">
+                                                        aria-label="Role duration for Omkar Hegde">
                                                         <option value="permanent">Permanent</option>
                                                         <option value="1w">1 week</option>
                                                         <option value="2w" selected>2 weeks</option>
@@ -559,7 +571,7 @@
                                             </td>
                                             <td>
                                                 <select class="form-select tf-pillsel status-sel" name="status-OH"
-                                                    aria-label="Status for Omar Haddad">
+                                                    aria-label="Status for Omkar Hegde">
                                                     <option value="Active" selected>Active</option>
                                                     <option value="Idle">Idle</option>
                                                     <option value="On leave">On leave</option>

@@ -341,33 +341,45 @@
 
                 <div class="tf-side-label">Manage</div>
 
-                <nav class="tf-side-nav">
+                <!-- Primary Navigation Links -->
+                <nav class="tf-side-nav" aria-label="Admin sidebar navigation">
+                    <!-- Dashboard -->
                     <a class="tf-side-link" href="dashboard.html">
                         <i class="bx bx-grid-alt"></i>Dashboard
                     </a>
+                    <!-- Project Setup -->
+                    <a class="tf-side-link" href="project.html">
+                        <i class="bx bx-folder-plus"></i>Project Setup
+                    </a>
+                    <!-- Members & Skills -->
                     <a class="tf-side-link" href="member.html">
                         <i class="bx bx-group"></i>Members &amp; Skills
                     </a>
+                    <!-- Task Builder -->
                     <a class="tf-side-link" href="task.html">
                         <i class="bx bx-task"></i>Task Builder
                     </a>
+                    <!-- Reviews — currently active -->
                     <a class="tf-side-link active" href="reviews.html" aria-current="page">
                         <i class="bx bx-file-find"></i>Reviews
                     </a>
-                    <a class="tf-side-link" href="#">
+                    <!-- Analytics -->
+                    <a class="tf-side-link" href="analystics.html">
                         <i class="bx bx-bar-chart-alt-2"></i>Analytics
                     </a>
                 </nav>
 
+                <!-- Logged-in Admin User Strip -->
                 <div class="tf-side-user">
                     <span class="tf-avatar">A</span>
                     <div>
                         <div class="name">Aarav</div>
                         <div class="role">Group admin</div>
                     </div>
-                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                    <!-- Logout — back to landing page -->
+                    <a href="../index.html" class="tf-icon-btn" aria-label="Log out" title="Log out">
                         <i class="bx bx-log-out"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </aside>
@@ -461,8 +473,8 @@
                             <input type="radio" class="tf-rv-radio" name="sub" id="sub-maya" checked>
                             <label class="tf-sub-item" for="sub-maya">
                                 <span class="tf-sub-top">
-                                    <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MO</span>
-                                    <b>Maya Okafor</b>
+                                    <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MN</span>
+                                    <b>Maya Nair</b>
                                     <span class="tf-newdot" title="New"></span>
                                 </span>
                                 <span class="tf-sub-task">Build API Endpoints <small>TASK-101</small></span>
@@ -478,8 +490,8 @@
                             <input type="radio" class="tf-rv-radio" name="sub" id="sub-daniel">
                             <label class="tf-sub-item" for="sub-daniel">
                                 <span class="tf-sub-top">
-                                    <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">DP</span>
-                                    <b>Daniel Park</b>
+                                    <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">KM</span>
+                                    <b>Karan Mehta</b>
                                 </span>
                                 <span class="tf-sub-task">Database Schema Migration
                                     <small>TASK-103</small>
@@ -497,7 +509,7 @@
                             <label class="tf-sub-item" for="sub-sofia">
                                 <span class="tf-sub-top">
                                     <span class="tf-mavatar" style="--c:#a16207;--s:#fefce8">SR</span>
-                                    <b>Sofia Reyes</b>
+                                    <b>Saanvi Rao</b>
                                 </span>
                                 <span class="tf-sub-task">Design Checkout Flow
                                     <small>TASK-102</small>
@@ -524,7 +536,7 @@
                             <div class="tf-detail-head">
                                 <div>
                                     <h2 class="tf-detail-title">Build API Endpoints</h2>
-                                    <div class="tf-sub">TASK-101 · REST API Layer · submitted by Maya Okafor</div>
+                                    <div class="tf-sub">TASK-101 · REST API Layer · submitted by Maya Nair</div>
                                     <div class="tf-review-meta">
                                         <span> <i class="bx bxs-flag-alt"></i>
                                             High priority
@@ -767,7 +779,7 @@
                                     <input type="hidden" name="decision" value="changes">
                                     <div class="modal-header">
                                         <div>
-                                            <div class="tf-review-kicker">TASK-101 · MAYA OKAFOR</div>
+                                            <div class="tf-review-kicker">TASK-101 · MAYA NAIR</div>
                                             <h2 class="modal-title fs-5 fw-bold" id="changesMayaTitle">Request changes
                                             </h2>
                                         </div><button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -797,7 +809,7 @@
                             <div class="tf-detail-head">
                                 <div>
                                     <h2 class="tf-detail-title">Database Schema Migration</h2>
-                                    <div class="tf-sub">TASK-103 · Database Architecture · submitted by Daniel Park
+                                    <div class="tf-sub">TASK-103 · Database Architecture · submitted by Karan Mehta
                                     </div>
                                     <div class="tf-review-meta">
                                         <span><i class="bx bxs-flag-alt"></i>Medium priority</span>
@@ -914,17 +926,17 @@
                                     <input type="hidden" name="decision" value="changes">
                                     <div class="modal-header">
                                         <div>
-                                            <div class="tf-review-kicker">TASK-103 · DANIEL PARK</div>
+                                            <div class="tf-review-kicker">TASK-103 · KARAN MEHTA</div>
                                             <h2 class="modal-title fs-5 fw-bold" id="changesDanielTitle">Request changes
                                             </h2>
                                         </div><button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="tf-sub">Add clear, actionable notes. Daniel will see this feedback
+                                        <p class="tf-sub">Add clear, actionable notes. Karan will see this feedback
                                             with the returned task.</p>
                                         <label class="form-label fw-bold small" for="fb-daniel">Feedback for
-                                            Daniel</label>
+                                            Karan</label>
                                         <textarea class="form-control" id="fb-daniel" name="feedback" rows="5" required
                                             placeholder="Describe what needs to be updated or submitted..."></textarea>
                                     </div>
@@ -943,7 +955,7 @@
                             <div class="tf-detail-head">
                                 <div>
                                     <h2 class="tf-detail-title">Design Checkout Flow</h2>
-                                    <div class="tf-sub">TASK-102 · Customer Checkout UI · submitted by Sofia Reyes</div>
+                                    <div class="tf-sub">TASK-102 · Customer Checkout UI · submitted by Saanvi Rao</div>
                                     <div class="tf-review-meta">
                                         <span><i class="bx bxs-flag-alt"></i>High priority</span>
                                         <span><i class="bx bx-palette"></i>Figma · Wireframing · Design System</span>
@@ -1056,14 +1068,14 @@
                                     <input type="hidden" name="decision" value="changes">
                                     <div class="modal-header">
                                         <div>
-                                            <div class="tf-review-kicker">TASK-102 · SOFIA REYES</div>
+                                            <div class="tf-review-kicker">TASK-102 · SAANVI RAO</div>
                                             <h2 class="modal-title fs-5 fw-bold" id="changesSofiaTitle">Request changes
                                             </h2>
                                         </div><button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="tf-sub">Add clear, actionable notes. Sofia will see this feedback with
+                                        <p class="tf-sub">Add clear, actionable notes. Saanvi will see this feedback with
                                             the returned task.</p><label class="form-label fw-bold small"
                                             for="fb-sofia">Feedback for Sofia</label><textarea class="form-control"
                                             id="fb-sofia" name="feedback" rows="5" required
