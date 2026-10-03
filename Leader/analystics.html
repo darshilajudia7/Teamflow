@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard · Group Task Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="analystics.css" rel="stylesheet">
+    <link href="slider.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="tf-shell">
+
+        <!-- Sidebar -->
+        <aside class="offcanvas-lg offcanvas-start tf-sidebar" tabindex="-1" id="sidebar" aria-label="Admin navigation">
+            <div class="offcanvas-body">
+                <a href="#" class="tf-side-brand">
+                    <img src="../logo.png" alt="TeamFlow Logo" width="40" height="40">
+                    <span>
+                        <span class="tf-brand d-block">Lumen Team</span>
+                        <span class="tf-brand-sub">Admin workspace</span>
+                    </span>
+                </a>
+                <hr class="tf-side-divider">
+
+                <div class="tf-group dropdown">
+                    <button class="tf-group-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bx bx-group"></i>My Group
+                        <i class="bx bx-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">My Group</a></li>
+                        <li><a class="dropdown-item" href="#">Design Team</a></li>
+                        <li><a class="dropdown-item" href="#">Backend Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="tf-side-label">Manage</div>
+
+                <nav class="tf-side-nav">
+                    <a class="tf-side-link" href="admin-dashboard.html" aria-current="page">
+                        <i class="bx bx-grid-alt"></i>Dashboard
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-group"></i>Members &amp; Skills
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-task"></i>Task Builder
+                    </a>
+                    <a class="tf-side-link" href="#">
+                        <i class="bx bx-file-find"></i>Reviews
+                    </a>
+                    <a class="tf-side-link active" href="#">
+                        <i class="bx bx-bar-chart-alt-2"></i>Analytics
+                    </a>
+                </nav>
+
+                <div class="tf-side-user">
+                    <span class="tf-avatar">A</span>
+                    <div>
+                        <div class="name">Aarav</div>
+                        <div class="role">Group admin</div>
+                    </div>
+                    <button class="tf-icon-btn" type="button" aria-label="Log out">
+                        <i class="bx bx-log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="tf-content">
+
+            <header class="tf-topbar">
+                <button class="tf-menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Open menu">
+                    <i class="bx bx-menu"></i></button>
+                <div>
+                    <h1>Dashboard</h1>
+                    <div class="sub">Overview of My Group</div>
+                </div>
+                <a href="#" class="btn-export ms-auto">
+                    <i class="bx bx-export"></i>Export
+                </a>
+                <span class="tf-avatar">A</span>
+            </header>
+
+            <main class="tf-main">
+                <div class="tf-an">
+                    <div class="tf-an-head">
+                        <div>
+                            <h2>Team Leaderboard</h2>
+                            <div class="tf-sub">Sprint 3 &middot; rankings update when reviews are approved</div>
+                        </div>
+                        <div class="tf-an-actions">
+                            <a href="#" class="btn-dashed"><i class="bx bxs-file-pdf"></i>Export PDF</a>
+                            <a href="#" class="btn-dashed"><i class="bx bx-spreadsheet"></i>Export CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 g-lg-4">
+
+                        <!-- Column 1: leaderboard -->
+                        <div class="col-xl-6">
+                            <section class="tf-card tf-gold" aria-labelledby="lbTitle">
+                                <div class="tf-col-head2">
+                                    <span class="tf-col-icon2">
+                                        <i class="bx bx-trophy"></i>
+                                    </span>
+                                    <div>
+                                        <h3 class="tf-card-title" id="lbTitle">Top Contributors</h3>
+                                        <div class="tf-sub">Ranked by sprint contribution</div>
+                                    </div>
+                                    <span class="tf-col-chip">Sprint 3</span>
+                                </div>
+                                <div class="tf-podium">
+                                    <div class="pod pod-2">
+                                        <div class="pod-av">
+                                            <span class="tf-mavatar" style="--c:#0891b2;--s:#ecfeff">LN</span>
+                                        </div>
+                                        <b title="Liam Novak">Liam</b>
+                                        <div class="pod-step">
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                    <div class="pod pod-1">
+                                        <div class="pod-av">
+                                            <i class="bx bxs-crown pod-crown" aria-hidden="true"></i>
+                                            <span class="tf-mavatar" style="--c:#4f46e5;--s:#eef2ff">MO</span>
+                                        </div>
+                                        <b title="Maya Okafor">Maya</b>
+                                        <div class="pod-step">
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                    <div class="pod pod-3">
+                                        <div class="pod-av">
+                                            <span class="tf-mavatar" style="--c:#d97706;--s:#fefce8">SR</span>
+                                        </div>
+                                        <b title="Sofia Reyes">Sofia</b>
+                                        <div class="pod-step">
+                                            <span>3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ol class="tf-lb" start="4">
+                                    <li>
+                                        <span class="tf-rank">4</span>
+                                        <span class="tf-mavatar" style="--c:#0d9488;--s:#f0fdfa">OH</span>
+                                        <span class="tf-lb-main">
+                                            <b>Omar Haddad</b>
+                                            <span class="tf-sub">Mobile · Design</span>
+                                            <span class="tf-lb-bar"><i style="width:79%"></i>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="tf-rank">5</span>
+                                        <span class="tf-mavatar" style="--c:#64748b;--s:#f1f5f9">EV</span>
+                                        <span class="tf-lb-main">
+                                            <b>Elena Vidal</b>
+                                            <span class="tf-sub">Data · Backend</span>
+                                            <span class="tf-lb-bar">
+                                                <i style="width:74%"></i>
+                                            </span>
+                                        </span>
+                                    </li>
+                                </ol>
+                                <div class="tf-lb-foot">
+                                    <i class="bx bx-bulb"></i>
+                                    <span>The top 3 delivered <b>78%</b>
+                                        of completed sprint tasks.</span>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- Column 2: output by technology -->
+                        <div class="col-xl-6">
+                            <section class="tf-card tf-indigo" aria-labelledby="techTitle">
+                                <div class="tf-col-head2">
+                                    <span class="tf-col-icon2">
+                                        <i class="bx bx-bar-chart-alt-2"></i>
+                                    </span>
+                                    <div>
+                                        <h3 class="tf-card-title" id="techTitle">Output by Technology</h3>
+                                        <div class="tf-sub">Completed tasks, stacked by member</div>
+                                    </div>
+                                    <span class="tf-col-chip">51 tasks</span>
+                                </div>
+                                <div class="tf-kpis">
+                                    <div class="tf-kpi">
+                                        <b>51</b>
+                                        <span class="tf-sub">Completed
+                                            <span class="tf-trendchip">
+                                                <i class="bx bx-up-arrow-alt"></i>12%
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="tf-kpi">
+                                        <b>React</b>
+                                        <span class="tf-sub">Top technology</span>
+                                    </div>
+                                    <div class="tf-kpi">
+                                        <b>10.2</b>
+                                        <span class="tf-sub">Avg per member</span>
+                                    </div>
+                                </div>
+                                <div class="tf-chartwrap">
+                                    <div class="tf-yax" aria-hidden="true">
+                                        <span style="--p:0">0</span>
+                                        <span style="--p:25">4</span>
+                                        <span style="--p:50">8</span>
+                                        <span style="--p:75">12</span>
+                                        <span style="--p:100">16</span>
+                                    </div>
+
+                                    <div class="tf-stack" role="img"
+                                        aria-label="Stacked bar chart of completed tasks per technology: React 15, Node.js 13, Python 12, UI/UX 11">
+                                        <div class="tf-sbar" data-t="react" style="--t:15">
+                                            <b>15</b>
+                                            <div class="tf-scol">
+                                                <i style="--n:8;--c:#4f46e5" data-tip="Maya Okafor · 8 tasks"></i>
+                                                <i style="--n:4;--c:#0d9488" data-tip="Omar Haddad · 4 tasks"></i>
+                                                <i style="--n:3;--c:#d97706" data-tip="Sofia Reyes · 3 tasks"></i>
+                                            </div>
+                                        </div>
+                                        <div class="tf-sbar" data-t="node" style="--t:13">
+                                            <b>13</b>
+                                            <div class="tf-scol">
+                                                <i style="--n:6;--c:#4f46e5" data-tip="Maya Okafor · 6 tasks"></i>
+                                                <i style="--n:5;--c:#0891b2" data-tip="Liam Novak · 5 tasks"></i>
+                                                <i style="--n:2;--c:#64748b" data-tip="Elena Vidal · 2 tasks"></i>
+                                            </div>
+                                        </div>
+                                        <div class="tf-sbar" data-t="python" style="--t:12"><b>12</b>
+                                            <div class="tf-scol">
+                                                <i style="--n:9;--c:#0891b2" data-tip="Liam Novak · 9 tasks"></i>
+                                                <i style="--n:3;--c:#64748b" data-tip="Elena Vidal · 3 tasks"></i>
+                                            </div>
+                                        </div>
+                                        <div class="tf-sbar" data-t="uiux" style="--t:11"><b>11</b>
+                                            <div class="tf-scol">
+                                                <i style="--n:8;--c:#d97706" data-tip="Sofia Reyes · 8 tasks"></i>
+                                                <i style="--n:2;--c:#0d9488" data-tip="Omar Haddad · 2 tasks"></i>
+                                                <i style="--n:1;--c:#4f46e5" data-tip="Maya Okafor · 1 tasks"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tf-saxis">
+                                    <span></span>
+                                    <div>
+                                        <span>React</span>
+                                        <span>Node.js</span>
+                                        <span>Python</span>
+                                        <span>UI/UX</span>
+                                    </div>
+                                </div>
+
+                                <div class="tf-filters tf-an-tech" role="radiogroup"
+                                    aria-label="Highlight a technology">
+                                    <input type="radio" class="tf-fr" name="tech" id="t-all" checked>
+
+                                    <label for="t-all">All</label>
+                                    <input type="radio" class="tf-fr" name="tech" id="t-react">
+
+                                    <label for="t-react">React</label>
+                                    <input type="radio" class="tf-fr" name="tech" id="t-node">
+
+                                    <label for="t-node">Node.js</label>
+                                    <input type="radio" class="tf-fr" name="tech" id="t-python">
+
+                                    <label for="t-python">Python</label>
+                                    <input type="radio" class="tf-fr" name="tech" id="t-uiux">
+
+                                    <label for="t-uiux">UI/UX</label>
+                                </div>
+
+                                <ul class="tf-share" aria-label="Tasks completed per member">
+                                    <li style="--c:#4f46e5">
+                                        <i class="d"></i>Maya
+                                        <span class="bar">
+                                            <span style="width:29%"></span>
+                                        </span>
+                                        <b>15</b>
+                                    </li>
+                                    <li style="--c:#0891b2">
+                                        <i class="d"></i>Liam
+                                        <span class="bar">
+                                            <span style="width:27%"></span>
+                                        </span>
+                                        <b>14</b>
+                                    </li>
+                                    <li style="--c:#d97706">
+                                        <i class="d"></i>Sofia
+                                        <span class="bar">
+                                            <span style="width:22%"></span>
+                                        </span>
+                                        <b>11</b>
+                                    </li>
+                                    <li style="--c:#0d9488">
+                                        <i class="d"></i>Omar
+                                        <span class="bar">
+                                            <span style="width:12%"></span>
+                                        </span>
+                                        <b>6</b>
+                                    </li>
+                                    <li style="--c:#64748b">
+                                        <i class="d"></i>Elena
+                                        <span class="bar">
+                                            <span style="width:10%"></span>
+                                        </span>
+                                        <b>5</b>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
