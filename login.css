@@ -101,6 +101,39 @@ main.auth {
     outline: none;
 }
 
+.auth-card .input-group-text {
+    border: 1px solid var(--tf-line);
+    border-right: none;
+    border-radius: var(--tf-radius-md) 0 0 var(--tf-radius-md);
+    color: var(--tf-muted);
+    font-size: 1.15rem;
+    padding: 0.75rem 0.9rem;
+    background: var(--tf-surface);
+}
+
+.auth-card .input-group .form-control {
+    border-radius: 0 var(--tf-radius-md) var(--tf-radius-md) 0;
+}
+
+.auth-card .input-group:has(.btn-outline-secondary) .form-control {
+    border-radius: 0;
+}
+
+.auth-card .input-group .btn-outline-secondary {
+    border-color: var(--tf-line);
+    border-left: none;
+    border-radius: 0 var(--tf-radius-md) var(--tf-radius-md) 0;
+    color: var(--tf-muted);
+    background: var(--tf-surface);
+}
+
+.auth-card .input-group .btn-outline-secondary:hover,
+.auth-card .input-group .btn-outline-secondary:focus-visible {
+    border-color: var(--tf-primary);
+    color: var(--tf-primary);
+    background: var(--tf-primary-soft);
+}
+
 .form-check-input {
     border-color: var(--tf-line-dashed);
     transition: border-color var(--tf-transition-fast), background-color var(--tf-transition-fast), box-shadow var(--tf-transition-fast);
@@ -144,6 +177,46 @@ main.auth {
 
 .btn-check:focus-visible + .role-btn {
     box-shadow: 0 0 0 0.22rem var(--tf-primary-focus-ring-lg);
+}
+
+.role-btn i {
+    font-size: 1.15rem;
+    vertical-align: -0.12em;
+}
+
+/* Form popup */
+
+.tf-alert-dialog {
+    width: min(92vw, 390px);
+    padding: 2rem;
+    border: 1px solid var(--tf-line);
+    border-radius: var(--tf-radius-lg);
+    color: var(--tf-ink);
+    background: var(--tf-surface);
+    box-shadow: var(--tf-shadow-card-elevated);
+    text-align: center;
+}
+
+.tf-alert-dialog::backdrop {
+    background: rgb(17 24 39 / 55%);
+    backdrop-filter: blur(3px);
+}
+
+.tf-alert-dialog p {
+    margin: 0.75rem 0 1.5rem;
+    color: var(--tf-muted);
+}
+
+.tf-alert-icon {
+    display: grid;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 0 auto 1rem;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--tf-primary);
+    background: var(--tf-primary-soft);
+    font-size: 1.75rem;
 }
 
 .btn-main {
