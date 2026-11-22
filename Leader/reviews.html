@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="slider.css">
     <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="common.css">
     <style>
         .tf-review-overview {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -789,9 +790,10 @@
                                         <p class="tf-sub">Add clear, actionable notes. Maya will see this feedback with
                                             the returned task.</p>
                                         <label class="form-label fw-bold small" for="fb-maya">Feedback for
-                                            Maya</label>
-                                        <textarea class="form-control" id="fb-maya" name="feedback" rows="5" required
+                                            Maya <span class="text-danger">*</span></label>
+                                        <textarea class="form-control tf-input" id="fb-maya" name="feedback" rows="5" required
                                             placeholder="Describe what needs to be updated or submitted..."></textarea>
+                                        <div class="invalid-feedback">Please provide actionable feedback (at least 10 characters).</div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light rounded-pill fw-semibold"
@@ -936,9 +938,10 @@
                                         <p class="tf-sub">Add clear, actionable notes. Karan will see this feedback
                                             with the returned task.</p>
                                         <label class="form-label fw-bold small" for="fb-daniel">Feedback for
-                                            Karan</label>
-                                        <textarea class="form-control" id="fb-daniel" name="feedback" rows="5" required
+                                            Karan <span class="text-danger">*</span></label>
+                                        <textarea class="form-control tf-input" id="fb-daniel" name="feedback" rows="5" required
                                             placeholder="Describe what needs to be updated or submitted..."></textarea>
+                                        <div class="invalid-feedback">Please provide actionable feedback (at least 10 characters).</div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light rounded-pill fw-semibold"
@@ -1076,10 +1079,11 @@
                                     </div>
                                     <div class="modal-body">
                                         <p class="tf-sub">Add clear, actionable notes. Saanvi will see this feedback with
-                                            the returned task.</p><label class="form-label fw-bold small"
-                                            for="fb-sofia">Feedback for Sofia</label><textarea class="form-control"
-                                            id="fb-sofia" name="feedback" rows="5" required
+                                            the returned task.</p>
+                                        <label class="form-label fw-bold small" for="fb-sofia">Feedback for Saanvi <span class="text-danger">*</span></label>
+                                        <textarea class="form-control tf-input" id="fb-sofia" name="feedback" rows="5" required
                                             placeholder="Describe what needs to be updated or submitted..."></textarea>
+                                        <div class="invalid-feedback">Please provide actionable feedback (at least 10 characters).</div>
                                     </div>
                                     <div class="modal-footer"><button type="button"
                                             class="btn btn-light rounded-pill fw-semibold"
@@ -1096,6 +1100,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="common.js"></script>
+    <script src="reviews.js"></script>
 </body>
 
 </html>

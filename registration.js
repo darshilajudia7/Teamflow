@@ -1,6 +1,4 @@
-// ==========================================
 // DOM Elements Selection
-// ==========================================
 const form = document.getElementById("registrationForm");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
@@ -30,16 +28,12 @@ const alertDialog = document.getElementById("formAlert");
 const alertMessage = document.getElementById("formAlertMessage");
 const alertCloseBtn = document.getElementById("formAlertClose");
 
-// ==========================================
 // Alert Dialog Close
-// ==========================================
 alertCloseBtn.addEventListener("click", () => {
     alertDialog.close();
 });
 
-// ==========================================
 // Toggle Password Visibility
-// ==========================================
 togglePassword.addEventListener("click", () => {
     const isPassword = passwordInput.type === "password";
     passwordInput.type = isPassword ? "text" : "password";
@@ -52,9 +46,7 @@ togglePassword.addEventListener("click", () => {
     icon.classList.toggle("bx-hide", isPassword);
 });
 
-// ==========================================
 // Dynamic Role Selection (Leader vs Member)
-// ==========================================
 leaderRadio.addEventListener("change", () => {
     groupFields.classList.remove("d-none");
     groupHeading.textContent = "Create your group";
@@ -75,9 +67,7 @@ memberRadio.addEventListener("change", () => {
     roleError.textContent = "";
 });
 
-// ==========================================
 // Real-time Input Handling & Error Clearing
-// ==========================================
 nameInput.addEventListener("input", () => {
     nameInput.value = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
     if (nameInput.value.trim().length > 0) {
@@ -116,9 +106,7 @@ document.querySelectorAll('input[name="gender"]').forEach((radio) => {
     });
 });
 
-// ==========================================
 // Form Submission & Validation
-// ==========================================
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -200,9 +188,6 @@ form.addEventListener("submit", (event) => {
         }
     }
 
-    // ------------------------------------------
-    // If Error: STAY on the same page
-    // ------------------------------------------
     if (!isValid) {
         formError.textContent = "Please correct the highlighted fields above.";
         formError.classList.remove("d-none");
@@ -213,12 +198,9 @@ form.addEventListener("submit", (event) => {
         alertCloseBtn.onclick = () => {
             alertDialog.close();
         };
-        return; // Prevents navigation; stays on registration.html
+        return;
     }
 
-    // ------------------------------------------
-    // If Successful: GO to login page
-    // ------------------------------------------
     // Store registered user details so login can fetch role by email
     const newUser = {
         name: nameVal,
@@ -240,7 +222,7 @@ form.addEventListener("submit", (event) => {
         }
         localStorage.setItem("teamflow_users", JSON.stringify(storedUsers));
     } catch (e) {
-        // Fallback if localStorage is restricted
+
     }
 
     formError.textContent = "";

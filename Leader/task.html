@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Member Profile · Group Task Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="slider.css">
     <link rel="stylesheet" href="task.css">
+    <link rel="stylesheet" href="common.css">
 </head>
 
 <body>
@@ -110,18 +112,20 @@
                             <h2 id="create-title">Create a new task</h2>
                             <p class="text-muted small mb-0">Add specifications and select a qualified team member.</p>
                         </div>
-                        <form onsubmit="return false">
+                        <form id="createTaskForm" novalidate>
                             <div class="row g-0">
                                 <div class="col-lg-6 tf-form-col">
                                     <div class="mb-3">
-                                        <label class="tf-label" for="task-title">Title</label>
+                                        <label class="tf-label" for="task-title">Title <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control tf-input" id="task-title"
-                                            placeholder="e.g. Implement webhook dispatch service...">
+                                            placeholder="e.g. Implement webhook dispatch service..." required>
+                                        <div class="invalid-feedback">Task title is required (min 3 characters).</div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="tf-label" for="task-desc">Description</label>
+                                        <label class="tf-label" for="task-desc">Description <span class="text-danger">*</span></label>
                                         <textarea class="form-control tf-input" id="task-desc" rows="4"
-                                            placeholder="Detail the business requirements, API parameters, or test cases..."></textarea>
+                                            placeholder="Detail the business requirements, API parameters, or test cases..." required></textarea>
+                                        <div class="invalid-feedback">Please describe the task (min 8 characters).</div>
                                     </div>
                                     <div class="row g-3 mb-3">
                                         <div class="col-sm-6">
@@ -133,23 +137,51 @@
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label class="tf-label" for="task-deadline">Deadline</label>
-                                            <input type="date" class="form-control tf-input" id="task-deadline">
+                                            <label class="tf-label" for="task-deadline">Deadline <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control tf-input" id="task-deadline" required>
+                                            <div class="invalid-feedback">Please select a valid deadline (today or future).</div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <span class="tf-label">Required Tech Tags</span>
-                                        <div class="tf-tagbox">
-                                            <span class="tf-tag">React</span>
-                                            <span class="tf-tag">Node.js</span>
-                                            <button type="button" class="tf-tag tf-tag-add"><i
-                                                    class="bi bi-plus-lg"></i>Add tag</button>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span class="tf-label mb-0">Required Tech Tags <span class="text-danger">*</span></span>
+                                            <span class="tf-hint small text-muted">Member must have these skills</span>
                                         </div>
+                                        <div class="tf-tagbox mb-2" id="taskTagBox">
+                                            <span class="tf-tag tf-tag-item" data-tag="react">React <i class="bi bi-x-circle-fill tf-tag-remove" role="button" title="Remove React"></i></span>
+                                            <span class="tf-tag tf-tag-item" data-tag="node">Node.js <i class="bi bi-x-circle-fill tf-tag-remove" role="button" title="Remove Node.js"></i></span>
+                                            <div class="dropdown d-inline-block">
+                                                <button type="button" class="tf-tag tf-tag-add dropdown-toggle" id="addTagDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="bi bi-plus-lg"></i> Add tech tag
+                                                </button>
+                                                <ul class="dropdown-menu shadow-sm p-2" aria-labelledby="addTagDropdownBtn" id="addTagMenu" style="min-width: 230px;">
+                                                    <li><h6 class="dropdown-header px-1 py-1 text-uppercase text-muted" style="font-size: 0.7rem; font-weight: 700;">Preset Skills</h6></li>
+                                                    <div class="d-flex flex-wrap gap-1 px-1 mb-2">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="react">React</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="node">Node.js</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="python">Python</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="django">Django</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="sql">SQL</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="postgresql">PostgreSQL</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="uiux">UI/UX</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2" style="font-size:0.75rem;" data-add-tag="figma">Figma</button>
+                                                    </div>
+                                                    <li><hr class="dropdown-divider my-1"></li>
+                                                    <li class="px-1 pt-1">
+                                                        <div class="input-group input-group-sm">
+                                                            <input type="text" id="customTagInput" class="form-control" placeholder="Custom skill..." aria-label="Custom skill">
+                                                            <button class="btn btn-primary" type="button" id="addCustomTagBtn"><i class="bi bi-plus-lg"></i></button>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="tech-tags-feedback" class="invalid-feedback">Please specify at least one required tech tag.</div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 tf-pick-col">
-                                    <span class="tf-label">Select a member</span>
+                                    <span class="tf-label">Select a member <span class="text-danger">*</span></span>
                                     <p class="tf-hint">Filter by skill. Matching candidates appear first.</p>
                                     <div class="tf-picker">
                                         <div class="tf-chips" role="radiogroup" aria-label="Filter members by skill">
@@ -174,9 +206,9 @@
                                         </div>
                                         <div class="tf-members">
                                             <div class="tf-member" data-skills="react node">
-                                                <input type="radio" class="btn-check" name="new-member" id="new-m-maya">
+                                                <input type="radio" class="btn-check" name="new-member" id="new-m-maya" value="Maya Nair">
                                                 <label class="tf-member-card" for="new-m-maya">
-                                                    <span class="tf-avatar tf-a1">MO</span>
+                                                    <span class="tf-avatar tf-a1">MN</span>
                                                     <span class="tf-member-info">
                                                         <span class="tf-member-name">Maya Nair</span>
                                                         <span class="tf-member-role">Full-Stack Lead</span>
@@ -184,14 +216,13 @@
                                                                 class="tf-skill">React</span><span
                                                                 class="tf-skill">Node.js</span></span>
                                                     </span>
-                                                    <span class="tf-match"><i class="bi bi-check2-circle"></i>Skill
-                                                        match</span>
+                                                    <span class="tf-match tf-match-badge"><i class="bi bi-check2-circle"></i>Skill match</span>
                                                     <span class="tf-radio" aria-hidden="true"></span>
                                                 </label>
                                             </div>
-                                            <div class="tf-member" data-skills="uiux">
+                                            <div class="tf-member" data-skills="uiux figma">
                                                 <input type="radio" class="btn-check" name="new-member"
-                                                    id="new-m-sofia">
+                                                    id="new-m-sofia" value="Saanvi Rao">
                                                 <label class="tf-member-card" for="new-m-sofia">
                                                     <span class="tf-avatar tf-a4">SR</span>
                                                     <span class="tf-member-info">
@@ -201,14 +232,13 @@
                                                                 class="tf-skill">UI/UX</span><span
                                                                 class="tf-skill">Figma</span></span>
                                                     </span>
-                                                    <span class="tf-match"><i class="bi bi-check2-circle"></i>Skill
-                                                        match</span>
+                                                    <span class="tf-match tf-match-badge"><i class="bi bi-check2-circle"></i>Skill match</span>
                                                     <span class="tf-radio" aria-hidden="true"></span>
                                                 </label>
                                             </div>
-                                            <div class="tf-member" data-skills="sql">
+                                            <div class="tf-member" data-skills="sql postgresql">
                                                 <input type="radio" class="btn-check" name="new-member"
-                                                    id="new-m-daniel">
+                                                    id="new-m-daniel" value="Karan Mehta">
                                                 <label class="tf-member-card" for="new-m-daniel">
                                                     <span class="tf-avatar tf-a5">KM</span>
                                                     <span class="tf-member-info">
@@ -218,11 +248,29 @@
                                                                 class="tf-skill">SQL</span><span
                                                                 class="tf-skill">PostgreSQL</span></span>
                                                     </span>
+                                                    <span class="tf-match tf-match-badge"><i class="bi bi-check2-circle"></i>Skill match</span>
+                                                    <span class="tf-radio" aria-hidden="true"></span>
+                                                </label>
+                                            </div>
+                                            <div class="tf-member" data-skills="python django">
+                                                <input type="radio" class="btn-check" name="new-member"
+                                                    id="new-m-vikram" value="Vikram Shah">
+                                                <label class="tf-member-card" for="new-m-vikram">
+                                                    <span class="tf-avatar tf-a3">VS</span>
+                                                    <span class="tf-member-info">
+                                                        <span class="tf-member-name">Vikram Shah</span>
+                                                        <span class="tf-member-role">Backend Engineer</span>
+                                                        <span class="tf-member-skills"><span
+                                                                class="tf-skill">Python</span><span
+                                                                class="tf-skill">Django</span></span>
+                                                    </span>
+                                                    <span class="tf-match tf-match-badge"><i class="bi bi-check2-circle"></i>Skill match</span>
                                                     <span class="tf-radio" aria-hidden="true"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="new-member-error" class="tf-sub mt-2"></div>
                                 </div>
                             </div>
                             <div class="tf-card-foot">
@@ -489,19 +537,22 @@
                                                     <option value="skills">Updated Skill Requirements</option>
                                                     <option value="priority">Priority Escalation</option>
                                                 </select>
+                                                <div class="invalid-feedback">Select an audit modification reason.</div>
                                             </div>
                                             <div class="col-md-7">
-                                                <input type="text" class="form-control tf-input bg-white"
+                                                <input type="text" class="form-control tf-input bg-white" id="t1-edit-reason-text"
                                                     placeholder="Provide context on why this task is being edited..."
                                                     required>
+                                                <div class="invalid-feedback">Context note must be at least 5 characters.</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="tf-label" for="t1-edit-title-field">Task Title</label>
+                                        <label class="tf-label" for="t1-edit-title-field">Task Title <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control tf-input" id="t1-edit-title-field"
                                             value="Build API Endpoints" required>
+                                        <div class="invalid-feedback">Task title is required.</div>
                                     </div>
 
                                     <div class="mb-3">
@@ -529,9 +580,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="tf-label" for="t1-edit-due">Due Date</label>
+                                            <label class="tf-label" for="t1-edit-due">Due Date <span class="text-danger">*</span></label>
                                             <input type="date" class="form-control tf-input" id="t1-edit-due"
                                                 value="2026-10-18" required>
+                                            <div class="invalid-feedback">Please select a valid due date.</div>
                                         </div>
                                     </div>
 
@@ -592,7 +644,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn tf-btn-ghost"
                                         data-bs-dismiss="modal">Discard</button>
-                                    <button type="submit" class="btn tf-btn-primary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn tf-btn-primary" id="t1SaveBtn">
                                         <i class="bi bi-save2"></i> Save Changes
                                     </button>
                                 </div>
@@ -636,14 +688,16 @@
                                             <option value="restructured">Merged into New Sprint Epic</option>
                                             <option value="blocked">Permanently Blocked</option>
                                         </select>
-                                        <textarea class="form-control tf-input bg-white" rows="2"
+                                        <div class="invalid-feedback mb-2">Please select a deletion reason.</div>
+                                        <textarea class="form-control tf-input bg-white" id="t1-del-desc" rows="2"
                                             placeholder="Document reason for team sprint review..." required></textarea>
+                                        <div class="invalid-feedback">Please document the deletion reason (min 5 characters).</div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn tf-btn-ghost" data-bs-dismiss="modal">Keep
                                         Task</button>
-                                    <button type="submit" class="btn tf-btn-danger" data-bs-dismiss="modal">
+                                    <button type="button" class="btn tf-btn-danger" id="t1DeleteBtn">
                                         <i class="bi bi-trash3-fill"></i> Delete Task
                                     </button>
                                 </div>
@@ -768,22 +822,25 @@
 
                                     <div class="row g-3 mb-3">
                                         <div class="col-md-6">
-                                            <label for="assignMilestone" class="tf-label">Sprint Milestone Phase</label>
+                                            <label for="assignMilestone" class="tf-label">Sprint Milestone Phase <span class="text-danger">*</span></label>
                                             <select class="form-select tf-input" id="assignMilestone" required>
+                                                <option value="" disabled>Select milestone phase...</option>
                                                 <option value="Sprint 3" selected>Sprint 3 - Customer Experience
                                                     Overhaul</option>
                                                 <option value="Sprint 4">Sprint 4 - Payment Gateway Integration</option>
                                                 <option value="Q4">Q4 Production Release</option>
                                             </select>
+                                            <div class="invalid-feedback">Please select a sprint milestone.</div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="assignHours" class="tf-label">Estimated Effort (Hours)</label>
+                                            <label for="assignHours" class="tf-label">Estimated Effort (Hours) <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <span class="input-group-text bg-light text-muted border-end-0"><i
                                                         class="bi bi-clock"></i></span>
                                                 <input type="number" class="form-control tf-input border-start-0"
                                                     id="assignHours" value="20" min="1" max="160" required>
                                             </div>
+                                            <div class="invalid-feedback">Effort must be between 1 and 160 hours.</div>
                                         </div>
                                     </div>
 
@@ -799,6 +856,7 @@
                                             <label for="assignFigmaLink" class="tf-label">Figma / Spec URL</label>
                                             <input type="text" class="form-control tf-input" id="assignFigmaLink"
                                                 value="figma.com/file/checkout-v2-wireframes">
+                                            <div class="invalid-feedback">Please enter a valid URL / link.</div>
                                         </div>
                                     </div>
 
@@ -815,14 +873,14 @@
                                         <label class="form-check-label small fw-semibold text-muted"
                                             for="notifyMemberCheck">
                                             Send priority briefing notification and schedule calendar block for Saanvi
-                                            Rao
+                                             Rao
                                         </label>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn tf-btn-ghost"
                                         data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn tf-btn-primary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn tf-btn-primary" id="t2AssignBtn">
                                         <i class="bi bi-check2-circle"></i> Confirm Assignment
                                     </button>
                                 </div>
@@ -898,18 +956,21 @@
                                                     <option value="schedule">Deadline Reschedule</option>
                                                     <option value="policy_update">Security Policy Update</option>
                                                 </select>
+                                                <div class="invalid-feedback">Select a reason for alteration.</div>
                                             </div>
                                             <div class="col-md-7">
-                                                <input type="text" class="form-control tf-input bg-white"
+                                                <input type="text" class="form-control tf-input bg-white" id="t3-edit-reason-text"
                                                     placeholder="Why is this schema task being altered?" required>
+                                                <div class="invalid-feedback">Explanation must be at least 5 characters.</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="tf-label" for="t3-title-input">Task Title</label>
+                                        <label class="tf-label" for="t3-title-input">Task Title <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control tf-input" id="t3-title-input"
                                             value="Database Schema Migration" required>
+                                        <div class="invalid-feedback">Task title is required.</div>
                                     </div>
 
                                     <!-- Related Database Skills -->
@@ -945,7 +1006,7 @@
                                                 cannot be changed</span></label>
                                         <div class="tf-static-member-card">
                                             <div class="tf-static-member-left">
-                                                <span class="tf-avatar tf-avatar-lg tf-a5">DP</span>
+                                                <span class="tf-avatar tf-avatar-lg tf-a5">KM</span>
                                                 <div>
                                                     <div class="tf-static-member-name">Karan Mehta</div>
                                                     <div class="tf-static-member-role">Database Architect</div>
@@ -959,7 +1020,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn tf-btn-ghost"
                                         data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn tf-btn-primary" data-bs-dismiss="modal"><i
+                                    <button type="button" class="btn tf-btn-primary" id="t3SaveBtn"><i
                                             class="bi bi-save2"></i> Save Changes</button>
                                 </div>
                             </form>
@@ -996,14 +1057,16 @@
                                             <option value="redundant">Migrations Consolidated in Root Script</option>
                                             <option value="obsolete">Target Table Deprecated</option>
                                         </select>
-                                        <textarea class="form-control tf-input bg-white" rows="2"
+                                        <div class="invalid-feedback mb-2">Please select a deletion reason.</div>
+                                        <textarea class="form-control tf-input bg-white" id="t3-del-desc" rows="2"
                                             placeholder="Enter reason details..." required></textarea>
+                                        <div class="invalid-feedback">Please document reason details (min 5 characters).</div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn tf-btn-ghost"
                                         data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn tf-btn-danger" data-bs-dismiss="modal"><i
+                                    <button type="button" class="btn tf-btn-danger" id="t3DeleteBtn"><i
                                             class="bi bi-trash3-fill"></i> Delete Task</button>
                                 </div>
                             </form>
@@ -1017,6 +1080,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="common.js"></script>
+    <script src="task.js"></script>
 </body>
 
 </html>

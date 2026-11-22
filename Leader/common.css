@@ -1,0 +1,295 @@
+/* 1. Validation States for Inputs, Selects & Textareas */
+.tf-input.is-invalid,
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc2626 !important;
+    background-image: none !important;
+    /* Avoid conflicting default svg */
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+.tf-input.is-valid,
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #10b981 !important;
+    background-image: none !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+}
+
+/* 2. Custom Feedback Message Styling */
+.invalid-feedback {
+    display: none;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #dc2626;
+    margin-top: 0.375rem;
+    line-height: 1.35;
+}
+
+.is-invalid~.invalid-feedback,
+.was-validated :invalid~.invalid-feedback,
+.tf-feedback-show {
+    display: flex !important;
+    align-items: center;
+    gap: 0.35rem;
+    animation: tfFadeIn 0.2s ease-out;
+}
+
+.invalid-feedback::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.valid-feedback {
+    display: none;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #059669;
+    margin-top: 0.375rem;
+}
+
+.is-valid~.valid-feedback {
+    display: flex !important;
+    align-items: center;
+    gap: 0.35rem;
+    animation: tfFadeIn 0.2s ease-out;
+}
+
+/* 3. Group / Container Validation (e.g. Member Picker, Skills Checkboxes) */
+.tf-group-invalid {
+    border: 1.5px dashed #dc2626 !important;
+    border-radius: 12px !important;
+    padding: 0.75rem !important;
+    background-color: rgba(254, 242, 242, 0.45) !important;
+    transition: all 0.2s ease;
+}
+
+.tf-group-invalid-feedback {
+    display: flex !important;
+    align-items: center;
+    gap: 0.4rem;
+    color: #dc2626;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    animation: tfFadeIn 0.2s ease-out;
+}
+
+.tf-group-invalid-feedback::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* Skill Matching & Tech Tag Styles */
+.tf-mismatch {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .72rem;
+    font-weight: 700;
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: .22rem .6rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+}
+
+.tf-tag-remove {
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-left: 0.25rem;
+    opacity: 0.7;
+    transition: all 0.15s ease;
+}
+
+.tf-tag-remove:hover {
+    opacity: 1;
+    color: #dc2626;
+    transform: scale(1.15);
+}
+
+.tf-member-card.is-mismatch {
+    opacity: 0.8;
+    border-color: #fca5a5 !important;
+    background-color: #fffbfa !important;
+}
+
+.tf-member-card.is-mismatch:hover {
+    opacity: 1;
+    border-color: #ef4444 !important;
+}
+
+.tf-member-card.is-matched {
+    border-color: #6ee7b7 !important;
+}
+
+.tf-skill-alert {
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.825rem;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    animation: tfFadeIn 0.2s ease-out;
+}
+
+.tf-skill-alert.danger {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.tf-skill-alert.success {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+/* 4. Global Toast Notification System */
+.tf-toast-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1099;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 420px;
+    width: calc(100% - 3rem);
+    pointer-events: none;
+}
+
+.tf-toast {
+    pointer-events: auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+    padding: 0.9rem 1.15rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    animation: tfSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.tf-toast.tf-toast-hiding {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+}
+
+.tf-toast-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.tf-toast-success .tf-toast-icon {
+    background-color: #ecfdf5;
+    color: #10b981;
+}
+
+.tf-toast-error .tf-toast-icon {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+
+.tf-toast-warning .tf-toast-icon {
+    background-color: #fffbeb;
+    color: #f59e0b;
+}
+
+.tf-toast-info .tf-toast-icon {
+    background-color: #eef2ff;
+    color: #4f46e5;
+}
+
+.tf-toast-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.tf-toast-title {
+    font-size: 0.925rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.15rem;
+}
+
+.tf-toast-msg {
+    font-size: 0.825rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.tf-toast-close {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 1.15rem;
+    line-height: 1;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.tf-toast-close:hover {
+    color: #0f172a;
+    background-color: #f1f5f9;
+}
+
+/* 5. Keyframe Animations */
+@keyframes tfFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes tfSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

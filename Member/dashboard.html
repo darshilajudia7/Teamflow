@@ -17,6 +17,7 @@
 
     <link href="../navbar.css" rel="stylesheet">
     <link href="dashboard.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
 </head>
 
 <body class="member-page">
@@ -103,7 +104,7 @@
         <div class="container container-tf px-3 px-lg-4">
 
             <div class="mb-4">
-                <h1 class="h3 fw-bold mb-1">Welcome, Mehul!</h1>
+                <h1 class="h3 fw-bold mb-1" id="memberWelcomeHeading">Welcome, Mehul!</h1>
                 <p class="tf-sub mb-0">Your workspace is ready. Let’s make some progress today.</p>
             </div>
 
@@ -314,7 +315,7 @@
                         <span class="tf-due due-hot">
                             <i class="bx bx-error-circle" aria-hidden="true"></i> Due tomorrow
                         </span>
-                        <a class="btn btn-tf text-decoration-none" href="task.html">Continue task</a>
+                        <a class="btn btn-tf text-decoration-none" href="task.html?focus=task-api">Continue task</a>
                     </li>
 
                     <li class="tf-item">
@@ -326,7 +327,7 @@
                             <div class="tf-sub">Reviewer left 3 comments</div>
                         </div>
                         <span class="tf-due due-warn">Due Mon, Oct 5</span>
-                        <a class="btn btn-tf btn-tf-soft text-decoration-none" href="review.html">View feedback</a>
+                        <a class="btn btn-tf btn-tf-soft text-decoration-none" href="review.html#Review-checkout">View feedback</a>
                     </li>
 
                     <li class="tf-item">
@@ -338,7 +339,7 @@
                             <div class="tf-sub">Schema diagram and migration notes</div>
                         </div>
                         <span class="tf-due due-ok">Due this week</span>
-                        <a class="btn btn-tf btn-tf-soft text-decoration-none" href="task.html">Upload files</a>
+                        <a class="btn btn-tf btn-tf-soft text-decoration-none" href="task.html?focus=task-db">Upload files</a>
                     </li>
                 </ul>
             </section>
@@ -346,6 +347,8 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="common.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 
 </html>

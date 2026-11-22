@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link href="slider.css" rel="stylesheet">
     <link rel="stylesheet" href="member.css">
+    <link rel="stylesheet" href="common.css">
 </head>
 
 <body>
@@ -160,26 +161,19 @@
                                 aria-label="Search members">
                         </form>
                         <div class="tf-filters" role="radiogroup" aria-label="Filter by skill">
-                            <input type="radio" name="skill" id="f-all" class="tf-fr" checked>
-
+                            <input type="radio" name="skill" id="f-all" class="tf-fr" value="all" checked>
                             <label for="f-all">All</label>
-                            <input type="radio" name="skill" id="f-react" class="tf-fr">
-
+                            <input type="radio" name="skill" id="f-react" class="tf-fr" value="react">
                             <label for="f-react">React</label>
-                            <input type="radio" name="skill" id="f-node" class="tf-fr">
-
+                            <input type="radio" name="skill" id="f-node" class="tf-fr" value="node">
                             <label for="f-node">Node.js</label>
-                            <input type="radio" name="skill" id="f-python" class="tf-fr">
-
+                            <input type="radio" name="skill" id="f-python" class="tf-fr" value="python">
                             <label for="f-python">Python</label>
-                            <input type="radio" name="skill" id="f-uiux" class="tf-fr">
-
+                            <input type="radio" name="skill" id="f-uiux" class="tf-fr" value="uiux">
                             <label for="f-uiux">UI/UX</label>
-                            <input type="radio" name="skill" id="f-figma" class="tf-fr">
-
+                            <input type="radio" name="skill" id="f-figma" class="tf-fr" value="figma">
                             <label for="f-figma">Figma</label>
-                            <input type="radio" name="skill" id="f-ts" class="tf-fr">
-
+                            <input type="radio" name="skill" id="f-ts" class="tf-fr" value="typescript">
                             <label for="f-ts">TypeScript</label>
                         </div>
                     </div>
@@ -604,7 +598,7 @@
                 <div class="modal fade tf-modal" id="addMember" tabindex="-1" aria-labelledby="addMemberTitle"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
-                        <form class="modal-content tf-role-form" method="post" action="#">
+                        <form class="modal-content tf-role-form" id="addMemberForm" novalidate>
                             <div class="modal-header">
                                 <h2 class="modal-title fs-5 fw-bold" id="addMemberTitle">Add group member</h2>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -612,13 +606,15 @@
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label class="form-label fw-semibold small" for="nm-name">Full name</label>
+                                    <label class="form-label fw-semibold small" for="nm-name">Full name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control tf-input" id="nm-name" name="name" required>
+                                    <div class="invalid-feedback">Full name is required (letters and spaces only).</div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label fw-semibold small" for="nm-mail">Email</label>
+                                    <label class="form-label fw-semibold small" for="nm-mail">Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control tf-input" id="nm-mail" name="email"
                                         required>
+                                    <div class="invalid-feedback">Please enter a valid email address.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-semibold small" for="nm-role">Role</label>
@@ -654,7 +650,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="form-label fw-semibold small">Skills</div>
+                                    <div class="form-label fw-semibold small">Skills <span class="text-danger">*</span></div>
                                     <div class="tf-filters">
                                         <input type="checkbox" class="tf-fr" name="skills" value="React" id="ns-react">
                                         <label for="ns-react">React</label>
@@ -671,6 +667,7 @@
                                             id="ns-ts">
                                         <label for="ns-ts">TypeScript</label>
                                     </div>
+                                    <div id="nm-skills-error" class="tf-sub mt-2"></div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -685,7 +682,7 @@
                 <div class="modal fade tf-modal" id="bulkRole" tabindex="-1" aria-labelledby="bulkTitle"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
-                        <form class="modal-content tf-role-form" method="post" action="#">
+                        <form class="modal-content tf-role-form" id="bulkRoleForm" novalidate>
                             <div class="modal-header">
                                 <h2 class="modal-title fs-5 fw-bold" id="bulkTitle">Bulk role update</h2>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -752,6 +749,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="common.js"></script>
+    <script src="member.js"></script>
 </body>
 
 </html>
